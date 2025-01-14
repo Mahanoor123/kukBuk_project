@@ -256,27 +256,17 @@ main {
   width: 100vw;
   height: 80vh;
   background-color: var(--black-tint4);
-  margin: 1rem 0;
-  position: relative;
+  margin: 1rem 0 10rem 0;
 }
 .hero_section .hero_image {
   width: 100vw;
   height: 80vh;
 }
-.hero_section .hero_image {
-  width: 100vw;
-  height: 80vh;
-}
-.hero_section .hero_image img {
-  width: 100%;
-  height: 100%;
+.hero_section .hero_image video {
   object-fit: cover;
   object-position: center;
-}
-.hero_content{
-  position: absolute;
-  top: 50%;
-  left: 20%;
+  width: 100vw;
+  height: 100vh;
 }
 
 /********** Category Styling **********/
@@ -607,38 +597,38 @@ main {
 
 /********** Blogs Collection Styling **********/
 
-.blog_collection{
+.blog_collection {
   margin: 2rem 0;
 }
-.blogs_display{
+.blogs_display {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 2rem;
   margin: 2rem 0;
 }
-.blogs_display .blog_col img{
+.blogs_display .blog_col img {
   height: 14rem;
   margin: 0.5rem;
 }
-.blogs_display .blog_col2 img{
+.blogs_display .blog_col2 img {
   width: 50vw;
 }
-.blogs_display a{
+.blogs_display a {
   text-decoration: none;
 }
-.blogs_display .blog{
+.blogs_display .blog {
   text-align: center;
 }
-.blogs_display .blog h5{
+.blogs_display .blog h5 {
   padding: 0.5rem 2rem;
 }
-.blogs_display .blog small{
+.blogs_display .blog small {
   color: var(--primary-color);
 }
 
 /********** Top Recipes Styling **********/
 
-.newsletter{
+.newsletter {
   background-color: var(--headings-color);
   border-radius: 1rem 0 1rem 0;
   padding: 4rem;
@@ -647,33 +637,33 @@ main {
   align-items: center;
   margin: 4rem 0;
 }
-.newsletter h4{
+.newsletter h4 {
   color: var(--white-color);
   width: 30rem;
 }
-.newsletter .input{
+.newsletter .input {
   display: flex;
   align-items: center;
 }
-.newsletter input{
+.newsletter input {
   all: unset;
   padding: 0.5rem;
   background-color: var(--white-color);
   border-radius: 1rem 0 0 1rem;
 }
-.newsletter .input_join{
+.newsletter .input_join {
   border-radius: 0 1rem 1rem 0;
 }
 
 /********** Top Recipes Styling **********/
 
-footer{
+footer {
   width: 100vw;
   padding: 4rem;
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
 }
-.footer1{
+.footer1 {
   width: 90vw;
   margin: 0 auto;
   display: grid;
@@ -681,16 +671,18 @@ footer{
   align-items: center;
   gap: 2rem 4rem;
 }
-.footer1 .foot_logo img{
+.footer1 .foot_logo img {
   width: 10rem;
 }
-.footer1 .foot_image{
+.footer1 .foot_image {
   width: 35vw;
 }
-.footer1 .foot_links h6, .foot_legal h6{
+.footer1 .foot_links h6,
+.foot_legal h6 {
   margin-bottom: 0.5rem;
 }
-.footer1 .foot_links a, .foot_legal a{
+.footer1 .foot_links a,
+.foot_legal a {
   display: block;
   text-decoration: none;
   font-size: 0.8rem;
@@ -698,16 +690,16 @@ footer{
   color: var(--black-tint2);
   padding: 0.3rem 0;
 }
-.footer2{
+.footer2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
 }
-.footer2 .copy_text{
+.footer2 .copy_text {
   font-family: "lato";
 }
-.footer2 .social_icons i{
+.footer2 .social_icons i {
   color: var(--primary-color);
   margin: 0 0.4rem;
   font-size: 1.1rem;

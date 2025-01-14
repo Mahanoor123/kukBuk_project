@@ -136,7 +136,7 @@ for (let val = 0; val < recipesCard.length; val++) {
                             <img src="${recipesCard[val].chef}">
                             <p>${recipesCard[val].chef_name}</p>
                         </div>
-                        <button class="recipe_btn"><i class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        <button class="recipe_btn"onclick="window.open('../all-recipes/fullview.html')"><i class="fa-solid fa-arrow-right"></i> View Recipe</button>
                     </div>
                     <img src="${recipesCard[val].image}" class="recipe_img">`;
   recipeCard.innerHTML = cardContent;
