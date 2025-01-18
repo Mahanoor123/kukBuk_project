@@ -244,6 +244,12 @@ video {
   height: 100vh;
 }
 
+.recipieheading {
+  font-size: 30px !important;
+  font-family: 'Inknut Antiqua', serif !important;
+  margin-bottom: 2em !important;
+}
+
 .card {
   width: 400px;
   height: 300px;
@@ -292,9 +298,7 @@ video {
   transition: all ease 0.3s;
   animation: rotate 15s linear infinite;
   border-radius: 50%;
-  /* border: 4px dotted var(--orange); */
-  /* border: 4px double var(--orange); */
-  border: 4px dashed var(--orange);
+  border: 2px dashed var(--orange);
   right: -93px;
   top: -88px;
 }
@@ -326,7 +330,7 @@ video {
 
 .mealcardheading {
   font-family: 'Inknut Antiqua', serif !important;
-  font-size: 15px;
+  font-size: 18px !important;
   margin-bottom: 0em !important;
 }
 
@@ -340,15 +344,6 @@ video {
   font-size: 12px;
   color: gray;
 }
-
-/* .sidediv {
-  opacity: 0;
-}
-
-.card:hover .sidediv {
-  transition: all 1s ease-in-out;
-  opacity: 1;
-} */
 
 .heartSvg:hover {
   transform: scale(1.4);
@@ -378,7 +373,6 @@ video {
 }
 
 .img-ads {
-  /* border-radius: 50% !important; */
   max-width: 370px !important;
   min-height: 350px !important;
 }
@@ -409,8 +403,8 @@ video {
 
 .carousel-item img {
   width: 100% !important;
-  height: 400px !important;
-  border-radius: 15px !important;
+  height: 300px !important;
+  border-radius: 50px !important;
 }
 
 .text {
@@ -428,13 +422,14 @@ video {
 .images {
   width: 100% !important;
   top: 0 !important;
+  gap: 0 !important;
   display: flex !important;
   animation: scroll 15s linear infinite !important;
 }
 
 .images img {
   width: 200px !important;
-  height: 200px !important;
+  height: auto !important;
   margin: 0 auto !important;
 }
 
@@ -447,6 +442,20 @@ video {
   100% {
     transform: translateX(-100%);
   }
+}
+
+
+.user-recipie-description {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: normal !important;
+}
+
+#usercontainer {
+  display: none;
 }
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
@@ -464,7 +473,7 @@ video {
 @media (max-width: 1025px) {
   .swiper {
     width: 100%;
-    height: 60vh;
+    height: 80vh;
   }
 
   .mealcardheading {
@@ -516,7 +525,6 @@ video {
   .videocontainerbox .videocontainerbox-child1 {
     width: 100% !important;
     padding: 1em !important;
-    color: #979797 !important;
   }
 
   .videocontainerbox .videocontainerbox-child2 {
@@ -655,9 +663,34 @@ video {
     width: 100%;
     height: 35vh;
     object-fit: cover;
-    margin-bottom: 30px;
+    margin-bottom: 50px !important;
   }
 
+}
+
+@media (max-width: 441px) {
+
+
+  .videocontainerbox {
+    width: 100% !important;
+    height: 115vh !important;
+  }
+
+  .img-ads {
+    width: 390px !important;
+    height: 250px !important;
+  }
+
+  .carddiv .card-1 {
+    width: 390px !important;
+    height: 350px !important;
+  }
+
+  .carddiv .card-1 img {
+    padding-bottom: 20px !important;
+    width: 100% !important;
+    height: 293px !important;
+  }
 }
 
 @media (max-width: 426px) {
@@ -670,12 +703,12 @@ video {
   }
 
   .img-ads {
-    width: 400px !important;
+    width: 390px !important;
     height: 250px !important;
   }
 
   .carddiv .card-1 {
-    width: 400px !important;
+    width: 390px !important;
     height: 350px !important;
   }
 
@@ -687,9 +720,8 @@ video {
 
   video {
     width: 100%;
-    height: 35vh;
+    height: 50vh !important;
     object-fit: cover;
-    margin-bottom: 30px;
   }
 
   .Meal-Ctegory-card {
@@ -713,6 +745,29 @@ video {
     left: 105px !important;
     top: -20px !important;
   }
+
+  .videocontainerbox {
+    width: 100% !important;
+    height: 98vh !important;
+  }
+}
+
+@media (max-width: 376px) {
+  .videocontainerbox {
+    width: 100% !important;
+    height: 103vh !important;
+  }
+
+  .carddiv .card-1 {
+    width: 353px !important;
+    height: 330px !important;
+  }
+
+  .img-ads {
+    width: 353px !important;
+    height: 330px !important;
+  }
+
 }
 
 @media (max-width: 321px) {
@@ -755,7 +810,7 @@ video {
 
   video {
     width: 100%;
-    height: 30vh;
+    height: 40vh !important;
     object-fit: cover;
     margin-bottom: 30px;
   }
@@ -765,7 +820,6 @@ video {
     width: 320px !important;
     padding: 5px !important;
     padding-bottom: 10px !important;
-    background-color: #979797;
     margin-bottom: 35% !important;
     height: fit-content !important;
   }
@@ -783,4 +837,15 @@ video {
     left: 72px !important;
     top: 10px !important;
   }
+
+  .carddiv .card-1 {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .img-ads {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
 }
