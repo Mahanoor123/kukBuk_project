@@ -140,19 +140,19 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(recipe.file); // Ensure this logs the correct image path
 
           const card = document.createElement("div");
-          card.setAttribute("class", "col m-1");
+          card.setAttribute("class", "col p-1 mb-lg-5 mb-md-5 mb-3", "justify-content-center align-items-center");
           card.innerHTML = `
-              <div class="p-2 border pb-3 rounded-2 bg-dark text-light user-recipie-card"
-                  style="width: 18rem; overflow-x: hidden; height: auto; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="p-2 border pb-3 justify-content-center align-items-center  rounded-2  text-light user-recipie-card"
+                  style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
 
-                  <div class="p-2 rounded-2 bg-light border">
+                  <div class=" user-recipie-imagediv rounded-2 bg-light border"  >
                       <img src="${recipe.file}" 
                            class="card-img-top user-recipie-image rounded-2" 
-                           id="RecipieImage" alt="Image not found" 
+                           id="RecipieImage" alt="img" 
                            width="200" height="200"
                            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
                   </div>
-                  <div class="p-2 mt-3 rounded-2 border card-body user-recipie-body">
+                  <div class=" mt-3 rounded-2 border card-body user-recipie-body">
                       <h6 class="card-title pt-3">RecipieName: <span style="color: #E96728;">${recipe.recipeTitle}</span></h6>
                       <hr>
                       <div class="d-flex justify-content-between">

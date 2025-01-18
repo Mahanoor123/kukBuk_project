@@ -42,12 +42,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1 !important;
+  background: #000000 !important;
+  border-radius: 15px !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888 !important;
-  border-radius: 10px !important;
+  background: #d55c11 !important;
+  border-radius: 15px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -75,8 +76,8 @@ button {
   color: var(--white-color) !important;
   font-family: 'lato' !important;
   font-size: 0.9rem !important;
-  border-radius: 1rem 0 1rem 0 !important;
   cursor: pointer !important;
+  border-radius: 1rem 0 1rem 0 !important;
   transition: background 0.4s linear !important;
 
   &:hover {
@@ -205,7 +206,7 @@ ul .footer {
 
 .videocontainerbox {
   width: 100% !important;
-  height: 100vh !important;
+  height: 80vh !important;
   justify-content: space-between !important;
 }
 
@@ -241,7 +242,7 @@ video {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100vh;
+  height: 87vh;
 }
 
 .recipieheading {
@@ -455,8 +456,45 @@ video {
 }
 
 #usercontainer {
+  margin: 0 auto !important;
+  justify-content: center !important;
+  align-items: center !important;
   display: none;
 }
+
+
+.user-recipie-card {
+  width: 290px !important;
+  height: 700px !important;
+  background-color: #000000 !important;
+
+  transition: background 0.4s linear !important;
+
+  &:hover {
+    background-color: white !important;
+  }
+
+}
+
+.user-recipie-card:hover .user-recipie-imagediv {
+  background-color: black !important;
+}
+
+.user-recipie-body {
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+  height: 440px !important;
+  cursor: pointer !important;
+  padding: 15px !important;
+  border: 2px dashed !important;
+  background-color: #000000 !important;
+}
+
+.user-recipie-imagediv {
+  padding: 10px !important;
+}
+
+
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
@@ -471,31 +509,46 @@ video {
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 @media (max-width: 1025px) {
+
+  body {
+    overflow-x: hidden !important;
+  }
+
   .swiper {
     width: 100%;
     height: 80vh;
   }
 
   .mealcardheading {
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
 
   .img-ads {
-    max-width: 450px !important;
+    max-width: 300px !important;
     min-height: 250px !important;
   }
 
   .carddiv .card-1 {
-    width: 550px !important;
-    height: 400px !important;
+    width: 300px !important;
+    height: 290px !important;
+    padding: 0 !important;
+    border-radius: 5px !important;
+  }
+
+  .carddiv .card-1 img {
+    width: 300px !important;
+    height: 200px !important;
   }
 
   .cardbtn {
+    font-size: 12px !important;
+    padding: 2px;
     width: fit-content !important;
   }
 
   .carddiv {
-    flex-direction: column !important;
+    flex-wrap: wrap;
+    /* flex-direction: column !important; */
     width: 100% !important;
     height: auto !important;
     gap: 10px;
@@ -509,15 +562,16 @@ video {
   }
 
   .firstcard {
-    width: 96% !important;
-    min-height: 100vh !important;
+    width: 90% !important;
+    min-height: 62vh !important;
+    overflow: hidden;
     border-radius: 15px !important;
     margin: 0 auto !important;
   }
 
   .videocontainerbox {
     width: 100% !important;
-    height: 100vh !important;
+    height: 85vh !important;
     margin-bottom: 270px !important;
     flex-direction: column !important;
   }
@@ -534,12 +588,46 @@ video {
 
 }
 
-@media (max-width: 713px) {
+@media (max-width: 990px) {
 
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .user-recipie-card {
+    width: 355px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .user-recipie-imagediv img {
+    height: 300px !important;
+  }
+  
+  .carddiv {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    gap: 5px;
+  }
+}
+
+
+@media (max-width: 713px) {
+  
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  .carddivheading {
+    font-size: 20px !important;
+  }
+  
   .mealcardheading {
     font-size: 20px !important;
   }
-
+  
   .img-ads {
     max-width: 450px !important;
     min-height: 250px !important;
@@ -549,69 +637,75 @@ video {
     width: 550px !important;
     height: 400px !important;
   }
-
+  
   .popbox {
     width: 400px;
   }
-
+  
   .swiper {
     width: 100%;
     height: 80vh;
   }
-
+  
   video {
     width: 100%;
     height: 40vh;
     object-fit: cover;
     margin-bottom: 30px;
   }
-
+  
   .sidediv {
     opacity: 1;
   }
-
+  
   .Meal-Ctegory-card {
-    width: 460px;
-    height: 400px;
+    width: 380px;
+    height: 448px;
     padding: 20px !important;
     padding-top: 40px;
     margin-bottom: 14% !important;
   }
-
+  
   .meal-card-img {
     width: 120px;
     height: 120px;
     left: 150px !important;
     top: 20px;
   }
-
+  
   .meal-card-imgdiv {
     width: 135px !important;
     height: 135px !important;
     left: 125px;
     top: -71px;
   }
-
-  .carddiv .card-1 {
-    width: 90% !important;
-    height: 400px !important;
+  
+  .carddiv {
+    overflow: hidden;
+    width: 73% !important;
   }
+  
+  
 }
 
 @media (max-width: 700px) {
-
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
   .header nav .logo {
     width: 6rem;
   }
-
+  
   .header nav .nav_links {
     display: none;
   }
-
+  
   .header .hamburger {
     display: flex;
   }
-
+  
   .header nav .nav_links.active {
     display: flex;
     flex-direction: column;
@@ -623,99 +717,126 @@ video {
     width: 100%;
     padding: 1rem;
   }
-
+  
   .header nav .nav_links a {
     padding: 1rem;
   }
-
+  
 }
 
 @media (max-width: 550px) {
-
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
   .mealcardheading {
     font-size: 17px !important;
   }
-
+  
+  .carddiv {
+    overflow: hidden;
+    width: 100% !important;
+  }
+  
   .img-ads {
-    max-width: 450px !important;
+    max-width: 380px !important;
     min-height: 250px !important;
   }
 
   .carddiv .card-1 {
-    width: 450px !important;
+    width: 80% !important;
     height: 350px !important;
   }
-
+  
   .carddiv .card-1 img {
     padding-bottom: 20px !important;
     width: 100% !important;
-    height: 293px !important;
+    height: 285px !important;
   }
-
+  
   .carousel-item img {
     width: 100% !important;
     height: 300px !important;
     border-radius: 15px !important;
   }
-
-
+  
+  
   video {
     width: 100%;
     height: 35vh;
     object-fit: cover;
     margin-bottom: 50px !important;
   }
-
+  
 }
 
 @media (max-width: 441px) {
 
-
+  body {
+    overflow-x: hidden !important;
+  }
+  
   .videocontainerbox {
     width: 100% !important;
     height: 115vh !important;
   }
-
-  .img-ads {
-    width: 390px !important;
-    height: 250px !important;
+  
+  .carddiv {
+    overflow: hidden;
+    width: 100% !important;
   }
-
+  
+  .img-ads {
+    max-width: 380px !important;
+    min-height: 250px !important;
+  }
+  
   .carddiv .card-1 {
-    width: 390px !important;
+    width: 70% !important;
     height: 350px !important;
   }
-
+  
   .carddiv .card-1 img {
     padding-bottom: 20px !important;
     width: 100% !important;
-    height: 293px !important;
+    height: 285px !important;
   }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 425px) {
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
   .popbox {
     width: 300px;
   }
-
+  
   .mealcardheading {
     font-size: 17px !important;
   }
-
-  .img-ads {
-    width: 390px !important;
-    height: 250px !important;
+  
+  .carddiv {
+    overflow: hidden;
+    width: 100% !important;
   }
-
+  
+  .img-ads {
+    max-width: 380px !important;
+    min-height: 250px !important;
+  }
+  
   .carddiv .card-1 {
-    width: 390px !important;
+    width: 100% !important;
     height: 350px !important;
   }
-
+  
   .carddiv .card-1 img {
     padding-bottom: 20px !important;
     width: 100% !important;
-    height: 293px !important;
+    height: 285px !important;
   }
 
   video {
@@ -723,41 +844,52 @@ video {
     height: 50vh !important;
     object-fit: cover;
   }
-
+  
   .Meal-Ctegory-card {
-    max-width: 400px;
+    max-width: 350px;
     min-height: 345px;
     padding: 20px;
     padding-bottom: 30px;
     margin-bottom: 35% !important;
   }
-
+  
   .meal-card-imgdiv {
     width: 165px !important;
     height: 165px !important;
     left: 80px;
     top: -110px;
   }
-
+  
   .meal-card-img {
     width: 150px;
     height: 150px;
     left: 105px !important;
     top: -20px !important;
   }
-
+  
   .videocontainerbox {
     width: 100% !important;
     height: 98vh !important;
   }
+  
+  .user-recipie-card {
+    width: 360px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
 }
 
 @media (max-width: 376px) {
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
   .videocontainerbox {
     width: 100% !important;
     height: 103vh !important;
   }
-
+  
   .carddiv .card-1 {
     width: 353px !important;
     height: 330px !important;
@@ -768,6 +900,18 @@ video {
     height: 330px !important;
   }
 
+  .user-recipie-card {
+    width: 353px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .user-recipie-imagediv img {
+    width: 315px !important;
+    overflow: hidden;
+    height: 250px !important;
+    margin: 0 auto !important;
+  }
 }
 
 @media (max-width: 321px) {
@@ -848,4 +992,48 @@ video {
     height: 300px !important;
   }
 
+  .user-recipie-card {
+    width: 300px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+  
+  .user-recipie-imagediv img {
+    overflow: hidden;
+    height: 300px !important;
+    width: 263px !important;
+  }
+  
+
+}
+
+
+@media (min-width: 1960px) {
+
+
+  .header {
+    font-size: 20px;
+    height: 100px;
+  }
+
+  .carddiv {
+    width: 100% !important;
+    height: 30vh !important;
+    margin-bottom: 50px !important;
+    overflow: hidden !important;
+  }
+
+  .videocontainerbox {
+    width: 100% !important;
+    height: 50vh !important;
+    justify-content: space-between !important;
+  }
+
+  .video {
+    width: 100% !important;
+    height: 30vh !important;
+    border-radius: 50px 0 50px 0 !important;
+    object-fit: cover !important;
+    background-color: #c3c3c3 !important;
+  }
 }
