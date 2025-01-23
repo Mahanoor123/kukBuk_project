@@ -42,12 +42,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000 !important;
+  background: #ffffff !important;
   border-radius: 15px !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d55c11 !important;
+  background: #8a8888 !important;
   border-radius: 15px !important;
 }
 
@@ -89,7 +89,7 @@ button {
 
 /********** Navbar Styling **********/
 
-.header {
+/* .header {
   position: sticky;
   top: 0;
   left: 0;
@@ -160,7 +160,7 @@ button {
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--headings-color);
-}
+} */
 
 /********* scrollbar css ************/
 ::-webkit-scrollbar {
@@ -197,38 +197,24 @@ button {
 }
 
 .navbar-toggler-icon {
-  background-color: var(--red) !important;
+  padding: 2px !important;
+  background-color: var(white) !important;
 }
 
 ul .footer {
   color: #6d6d6d !important;
 }
 
-.videocontainerbox {
-  width: 100% !important;
-  height: 80vh !important;
-  justify-content: space-between !important;
-}
-
-.videocontainerbox .videocontainerbox-child1 {
-  width: 50% !important;
-  padding: 1em !important;
-  color: #979797 !important;
-}
-
-.videocontainerbox .videocontainerbox-child2 {
-  width: 50% !important;
-  padding: 1em !important;
-}
-
+/* -------------------------------------------- */
 video {
   width: 100% !important;
-  height: 50vh !important;
-  border-radius: 50px 0 50px 0 !important;
+  height: 80vh !important;
   object-fit: cover !important;
+  margin-bottom: 0 !important;
   background-color: #c3c3c3 !important;
 }
 
+/* -------------------------------------------- */
 .swiper {
   width: 100%;
   height: 87vh;
@@ -245,100 +231,25 @@ video {
   height: 87vh;
 }
 
-.recipieheading {
-  font-size: 30px !important;
-  font-family: 'Inknut Antiqua', serif !important;
-  margin-bottom: 2em !important;
+/* -------------------------------------------- */
+.carousel-item img {
+  width: 300px !important;
+  height: 300px !important;
+  border-radius: 15px !important;
 }
 
-.card {
-  width: 400px;
-  height: 300px;
-  border: 2px solid #e81409;
-}
-
-.card:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-.custom-underline {
-  width: 0;
-  height: 2px;
-  background-color: #e81409;
-  transition: width 2s ease-out;
-}
-
-.mealcardheading:hover+.custom-underline {
-  width: 50%;
-}
-
-.mealCards-Container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.Meal-Ctegory-card {
-  width: 520px;
-  height: 400px;
-  padding: 10px;
-  padding-bottom: 20px !important;
-  position: relative;
-  border-radius: 5%;
-  margin: 5% !important;
-}
-
-.meal-card-imgdiv {
-  position: absolute;
-  width: 180px !important;
-  height: 180px !important;
-  background-color: #ffffff;
-  transition: all ease 0.3s;
-  animation: rotate 15s linear infinite;
-  border-radius: 50%;
-  border: 2px dashed var(--orange);
-  right: -93px;
-  top: -88px;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.meal-card-img {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  right: -80px;
-  margin-top: -80px;
-  border-radius: 50%;
-  transition: transform 0.2s;
-  filter: drop-shadow(-2px 5px 7px #000000) !important;
-}
-
-.meal-card-img:hover {
-  transform: scale(1.2);
-}
-
-.mealcardheading {
-  font-family: 'Inknut Antiqua', serif !important;
-  font-size: 18px !important;
-  margin-bottom: 0em !important;
+/* -------------------------------------------- */
+.firstcard {
+  width: 80% !important;
+  height: auto !important;
+  overflow: hidden !important;
 }
 
 .cardpara {
-  font-size: 15px;
-  font-weight: 400;
-  color: gray;
+  width: 75% !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: gray !important;
 }
 
 .spanpara {
@@ -346,106 +257,15 @@ video {
   color: gray;
 }
 
-.heartSvg:hover {
-  transform: scale(1.4);
-  transition: transform 0.2s;
-}
 
-.carddiv {
-  width: 100% !important;
-  height: 65vh !important;
-  margin-bottom: 50px !important;
-  overflow: hidden !important;
-}
-
-.carddiv .card-1 {
-  width: 370px !important;
-  height: 350px !important;
-  padding-bottom: 20px !important;
-  overflow: hidden !important;
-  gap: 10px !important;
-}
-
-.carddiv .card-1 img {
-  padding-bottom: 20px !important;
-  width: 100% !important;
-  overflow: hidden !important;
-  height: 400px !important;
-}
-
-.img-ads {
-  max-width: 370px !important;
-  min-height: 350px !important;
-}
-
-.borderbtn {
-  width: 250px !important;
-  height: 45px !important;
-}
-
-.footer {
-  background-color: white !important;
-}
-
-.card-2 {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 2%;
-}
-
-.iconsdiv {
-  opacity: 1;
-}
-
-.card-2:hover .iconsdiv {
-  transition: all 1s ease-in-out;
-  opacity: 1;
-}
-
-.carousel-item img {
-  width: 100% !important;
-  height: 300px !important;
-  border-radius: 50px !important;
-}
-
-.text {
-  font-size: 20px;
-  font-weight: bold;
-  position: absolute;
-  z-index: 2;
-}
+/* -------------------------------------------- */
 
 .img:hover {
   transform: scale(1.2);
   transition: transform 0.2s;
 }
 
-.images {
-  width: 100% !important;
-  top: 0 !important;
-  gap: 0 !important;
-  display: flex !important;
-  animation: scroll 15s linear infinite !important;
-}
-
-.images img {
-  width: 200px !important;
-  height: auto !important;
-  margin: 0 auto !important;
-}
-
-/* horizonta scroll */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-
+/* -------------------------------------------- */
 .user-recipie-description {
   overflow: hidden;
   display: flex;
@@ -464,20 +284,15 @@ video {
 
 
 .user-recipie-card {
-  width: 290px !important;
+  width: 300px !important;
   height: 700px !important;
-  background-color: #000000 !important;
-
+  margin: 0 auto !important;
+  border: 2px solid #000000 !important;
   transition: background 0.4s linear !important;
 
   &:hover {
-    background-color: white !important;
+    background-color: #e86209 !important;
   }
-
-}
-
-.user-recipie-card:hover .user-recipie-imagediv {
-  background-color: black !important;
 }
 
 .user-recipie-body {
@@ -486,12 +301,14 @@ video {
   height: 440px !important;
   cursor: pointer !important;
   padding: 15px !important;
-  border: 2px dashed !important;
-  background-color: #000000 !important;
+  color: #000 !important;
+  background-color: white !important;
+  border: 2px dotted #e86209 !important;
 }
 
 .user-recipie-imagediv {
   padding: 10px !important;
+  border: 2px dotted #e86209 !important;
 }
 
 
@@ -508,532 +325,27 @@ video {
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
-@media (max-width: 1025px) {
+/* @media (max-width: 1025px) {}
 
-  body {
-    overflow-x: hidden !important;
-  }
+@media (max-width: 990px) {}
 
-  .swiper {
-    width: 100%;
-    height: 80vh;
-  }
+@media (max-width: 768px) {}
 
-  .mealcardheading {
-    font-size: 16px !important;
-  }
+@media (max-width: 640px) {}
 
-  .img-ads {
-    max-width: 300px !important;
-    min-height: 250px !important;
-  }
+@media (max-width: 375px) {}
 
-  .carddiv .card-1 {
-    width: 300px !important;
-    height: 290px !important;
-    padding: 0 !important;
-    border-radius: 5px !important;
-  }
-
-  .carddiv .card-1 img {
-    width: 300px !important;
-    height: 200px !important;
-  }
-
-  .cardbtn {
-    font-size: 12px !important;
-    padding: 2px;
-    width: fit-content !important;
-  }
-
-  .carddiv {
-    flex-wrap: wrap;
-    /* flex-direction: column !important; */
-    width: 100% !important;
-    height: auto !important;
-    gap: 10px;
-  }
-
-  video {
-    width: 100%;
-    height: 65vh !important;
-    object-fit: cover !important;
-    margin-bottom: 2em !important;
-  }
-
-  .firstcard {
-    width: 90% !important;
-    min-height: 62vh !important;
-    overflow: hidden;
-    border-radius: 15px !important;
-    margin: 0 auto !important;
-  }
-
-  .videocontainerbox {
-    width: 100% !important;
-    height: 85vh !important;
-    margin-bottom: 270px !important;
-    flex-direction: column !important;
-  }
-
-  .videocontainerbox .videocontainerbox-child1 {
-    width: 100% !important;
-    padding: 1em !important;
-  }
-
-  .videocontainerbox .videocontainerbox-child2 {
-    width: 100% !important;
-    padding: 1em !important;
-  }
-
-}
-
-@media (max-width: 990px) {
-
-  body {
-    overflow-x: hidden !important;
-  }
-
-  .user-recipie-card {
-    width: 355px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-  }
-
-  .user-recipie-imagediv img {
-    height: 300px !important;
-  }
-  
-  .carddiv {
-    flex-direction: column !important;
-    width: 100% !important;
-    height: auto !important;
-    gap: 5px;
-  }
-}
-
-
-@media (max-width: 713px) {
-  
-  
-  body {
-    overflow-x: hidden !important;
-  }
-  
-  .carddivheading {
-    font-size: 20px !important;
-  }
-  
-  .mealcardheading {
-    font-size: 20px !important;
-  }
-  
-  .img-ads {
-    max-width: 450px !important;
-    min-height: 250px !important;
-  }
-
-  .carddiv .card-1 {
-    width: 550px !important;
-    height: 400px !important;
-  }
-  
-  .popbox {
-    width: 400px;
-  }
-  
-  .swiper {
-    width: 100%;
-    height: 80vh;
-  }
-  
-  video {
-    width: 100%;
-    height: 40vh;
-    object-fit: cover;
-    margin-bottom: 30px;
-  }
-  
-  .sidediv {
-    opacity: 1;
-  }
-  
-  .Meal-Ctegory-card {
-    width: 380px;
-    height: 448px;
-    padding: 20px !important;
-    padding-top: 40px;
-    margin-bottom: 14% !important;
-  }
-  
-  .meal-card-img {
-    width: 120px;
-    height: 120px;
-    left: 150px !important;
-    top: 20px;
-  }
-  
-  .meal-card-imgdiv {
-    width: 135px !important;
-    height: 135px !important;
-    left: 125px;
-    top: -71px;
-  }
-  
-  .carddiv {
-    overflow: hidden;
-    width: 73% !important;
-  }
-  
-  
-}
-
-@media (max-width: 700px) {
-  
-  body {
-    overflow-x: hidden !important;
-  }
-  
-  .header nav .logo {
-    width: 6rem;
-  }
-  
-  .header nav .nav_links {
-    display: none;
-  }
-  
-  .header .hamburger {
-    display: flex;
-  }
-  
-  .header nav .nav_links.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--white-color);
-    height: 100vh;
-    width: 100%;
-    padding: 1rem;
-  }
-  
-  .header nav .nav_links a {
-    padding: 1rem;
-  }
-  
-}
-
-@media (max-width: 550px) {
-  
-  body {
-    overflow-x: hidden !important;
-  }
-  
-  .mealcardheading {
-    font-size: 17px !important;
-  }
-  
-  .carddiv {
-    overflow: hidden;
-    width: 100% !important;
-  }
-  
-  .img-ads {
-    max-width: 380px !important;
-    min-height: 250px !important;
-  }
-
-  .carddiv .card-1 {
-    width: 80% !important;
-    height: 350px !important;
-  }
-  
-  .carddiv .card-1 img {
-    padding-bottom: 20px !important;
-    width: 100% !important;
-    height: 285px !important;
-  }
-  
-  .carousel-item img {
-    width: 100% !important;
-    height: 300px !important;
-    border-radius: 15px !important;
-  }
-  
-  
-  video {
-    width: 100%;
-    height: 35vh;
-    object-fit: cover;
-    margin-bottom: 50px !important;
-  }
-  
-}
-
-@media (max-width: 441px) {
-
-  body {
-    overflow-x: hidden !important;
-  }
-  
-  .videocontainerbox {
-    width: 100% !important;
-    height: 115vh !important;
-  }
-  
-  .carddiv {
-    overflow: hidden;
-    width: 100% !important;
-  }
-  
-  .img-ads {
-    max-width: 380px !important;
-    min-height: 250px !important;
-  }
-  
-  .carddiv .card-1 {
-    width: 70% !important;
-    height: 350px !important;
-  }
-  
-  .carddiv .card-1 img {
-    padding-bottom: 20px !important;
-    width: 100% !important;
-    height: 285px !important;
-  }
-}
+@media (max-width: 320px) {} 
+*/
 
 @media (max-width: 425px) {
-  
-  body {
-    overflow-x: hidden !important;
-  }
-  
-  .popbox {
-    width: 300px;
-  }
-  
-  .mealcardheading {
-    font-size: 17px !important;
-  }
-  
-  .carddiv {
-    overflow: hidden;
+  .firstcard {
     width: 100% !important;
-  }
-  
-  .img-ads {
-    max-width: 380px !important;
-    min-height: 250px !important;
-  }
-  
-  .carddiv .card-1 {
-    width: 100% !important;
-    height: 350px !important;
-  }
-  
-  .carddiv .card-1 img {
-    padding-bottom: 20px !important;
-    width: 100% !important;
-    height: 285px !important;
-  }
-
-  video {
-    width: 100%;
-    height: 50vh !important;
-    object-fit: cover;
-  }
-  
-  .Meal-Ctegory-card {
-    max-width: 350px;
-    min-height: 345px;
-    padding: 20px;
-    padding-bottom: 30px;
-    margin-bottom: 35% !important;
-  }
-  
-  .meal-card-imgdiv {
-    width: 165px !important;
-    height: 165px !important;
-    left: 80px;
-    top: -110px;
-  }
-  
-  .meal-card-img {
-    width: 150px;
-    height: 150px;
-    left: 105px !important;
-    top: -20px !important;
-  }
-  
-  .videocontainerbox {
-    width: 100% !important;
-    height: 98vh !important;
-  }
-  
-  .user-recipie-card {
-    width: 360px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-  }
-}
-
-@media (max-width: 376px) {
-  
-  body {
-    overflow-x: hidden !important;
-  }
-  
-  .videocontainerbox {
-    width: 100% !important;
-    height: 103vh !important;
-  }
-  
-  .carddiv .card-1 {
-    width: 353px !important;
-    height: 330px !important;
-  }
-
-  .img-ads {
-    width: 353px !important;
-    height: 330px !important;
-  }
-
-  .user-recipie-card {
-    width: 353px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-  }
-
-  .user-recipie-imagediv img {
-    width: 315px !important;
-    overflow: hidden;
-    height: 250px !important;
-    margin: 0 auto !important;
-  }
-}
-
-@media (max-width: 321px) {
-  .mealcardheading {
-    font-size: 18px !important;
-    margin-bottom: 1em !important;
-  }
-
-  .px-4 {
-    padding-right: 2.5rem !important;
-    padding-left: 0.2rem !important;
-  }
-
-  .pt-4 {
-    padding-top: 0.5rem !important;
-  }
-
-  .carousel-item img {
-    width: 100% !important;
-    height: 170px !important;
-    border-radius: 15px !important;
-  }
-
-  .mealcardheading {
-    font-size: 15px !important;
-    margin-bottom: 1em !important;
+    border-radius: 0 !important;
   }
 
   .cardpara {
-    font-size: 12px;
-  }
-
-  .ms-1 {
-    margin-left: 0 !important;
-  }
-
-  .pt-3 {
-    padding-top: 0 !important;
-  }
-
-  video {
-    width: 100%;
-    height: 40vh !important;
-    object-fit: cover;
-    margin-bottom: 30px;
-  }
-
-
-  .Meal-Ctegory-card {
-    width: 320px !important;
     padding: 5px !important;
-    padding-bottom: 10px !important;
-    margin-bottom: 35% !important;
-    height: fit-content !important;
-  }
-
-  .meal-card-imgdiv {
-    width: 130px !important;
-    height: 130px !important;
-    left: 50px;
-    top: -78px;
-  }
-
-  .meal-card-img {
-    width: 120px;
-    height: 120px;
-    left: 72px !important;
-    top: 10px !important;
-  }
-
-  .carddiv .card-1 {
-    width: 300px !important;
-    height: 300px !important;
-  }
-
-  .img-ads {
-    width: 300px !important;
-    height: 300px !important;
-  }
-
-  .user-recipie-card {
-    width: 300px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-  }
-  
-  .user-recipie-imagediv img {
-    overflow: hidden;
-    height: 300px !important;
-    width: 263px !important;
-  }
-  
-
-}
-
-
-@media (min-width: 1960px) {
-
-
-  .header {
-    font-size: 20px;
-    height: 100px;
-  }
-
-  .carddiv {
     width: 100% !important;
-    height: 30vh !important;
-    margin-bottom: 50px !important;
-    overflow: hidden !important;
-  }
-
-  .videocontainerbox {
-    width: 100% !important;
-    height: 50vh !important;
-    justify-content: space-between !important;
-  }
-
-  .video {
-    width: 100% !important;
-    height: 30vh !important;
-    border-radius: 50px 0 50px 0 !important;
-    object-fit: cover !important;
-    background-color: #c3c3c3 !important;
   }
 }

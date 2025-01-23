@@ -1,12 +1,29 @@
+//xxxxxxxxxxxxxxxxxxxxx Variables Definition xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// const image = document.getElementById('image');
+// const filePreview = document.getElementById('filePreview');
+// const text = document.getElementById('text');
+// const changeButton = document.getElementById('changeButton');
+
+// const addIngredientBtn = document.getElementById('addIngredientBtn');
+// const ingredientInput = document.getElementById('ingredientInput');
+// const ingredientList = document.getElementById('ingredientList');
+
+const input = document.getElementById('recipeTitle');
+const checkboxes = document.querySelectorAll('.form-check-input');
+
+const servingInput = document.querySelector('[placeholder="4 persons "]');
+const preparationInput = document.querySelector('[placeholder="30 mins"]');
+const additionalBtn = document.getElementById('additionalBtn');
+const additionalContent = document.getElementById('additionalContent');
+
+//xxxxxxxxxxxxxxxxxxxxx 1. File Upload Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document.addEventListener('DOMContentLoaded', function () {
   const text = document.getElementById('text');
   const inputField = document.getElementById('image');
   const filePreview = document.getElementById('filePreview');
   const changeButton = document.getElementById('changeButton');
 
-  text.addEventListener('click', function () {
-    inputField.click();
-  });
+  text.addEventListener('click', function () { inputField.click(); });
 
   inputField.addEventListener('change', function () {
     const file = inputField.files[0];
@@ -52,45 +69,40 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//xxxxxxxxxxxxxxxxxxxxx 2. Recipe Title Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+input.addEventListener('input', function () {
+  let value = input.value;
 
-// -------------------  recipie title -------------------------------   
-document.addEventListener('DOMContentLoaded', function () {
-  const input = document.getElementById('recipeTitle')
+  if (value.length > 20) {
+    alert('Recipe Title should not exceed 20 characters.');
+    input.value = value.substring(0, 20); // Auto-trim kar dena
+    return;
+  }
 
-  input.addEventListener('input', function () {
-    let value = input.value
+  // Capitalize the first letter
+  if (value.length > 0) {
+    value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  }
 
-    if (value.length > 20) {
-      alert('RecipeTitle should be in 20 letters')
+  input.value = value;
+});
+
+
+//xxxxxxxxxxxxxxxxxxxxx 3. Checkbox Behavior xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      checkboxes.forEach(cb => {
+        if (cb !== this) {
+          cb.checked = false;
+        }
+      });
     }
-
-    if (value.length > 0) {
-      value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
-    }
-
-    input.value = value
-  })
-})
+  });
+});
 
 
-// -------------------  recipie checkbox -------------------------------   
-document.addEventListener('click', function () {
-  const checkboxes = document.querySelectorAll('.form-check-input')
-
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-      if (this.checked) {
-        checkboxes.forEach(cb => {
-          if (cb !== this) {
-            cb.checked = false
-          }
-        })
-      }
-    })
-  })
-})
-
-// ---------------------------------------------------------------------------------------------
+//xxxxxxxxxxxxxxxxxxxxx 4. Ingredient Adding Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document.addEventListener('DOMContentLoaded', function () {
   const ingredientInput = document.getElementById('ingredientInput')
   const addIngredientBtn = document.getElementById('addIngredientBtn')
@@ -136,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create the edit button for ingredient using Font Awesome
     const editBtnIngredient = document.createElement('span');
     editBtnIngredient.innerHTML = `
-  <i class="fas fa-edit" style="width: 24px; height: 24px;"></i>`;
+  <i class="fas fa-edit"></i>`;
     editBtnIngredient.classList.add('edit-btn-svg-container');
     editBtnIngredient.addEventListener('click', function () {
       if (ingredientField.readOnly) {
@@ -150,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create the delete button for ingredient using Font Awesome
     const deleteBtnIngredient = document.createElement('span');
     deleteBtnIngredient.innerHTML = `
-  <i class="fas fa-trash-alt" style="width: 24px; height: 24px;"></i>`;
+  <i class="fas fa-trash-alt"></i>`;
     deleteBtnIngredient.classList.add('delimg', 'ms-4', 'me-3');
     deleteBtnIngredient.addEventListener('click', function () {
       ingredientList.removeChild(container);
@@ -199,8 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create the delete button for quantity using Font Awesome
     const deleteBtnQuantity = document.createElement('span');
     deleteBtnQuantity.innerHTML = `
-  <i class="fas fa-trash-alt" ></i>
-`;
+    <i class="fas fa-trash-alt" ></i>
+    `;
     deleteBtnQuantity.classList.add('delimg', 'ms-4', 'me-3');
     deleteBtnQuantity.addEventListener('click', function () {
       ingredientList.removeChild(container);
@@ -223,112 +235,8 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-// ---------------------------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', function () {
-  const stepContainer = document.getElementById('stepContainer')
-  const stepInput = document.getElementById('stepInput')
-  const addStepBtn = document.getElementById('addStepBtn')
-  const stepsList = document.getElementById('stepsList')
-  let stepCount = 0
-  let totalCharacterCount = 0
 
-  addStepBtn.addEventListener('click', function () {
-    const stepText = stepInput.value.trim()
-
-    if (stepText === '') {
-      alert('Please add a step before clicking the add button.')
-      return
-    }
-
-    if (stepCount >= 5) {
-      alert('You have reached the maximum number of 5 steps.')
-      return
-    }
-
-    if (totalCharacterCount + stepText.length > 300) {
-      alert(
-        'You have exceeded the length of 300 characters kindly adjust your content in it. For that you can edit or delete by clicking the buttons in the input field.'
-      )
-      return
-    }
-
-    addStep(stepText)
-    stepInput.value = '' // Clear the input field after adding the step
-  })
-
-  stepInput.addEventListener('input', function () {
-    if (stepInput.value.length >= 100) {
-      alert('Move to a new line by pressing the "+" button.')
-    }
-  })
-
-  function addStep(stepText) {
-    const stepItem = document.createElement('div')
-    stepItem.classList.add(
-      'input-group',
-      // 'mt-lg-2',
-      'p-2',
-      'mb-2',
-      'Ingredient',
-      'textarea'
-    )
-
-    const stepField = document.createElement('textarea')
-    stepField.type = 'text'
-    stepField.classList.add('form-control', 'edit')
-    stepField.value = stepText
-    stepField.readOnly = true
-
-    // Create the edit button using Font Awesome
-    const editBtn = document.createElement('span');
-    editBtn.innerHTML = `
-  <i class="fas fa-edit" ></i>
-`;
-    editBtn.classList.add('editimg');
-    editBtn.addEventListener('click', function () {
-      if (stepField.readOnly) {
-        stepField.readOnly = false;
-        stepField.focus();
-      } else {
-        stepField.readOnly = true;
-      }
-    });
-
-    // Create the delete button using Font Awesome
-    const deleteBtn = document.createElement('span');
-    deleteBtn.innerHTML = `
-  <i class="fas fa-trash-alt" ></i>
-`;
-    deleteBtn.classList.add('delimg', 'ms-4', 'me-3');
-    deleteBtn.addEventListener('click', function () {
-      stepsList.removeChild(stepItem);
-      stepCount--;
-      totalCharacterCount -= stepField.value.length;
-      reorderSteps();
-    });
-
-
-    stepItem.appendChild(stepField)
-    stepItem.appendChild(editBtn)
-    stepItem.appendChild(deleteBtn)
-
-    stepsList.appendChild(stepItem)
-    stepCount++
-    totalCharacterCount += stepText.length
-
-    reorderSteps()
-  }
-
-  function reorderSteps() {
-    const stepInputs = stepsList.querySelectorAll('.Ingredient input')
-    stepInputs.forEach((input, index) => {
-      input.placeholder = `Steps ... `
-    })
-  }
-})
-
-// --------------------------------- additional Btn-------------------------------------
-
+//xxxxxxxxxxxxxxxxxxxxx 5. Additional Button Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document.addEventListener('DOMContentLoaded', function () {
   const additionalBtn = document.getElementById('additionalBtn')
   const additionalContent = document.getElementById('additionalContent')
@@ -362,33 +270,25 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-// ---------------------------------------------------------------------------------------
 
+//xxxxxxxxxxxxxxxxxxxxx 6. Submit Button Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document.addEventListener('DOMContentLoaded', function () {
-  // yahn form clear ho jai ga agr koi is page main wapis ata hy tooo
-  const form = document.querySelector('form')
-  form.clear();
+  // Form will be cleared when revisiting the page
+  const form = document.querySelector('form');
+  form.reset();
 
-  document.getElementById('submitBtn').addEventListener('click', submitbtn)
-  document.querySelector('.btn-close').addEventListener('click', closePopup)
-})
+  document.getElementById('submitBtn').addEventListener('click', submitbtn);
+  document.querySelector('.btn-close').addEventListener('click', closePopup);
+});
 
 function submitbtn() {
-  console.log('Submit button clicked') // Log to check if the function is called
-  const inputField = document.getElementById('image')
-  const recipeTitle = document.getElementById('recipeTitle')
-  const floatingTextarea2 = document.getElementById('floatingTextarea2')
-  const servingInput = document.querySelector('input[placeholder="4 persons "]')
-  const preparationInput = document.querySelector(
-    'input[placeholder="30 mins"]'
-  )
-  const checkboxes = document.querySelectorAll('.form-check-input')
-  const stepsList = document.getElementById('stepsList')
-
-  const ingredientInputs = document.querySelectorAll(
-    '#ingredientList input[type="text"]'
-  )
-  const stepInputs = document.querySelectorAll('#stepsList input[type="text"]')
+  console.log('Submit button clicked'); // Log to check if the function is called
+  const inputField = document.getElementById('image');
+  const recipeTitle = document.getElementById('recipeTitle');
+  const floatingTextarea2 = document.getElementById('floatingTextarea2');
+  const servingInput = document.querySelector('input[placeholder="4 persons "]');
+  const preparationInput = document.querySelector('input[placeholder="30 mins"]');
+  const checkboxes = document.querySelectorAll('.form-check-input');
 
   // Validate all required fields
   if (
@@ -397,25 +297,7 @@ function submitbtn() {
     floatingTextarea2.value.trim() === '' ||
     servingInput.value.trim() === '' ||
     preparationInput.value.trim() === '' ||
-    !Array.from(checkboxes).some(checkbox => checkbox.checked) ||
-    stepsList.children.length === 0
-  ) {
-    alert('Please fill the form completely before submitting.')
-    console.log('Form validation failed')
-    return
-  }
-
-
-  //--------------------------------local storagemain save ho raha hy -----------------------------
-  // Validate all required fields
-  if (
-    inputField.files.length === 0 ||
-    recipeTitle.value.trim() === '' ||
-    floatingTextarea2.value.trim() === '' ||
-    servingInput.value.trim() === '' ||
-    preparationInput.value.trim() === '' ||
-    !Array.from(checkboxes).some(checkbox => checkbox.checked) ||
-    stepsList.children.length === 0
+    !Array.from(checkboxes).some(checkbox => checkbox.checked)
   ) {
     alert('Please fill the form completely before submitting.');
     console.log('Form validation failed');
@@ -431,33 +313,23 @@ function submitbtn() {
     categories: Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.nextElementSibling.innerText)
   };
 
-  
   let userCollection = JSON.parse(localStorage.getItem('userCollection')) || [];
   userCollection.push(formData);
   localStorage.setItem('userCollection', JSON.stringify(userCollection));
   console.log('Form data saved to localStorage:', formData);
 
 
-
-  //--------------- Show the popup --------------------
-  const popupcontainer = document.getElementById('backgroundpopupbox')
-  popupcontainer.style.display = 'block'
-  console.log('Popup shown')
-
-  const tickImage = document.getElementById('tickImage')
-  setTimeout(function () {
-    tickImage.style.display = 'block'
-  }, 3)
   
+  // Show the popup
+  const popupcontainer = document.getElementById('backgroundpopupbox');
+  popupcontainer.style.display = 'block';
+  setTimeout(function () {
+    document.getElementById('tickImage').style.display = 'block';
+  }, 1000);
 }
-
-
 
 function closePopup() {
-  const popupcontainer = document.getElementById('backgroundpopupbox')
-  popupcontainer.style.display = 'none'
-  window.location.href = "./recipiemain.html"
-
+  const popupcontainer = document.getElementById('backgroundpopupbox');
+  popupcontainer.style.display = 'none';
+  window.location.href = "./recipiemain.html";
 }
-
-

@@ -42,32 +42,47 @@
 <body style="overflow-x: hidden; 
   background-color: #eaeaea;">
 
-    <div class="header">
-        <header>
-            <nav>
-                <a href="/index.html" target="_blank">
-                    <img src="./asset/logo_imgs/recipe-logo.png" alt="KukBuk" class="logo img">
-                </a>
-                <ul class="nav_links mt-4">
-                    <a href="#" class="ms-3">Homepage</a>
-                    <a href="#" class="ms-3">Recipes</a>
-                    <a href="#" class="ms-3">About</a>
-                    <a href="#" class="ms-3">Blogs</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-xxl">
+            <a href="/index.html" target="_blank">
+                <img src="./asset/logo_imgs/recipe-logo.png" alt="KukBuk" class="logo img" width="100">
+            </a>
+            <a class="navbar-toggler" type="button" data-bs-toggle="collapse" style="background-color: white;"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto justify-content-center align-items-center gap-lg-5 gap-3  mb-2 mb-lg-0">
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link active " aria-current="page" href="#">Homepage</a>
+                    </li>
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link active" aria-current="page" href="#">Recipes</a>
+                    </li>
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                    </li>
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link active" aria-current="page" href="#">Blogs</a>
+                    </li>
                 </ul>
-                <div class="links">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <img src="./asset/logo_imgs/cheflogin.png" alt="img" class="navcolor img" width="30" height="30">
+                <form class="d-flex justify-content-center align-items-center mb-3 mb-lg-0" role="search">
+                    <span class="me-3 pt-1">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <span class="me-3">
+                        <img src="./asset/logo_imgs/cheflogin.png" alt="img" class="navcolor img" width="30"
+                            height="30">
+                    </span>
+                </form>
+            </div>
+        </div>
+    </nav>
 
-                    <div class="hamburger">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    </div>
 
     <!-- Swiper -->
-    <div class="swiper mySwiper mb-3 " >
+    <div class="swiper mySwiper mb-3 ">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="https://i.pinimg.com/736x/8e/1f/d7/8e1fd738184baa7c854840ea2386bdf5.jpg" />
@@ -129,12 +144,9 @@
             </div>
         </div>
 
-
-        <div class="p-1 text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis harum voluptatem soluta laborum libero
-            inventore minima adipisci doloribus numquam beatae!
-        </div>
     </div>
+
+
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -149,13 +161,13 @@
         });
     </script>
 
-    <div class="container-lg mt-5 p-1 ">
-        <h2 class="recipieheading  ms-md-5 mb-3"
-            style="font-size: 30px;">My Recipes</h2>
+
+    <div class="container-xxl mt-5 p-1 ">
+        <h2 class="recipieheading  ms-md-5 mb-3" style="font-size: 30px;">My Recipes</h2>
     </div>
 
 
-    <div class="container-xxl border mt-5  mb-5 mx-auto  firstcard"
+    <div class="container-xxl border-dark mb-5 mx-auto  firstcard"
         style="background-color: white; border-radius: 15px;">
         <div class="">
             <div class="card-2 ">
@@ -294,7 +306,8 @@
                 </div>
 
 
-                <div id="carouselExampleAutoplaying" class="carousel pb-lg-5 pt-5 p-1 carousel-fade" data-bs-ride="carousel">
+                <div id="carouselExampleAutoplaying" class="carousel pb-lg-5 pt-5 p-1 carousel-fade"
+                    data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="https://i.pinimg.com/736x/48/ee/80/48ee803534dba02f67b85b1e621cd445.jpg"
@@ -379,235 +392,92 @@
     </div>
 
 
-    <div
-        class="container-xxl mt-lg-5 mt-md-5  mb-3 d-flex flex-lg-row flex-md-row flex-column justify-content-around align-items-center p-1 pt-5">
-        <div id="mealCardsContainer" class="d-flex flex-wrap  m-1 mt-5 mb-3 align-items-center justify-content-around">
-        </div>
-
-    </div>
-
-
-
-
-    <!-- viewmore button -->
-    <div class="text-center mt-5 mb-5">
-        <button class="btn borderbtn button m-1 text-light " onclick="submitbtn()" id="loadMoreButton">View
-            More</button>
-    </div>
-
-
-    <div
-        class="container videocontainerbox p-1 mb-5 mb-lg-1 pb-lg-1 pb-5 d-flex flex-lg-row flex-md-row flex-column justify-content-between align-items-center">
-
-
-        <div class="videocontainerbox-child1">
-            <h2 class="p-lg-2 p-1">Delicious Craving's</h2>
-            <p class="p-lg-2 p-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus perferendis
-                doloremque eius reprehenderit sapiente, dolore illo aliquid ea autem tenetur. Omnis esse eaque veritatis
-                deleniti, non voluptatum eum quaerat quidem dicta vero earum similique ipsam quasi hic nam animi
-                exercitationem voluptate minima quisquam? Libero aut ad fugiat deleniti placeat omnis eum suscipit
-                accusantium alias, vero perspiciatis nulla magni modi dolore, ipsam tempore cum</p>
-            <p class="p-lg-2 p-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus perferendis
-                doloremque eius reprehenderit sapiente, dolore illo aliquid ea au ipsam tempore cum</p>
-
-            <ul class="nav col-md-4 justify-content-center list-unstyled ">
-
-                <a href="https://www.instagram.com" class="m-1 m-2" target="_blank">
-                    <svg class="fab" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 15 15">
-                        <path fill="none" stroke="#E86209"
-                            d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
-                    </svg></a>
-
-                <a href="https://www.facebook.com" class="m-1 m-2" target="_blank">
-                    <svg class="fab" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                        <path fill="none" stroke="#E86209" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5" d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                    </svg></a>
-
-                <a href="https://www.twitter.com" class="m-1 m-2" target="_blank">
-                    <svg class="fab" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M2 18.5C3.765 19.521 5.814 20 8 20c6.48 0 11.762-5.137 11.992-11.562L22 4.5l-3.354.5A4 4 0 0 0 16 4c-2.572 0-4.5 2.517-3.88 4.98c-3.552.23-6.771-1.959-8.633-4.875c-1.236 4.197-.09 9.251 3.013 12.366c0 1.176-3 1.878-4.5 2.029"
-                            color="#E86209" />
-                    </svg></a>
-
-            </ul>
-
-        </div>
-
-        <div class="videocontainerbox-child2 ">
-            <video src="./asset/video/Food Reel.mp4" autoplay muted loop class="video"></video>
-        </div>
-    </div>
-
-    <h2 class=" mt-5 pt-5 mt-lg-5 mt-lg-1 pt-lg-1 pb-3 carddivheading text-center ">Share Your Own Recipie With Us  </h2>
-
-    <div class="container-xxl bg-light rounded-3 mb-5 mt-5 py-5" id="usercontainer">
-
+    <h2 class=" mt-5 pt-5 mt-lg-5 mt-lg-1 pt-lg-1 pb-3 py-5 carddivheading text-center ">Share Your Own Recipie With Us
+    </h2>
+    <div class="container-xxl bg-light rounded-3 mb-3 pt-5 mt-5 py-3">
         <div id="userCollection" class="row d-flex flex-lg-row flex-md-row flex-sm-row flex-column">
             <!-- User cards will be appended here -->
         </div>
-        <button id="viewMoreBtn" style="display: none;">View More</button>
-
-    </div>
-
-    
-    <div class=" firstchild mt-5 mb-5 mx-auto  pt-5 pb-5 container-xxl" style="overflow: hidden;">
-        <div class="images d-flex flex-lg-row flex-md-row d-none d-lg-block d-md-block ">
-            <img src="https://img.freepik.com/free-photo/delicious-food-black-board_144627-34739.jpg?t=st=1736534429~exp=1736538029~hmac=7c993709f96cbfc74aa2e50a33d17b108a77d8ecc300c780027b788113867e56&w=1060"
-                alt="img" class="mt-5 first">
-            <img src="https://img.freepik.com/free-photo/isolated-shot-white-plate-with-delicious-salad-perfect-food-blog-menu-usage_181624-6901.jpg?t=st=1736534113~exp=1736537713~hmac=d4af5bad9b9c283df915e5c75929f28a9e587e3081703f208079fe8f35ee21d8&w=996"
-                alt="img" class="mt-5 first">
-            <img src="https://img.freepik.com/free-photo/thigh-chicken-steak_1339-8009.jpg?t=st=1736535063~exp=1736538663~hmac=63dabc848dd29276644f8716b5cb890274b4ddbc9d7da90eb216e094e8fbf8bb&w=1060"
-                alt="img" class="mt-5 first">
-            <img src="https://img.freepik.com/free-photo/isolated-shot-square-shaped-rice-white-plate_181624-6853.jpg?t=st=1736534158~exp=1736537758~hmac=7e56df60cee558c981ce9542af0e9be52c46d9e66fd374ac2e52e2a20c42abd4&w=1060"
-                alt="img" class="mt-5 first">
-            <img src="https://img.freepik.com/free-photo/delicious-food-black-board_144627-34731.jpg?t=st=1736534464~exp=1736538064~hmac=e0b0c773478e8f1cc843c661da375f7d515c09932fca65670b9ebd309cb2fa77&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/cheesecake-with-strawberry-cream-jam-cherry-side-view_141793-3079.jpg?t=st=1736534195~exp=1736537795~hmac=33de1535f8e5292df515d935c8ce793468571003711ea7c0de9cdf38d55a4ddb&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/fried-salmon-with-herbs-top-view_23-2148516889.jpg?t=st=1736534286~exp=1736537886~hmac=fe53391c5f572c84532ecffd45e45aeceea583e1a067c4119619dda1ca0c1ff3&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/delicious-food-white-plate_144627-34684.jpg?t=st=1736534317~exp=1736537917~hmac=f98786922d1098f0354edb82336c3f8720c36b5fac2da8f05c8f0cb0ab5e87db&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/front-view-yummy-jelly-pancakes-with-fresh-strawberries-dark-space_140725-95447.jpg?t=st=1736534575~exp=1736538175~hmac=af600e36384219f713324ee89e3e59629671d3c8262fe2145d62124b98e23e1d&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/white-plate-with-grilled-mushrooms_181624-8749.jpg?t=st=1736534627~exp=1736538227~hmac=65a8e3321f05f385d8a110672ab3b567ef08663a3677b16cfb6b2c0c21a5689e&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/isolated-shot-plate-with-salad-with-chicken-bacon-perfect-food-blog-menu-usage_181624-8281.jpg?t=st=1736534648~exp=1736538248~hmac=ef07a2de5d8e8ef5767b3a59bfc1b7323895d5abe71791bc1d5f8d19de696472&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/grilled-zucchini-rolls-with-tuna-cream-cheese_123827-21983.jpg?t=st=1736534690~exp=1736538290~hmac=7e59f5daced1c7c80212487d957a6174b69105468fd7f40f732831633ed2a305&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/azerbaijani-mangal-salad-with-fresh-herbs-tomato_114579-4455.jpg?t=st=1736534758~exp=1736538358~hmac=9de20e246375963dfca0c4bb937e708d5becda4061fd35db7939d63573ad4cb9&w=1060"
-                alt="img" class="mt-5 first">
-
-            <img src="https://img.freepik.com/free-photo/thigh-chicken-steak_1339-8009.jpg?t=st=1736535063~exp=1736538663~hmac=63dabc848dd29276644f8716b5cb890274b4ddbc9d7da90eb216e094e8fbf8bb&w=1060"
-                alt="img" class="mt-5 first">
-            <img src="https://img.freepik.com/free-psd/close-up-hamburger-isolated_23-2151604191.jpg?uid=R132606196&ga=GA1.1.748445086.1728116630&semt=ais_hybrid"
-                alt="img" class="mt-5 first">
-            <img src="https://img.freepik.com/free-photo/spaghetti-with-shrimp_1339-1341.jpg?t=st=1736535181~exp=1736538781~hmac=18d2ac300410178380a9ba6baa8e99d977209dd2a03d4ffd0b3c19c2be583660&w=1380"
-                alt="img" class="mt-5 first">
-
-        </div>
-
     </div>
 
 
-    <h2 class=" mt-5 pt-5 mt-lg-5 pt-lg-1 pb-3 carddivheading text-center ">Have Some Delicious Food</h2>
-
-    <div
-        class="container-xxl mx-auto carddiv p-1 pb-lg-2 d-flex flex-lg-row flex-md-row flex-sm-row flex-column justify-content-around align-items-center ">
-
-        <div class="card  card-1 rounded-4 m-lg-1 m-md-1  mb-3">
-            <img src="https://calow-drinks.com/cdn/shop/articles/sommergetranke-alkohol_1512x1008_f92b390a-53ef-47ad-bf6c-6157fbc3569d.webp?v=1708523711"
-                alt="img">
-
-            <div class="d-flex justify-content-between align-items-center flex-lg-row">
-                <p class="card-title fw-bold p-2 mealcardheading">The Ultimate Fizzy Smoothie</p>
-                <button class=" btn  m-1 p-2 cardbtn card-link mb-2 me-3 " style="width: 150px;">
-                    <a href="#" class="text-decoration-none text-light">201 Recipes</a>
-                </button>
-            </div>
-        </div>
-
-        <img src="https://cdn.dribbble.com/users/3552159/screenshots/18096067/media/3b5ffc39c712e88f54f5622cb2ccebe1.gif"
-            alt="img" class="img-ads mb-3 rounded-4">
-
-        <div class="card card-1 rounded-4  m-lg-1 m-md-1  mb-3">
-            <img src="https://i.pinimg.com/736x/8c/0e/24/8c0e24d3d7009b07d96ca525a466d5f5.jpg" alt="img">
-
-            <div class="d-flex justify-content-between align-items-center flex-lg-row">
-                <p class="card-title fw-bold p-2 mealcardheading">Exquisite Dinner Recipes</p>
-                <button class=" btn  m-1 p-2 cardbtn card-link mb-2 me-3 " style="width: 150px;">
-                    <a href="#" class="text-decoration-none text-light">201 Recipes</a>
-                </button>
-            </div>
-        </div>
-
-    </div>
-
-
-
-    <div class="container-fluid border-top footer mt-5">
-
-        <div class="row  flex-lg-row flex-md-row flex-column   text-center align-items-center justify-content-center">
-            <div class=" col col-lg-3  mt-3">
-                <a class="navbar-brand" href="/index.html">
-                    <img src="./asset/logo_imgs/recipe-logo.png" alt="logo" width="200" height="100"
-                        class=" img img-fluid ">
-                </a>
-            </div>
-
-            <div class=" col  col-lg-6 mt-3">
-                <a class="navbar-brand" href="/index.html">
-                    <img src="./asset/logo_imgs/footer2.png" alt="footer-img" width="200" height="100"
-                        class="img-fluid mt-4 img ">
-                </a>
-            </div>
-
-
-            <div class="col col-lg-1 mt-4">
-                <h5>Links</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">About
-                            Us</a>
-                    </li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Contact</a>
-                    </li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Blog</a>
-                    </li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Pages</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col col-lg-2 mt-3">
-                <h5>Legal</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Terms
-                            &
-                            conditionms</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Contact</a>
-                    </li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Cookies</a>
-                    </li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Copyright</a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="container-xxl mt-5 footer">
-            <footer class="d-flex flex-column flex-lg-row flex-md-row justify-content-between align-items-center ">
-                <div class="col-md-4 d-flex align-items-center">
-                    <span class="mb-3 mb-md-0 text-body-secondary" style="font-size: 12px;">© Copyright 2024 |
-                        All
-                        Rights Reserved</span>
+    <div class="container-fluid mt-5" style="background-color: white !important;">
+        <div class="container-xxl footer mt-0 " >
+            <div
+                class="row  flex-lg-row flex-md-row flex-column   text-center align-items-center justify-content-center">
+                <div class=" col col-lg-3  mt-3">
+                    <a class="navbar-brand" href="/index.html">
+                        <img src="./asset/logo_imgs/recipe-logo.png" alt="logo" width="200" height="100"
+                            class=" img img-fluid ">
+                    </a>
                 </div>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <a href="https://www.facebook.com" class="mt-5 m-2" target="_blank">
-                        <img src="./asset/logo_imgs/facebook.png" alt="img" class="fab" width="30px">
+                <div class=" col  col-lg-6 mt-3">
+                    <a class="navbar-brand" href="/index.html">
+                        <img src="./asset/logo_imgs/footer2.png" alt="footer-img" width="200" height="100"
+                            class="img-fluid mt-4 img ">
                     </a>
-                    <a href="https://www.instagram.com" class="mt-5 m-2" target="_blank">
-                        <img src="./asset/logo_imgs/instagram.png" alt="img" class="fab" width="30px">
-                    </a>
-                    <a href="https://www.twitter.com" class="mt-5 m-2" target="_blank">
-                        <img src="./asset/logo_imgs/twitter.png" alt="img" class="fab" width="30px">
-                    </a>
-                </ul>
+                </div>
 
-            </footer>
+
+                <div class="col col-lg-1 mt-4">
+                    <h5>Links</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">About
+                                Us</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link footer p-0 text-body-secondary">Contact</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Blog</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Pages</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col col-lg-2 mt-3">
+                    <h5>Legal</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link footer p-0 text-body-secondary">Terms
+                                &
+                                conditionms</a></li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link footer p-0 text-body-secondary">Contact</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link footer p-0 text-body-secondary">Cookies</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#"
+                                class="nav-link footer p-0 text-body-secondary">Copyright</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="container-xxl mt-5 footer">
+                <footer class="d-flex flex-column flex-lg-row flex-md-row justify-content-between align-items-center ">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <span class="mb-3 mb-md-0 text-body-secondary" style="font-size: 12px;">© Copyright 2024 |
+                            All
+                            Rights Reserved</span>
+                    </div>
+
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                        <a href="https://www.facebook.com" class="mt-5 m-2 fab" target="_blank">
+                            <img src="./asset/logo_imgs/facebook.png" alt="img" class="fab" width="30px">
+                        </a>
+                        <a href="https://www.instagram.com" class="mt-5 m-2 fab" target="_blank">
+                            <img src="./asset/logo_imgs/instagram.png" alt="img" class="fab" width="30px">
+                        </a>
+                        <a href="https://www.twitter.com" class="mt-5 m-2 fab" target="_blank">
+                            <img src="./asset/logo_imgs/twitter.png" alt="img" class="fab" width="30px">
+                        </a>
+                    </ul>
+
+                </footer>
+            </div>
         </div>
     </div>
 

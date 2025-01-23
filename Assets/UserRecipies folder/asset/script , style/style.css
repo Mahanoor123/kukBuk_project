@@ -138,6 +138,11 @@ h1 {
   border-radius: 0 !important;
 }
 
+.input-group input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .form-check-input {
   width: 20px !important;
   height: 20px !important;
@@ -227,12 +232,14 @@ h1 {
   display: none;
 }
 
+.fas,
 .fab {
   font-size: 30px !important;
   color: var(--orange) !important;
   margin-bottom: 20px !important;
 }
 
+.fas,
 .fab:hover {
   transform: scale(1.4) !important;
   transition: transform 0.2s !important;
@@ -293,8 +300,10 @@ h1 {
 }
 
 .fas {
-  font-size: 24px !important;
+  padding-top: 10px !important;
+  font-size: 15px !important;
 }
+
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
