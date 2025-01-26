@@ -104,18 +104,18 @@
 
 <div class="container">
   <h2 class="heading">Trending Topics</h2>
-  <ul class="list">
-    <li>All</li>
-    <li>Nutrition</li>
-    <li>New Updates</li>
-    <li>Food Gala</li>
-  </ul>
+  <span class="list">
+    <a  class="list1" href="#chef">All</a>
+    <a  class="list1" href="">Nutrition</a>
+    <a  class="list1" href="">New Updates</a>
+    <a  class="list1" href="">Food Gala</a>
+  </span>
 
 
   <div class="row">
     <div class="col-md-6">
 
-      <div class="chefs">
+      <div class="chefs" id="chef">
         <div class="world">World Famous Chef</div>
       <img class="feature-img1" src="./blogs-assets/images/feature3 1.png" alt="" width="540px">
       <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
@@ -125,7 +125,7 @@
     </div>
 
 
-    <div class="chefs">
+    <div class="chefs" id="chef">
       <div class="world">World Famous Chef</div>
     <img class="feature-img1" src="./blogs-assets/images/image (1).png" alt="" width="540px">
     <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
@@ -135,7 +135,7 @@
   </div>
 
 
-  <div class="chefs">
+  <div class="chefs" id="chef">
     <div class="world">World Famous Chef</div>
   <img class="feature-img1" src="./blogs-assets/images/image (2).png" alt="" width="540px">
   <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
@@ -145,11 +145,34 @@
 </div>
 
 
+<div class="more-card1" id="more-card">
+<div class="chefs" id="chef">
+  <div class="world">World Famous Chef</div>
+<img class="feature-img2" src="./blogs-assets/images/blog-img3.jpg" alt="" width="540px" height="400px">
+<p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
+   an instant pot.for a quick and filling. . The flavors of <br>
+   mediterrenean are cooked upto 30 minutes in an instant <br>
+   pot.for a quick and filling. .</p>
+</div>
+</div>
+
+<div class="more-card1" id="more-card2">
+  <div class="chefs"id="chef" >
+    <div class="world">World Famous Chef</div>
+  <img class="feature-img2" src="./blogs-assets/images/blog-img4.jpg" alt="" width="540px" height="400px">
+  <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
+     an instant pot.for a quick and filling. . The flavors of <br>
+     mediterrenean are cooked upto 30 minutes in an instant <br>
+     pot.for a quick and filling. .</p>
+  </div>
+  </div>
+  
+
     </div>
 
 
    <div class="col-md-6">
-    <div class="chefs">
+    <div class="chefs" id="chef">
       <div class="world">Sweetness in the air</div>
     <img class="feature-img1" src="./blogs-assets/images/image (3).png" alt="" width="540px">
     <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
@@ -159,7 +182,7 @@
   </div>
 
 
-  <div class="chefs">
+  <div class="chefs" id="chef">
     <div class="world">Sweetness in the air</div>
   <img class="feature-img1" src="./blogs-assets/images/image (5).png" alt="" width="540px">
   <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
@@ -169,7 +192,7 @@
 </div>
 
 
-<div class="chefs">
+<div class="chefs" id="chef">
   <div class="world">Sweetness in the air</div>
 <img class="feature-img1" src="./blogs-assets/images/image (6).png" alt="" width="540px">
 <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
@@ -177,14 +200,72 @@
    mediterrenean are cooked upto 30 minutes in an instant <br>
    pot.for a quick and filling. .</p>
 </div>
-   </div>
+   
+
+
+   <div class="more-card1" id="more-card1">
+   <div class="chefs" id="chef">
+    <div class="world">Sweetness in the air</div>
+  <img class="feature-img2" src="./blogs-assets/images/blog-img.jpg" alt="" width="540px" height="400px">
+  <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
+     an instant pot.for a quick and filling. . The flavors of <br>
+     mediterrenean are cooked upto 30 minutes in an instant <br>
+     pot.for a quick and filling. .</p>
+  </div>
+     </div>
+
+
+     <div class="more-card1" id="more-card3">
+      <div class="chefs" id="chef">
+       <div class="world">Sweetness in the air</div>
+     <img class="feature-img2" src="./blogs-assets/images/bolg-img2.jpg" alt="" width="540px" height="400px">
+     <p class="p">The flavors of mediterrenean are cooked upto 30 minutes in <br>
+        an instant pot.for a quick and filling. . The flavors of <br>
+        mediterrenean are cooked upto 30 minutes in an instant <br>
+        pot.for a quick and filling. .</p>
+     </div>
+        </div>
+    
+    </div>
+   
+
+
 
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal modal-xl fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"> Recipe Detail Page </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        
+        <img id="image" src="" alt="" class="img-fluid" >
+        <h3 id="name" class="my-2">${recipe.name}</h3>
+       <ul id="ingredients">
+           </ul>
+            <h3 class="my-2">Description</h3>
+       <ul id="description">
+           </ul>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <div>
-  <button class="More-btn">See More</button>
+  <button class="More-btn " onclick="myFunction()">See More</button>
 </div>
 
 <div class="container con">
@@ -203,6 +284,40 @@
 </div>
 
 
+<footer>
+  <div class="footer1">
+      <div class="foot_logo">
+          <img src="./blogs-assets/images/recipe-logo.png">
+      </div>
+      <div class="foot_image">
+          <img src="./blogs-assets/images/Featured Image.png" width="300px">
+      </div>
+      <div class="foot_links">
+          <h6>Links</h6>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Blog</a>
+          <a href="#">Recipes</a>
+      </div>
+      <div class="foot_legal">
+          <h6>Legal</h6>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact</a>
+          <a href="#">Cookies</a>
+          <a href="#">Copyrights</a>
+      </div>
+  </div>
+  <div class="footer2">
+      <div class="copy_text">
+          <p>© Copyright 2025 | All Rights Reserved</p>
+      </div>
+      <div class="social_icons">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
+      </div>
+  </div>
+</footer>
   
 
 
