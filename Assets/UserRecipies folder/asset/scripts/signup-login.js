@@ -3,9 +3,14 @@ import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAut
 
 const register = async (e) => {
     e.preventDefault();
+    const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    
     try {
         let userCredintial = await createUserWithEmailAndPassword(auth, email, password);
         console.log(userCredintial?.user);
@@ -24,7 +29,9 @@ const signIn = async (e) => {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-
+    console.log(email);
+    console.log(password);
+    
     try {
         let userCredintial = await signInWithEmailAndPassword(
             auth,

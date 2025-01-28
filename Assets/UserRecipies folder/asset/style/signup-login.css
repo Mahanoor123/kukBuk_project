@@ -17,8 +17,8 @@
     }
 
     body {
-        height: auto !important;
         width: 100% !important;
+        height: 95vh !important;
         margin: 0 auto !important;
         background-position: center !important;
         background-image: url();
@@ -34,7 +34,7 @@
         height: auto !important;
         background-color: rgba(255, 255, 255, 0.521) !important;
         border: 1px solid #e86209 !important;
-        margin: 40px auto !important;
+        margin: 50px auto !important;
         overflow: hidden !important;
     }
 
