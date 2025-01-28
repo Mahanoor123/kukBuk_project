@@ -8,9 +8,9 @@
 // const ingredientInput = document.getElementById('ingredientInput');
 // const ingredientList = document.getElementById('ingredientList');
 
+
 const input = document.getElementById('recipeTitle');
 const checkboxes = document.querySelectorAll('.form-check-input');
-
 const servingInput = document.querySelector('[placeholder="4 persons "]');
 const preparationInput = document.querySelector('[placeholder="30 mins"]');
 const additionalBtn = document.getElementById('additionalBtn');
@@ -69,6 +69,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
 //xxxxxxxxxxxxxxxxxxxxx 2. Recipe Title Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 input?.addEventListener('input', function () {
   let value = input.value;
@@ -88,6 +89,7 @@ input?.addEventListener('input', function () {
 });
 
 
+
 //xxxxxxxxxxxxxxxxxxxxx 3. Checkbox Behavior xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 checkboxes.forEach(checkbox => {
   checkbox?.addEventListener('change', function () {
@@ -100,6 +102,7 @@ checkboxes.forEach(checkbox => {
     }
   });
 });
+
 
 
 //xxxxxxxxxxxxxxxxxxxxx 4. Ingredient Adding Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -118,25 +121,11 @@ document?.addEventListener('DOMContentLoaded', function () {
 
     // Create a new container for ingredient and quantity
     const container = document.createElement('div')
-    container.classList.add(
-      'd-flex',
-      'ingre',
-      'justify-content-start',
-      'align-items-start',
-      'mb-2'
-    )
+    container.classList.add( 'd-flex', 'ingre', 'justify-content-start', 'align-items-start', 'mb-2')
 
     // Create the ingredient container
     const ingredientContainer = document.createElement('div')
-    ingredientContainer.classList.add(
-      'input-group',
-      'p-2',
-      'ms-lg-5',
-      'mb-2',
-      'm-2',
-      'textarea1',
-      'Ingredient'
-    )
+    ingredientContainer.classList.add('input-group', 'p-2', 'ms-lg-5', 'mb-2', 'm-2', 'textarea1', 'Ingredient')
 
     // Create the input field for the ingredient
     const ingredientField = document.createElement('input')
@@ -147,8 +136,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 
     // Create the edit button for ingredient using Font Awesome
     const editBtnIngredient = document.createElement('span');
-    editBtnIngredient.innerHTML = `
-  <i class="fas fa-edit"></i>`;
+    editBtnIngredient.innerHTML = `<i class="fas fa-edit"></i>`;
     editBtnIngredient.classList.add('edit-btn-svg-container');
     editBtnIngredient?.addEventListener('click', function () {
       if (ingredientField.readOnly) {
@@ -161,8 +149,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 
     // Create the delete button for ingredient using Font Awesome
     const deleteBtnIngredient = document.createElement('span');
-    deleteBtnIngredient.innerHTML = `
-  <i class="fas fa-trash-alt"></i>`;
+    deleteBtnIngredient.innerHTML = `<i class="fas fa-trash-alt"></i>`;
     deleteBtnIngredient.classList.add('delimg', 'ms-4', 'me-3');
     deleteBtnIngredient?.addEventListener('click', function () {
       ingredientList.removeChild(container);
@@ -176,15 +163,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 
     // Create the quantity container
     const quantityContainer = document.createElement('div')
-    quantityContainer.classList.add(
-      'input-group',
-      'p-2',
-      'ms-lg-5',
-      'mb-3',
-      'm-2',
-      'textarea1',
-      'Ingredient'
-    )
+    quantityContainer.classList.add('input-group', 'p-2', 'ms-lg-5', 'mb-3', 'm-2', 'textarea1', 'Ingredient')
 
     // Create the input field for the quantity
     const quantityField = document.createElement('input')
@@ -195,9 +174,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 
     // Create the edit button for quantity using Font Awesome
     const editBtnQuantity = document.createElement('span');
-    editBtnQuantity.innerHTML = `
-  <i class="fas fa-edit" ></i>
-`;
+    editBtnQuantity.innerHTML = `<i class="fas fa-edit" ></i>`;
     editBtnQuantity.classList.add('editimg');
     editBtnQuantity?.addEventListener('click', function () {
       if (quantityField.readOnly) {
@@ -236,6 +213,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 })
 
 
+
 //xxxxxxxxxxxxxxxxxxxxx 5. Additional Button Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document?.addEventListener('DOMContentLoaded', function () {
   const additionalBtn = document.getElementById('additionalBtn')
@@ -271,7 +249,8 @@ document?.addEventListener('DOMContentLoaded', function () {
 })
 
 
-//xxxxxxxxxxxxxxxxxxxxx 6. Submit Button Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//xxxxxxxxxxxxxxxxxxxxx Submit Button Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document?.addEventListener('DOMContentLoaded', function () {
   // Form will be cleared when revisiting the page
   const form = document.querySelector('form');
@@ -281,6 +260,9 @@ document?.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.btn-close')?.addEventListener('click', closePopup);
 });
 
+
+
+//xxxxxxxxxxxxxxxxxxxx  Submit btn form complete xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 function submitbtn() {
   console.log('Submit button clicked'); // Log to check if the function is called
   const inputField = document.getElementById('image');
@@ -304,6 +286,9 @@ function submitbtn() {
     return;
   }
 
+
+
+  //xxxxxxxxxxxxx LocalStorage main sy save data vaapis lena xxxxxxxxxxxxxxxxxxxx
   const formData = {
     file: JSON.parse(localStorage.getItem('formData'))?.file || 'No file selected', // Retrieve from localStorage
     recipeTitle: recipeTitle.value,
@@ -319,8 +304,8 @@ function submitbtn() {
   console.log('Form data saved to localStorage:', formData);
 
 
-  
-  // Show the popup
+
+  //xxxxxxxxxxxxxxxxxxxxxxxxxxx Show the popup xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   const popupcontainer = document.getElementById('backgroundpopupbox');
   popupcontainer.style.display = 'block';
   setTimeout(function () {
