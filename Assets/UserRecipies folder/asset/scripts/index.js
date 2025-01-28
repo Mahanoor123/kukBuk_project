@@ -17,15 +17,15 @@ const additionalBtn = document.getElementById('additionalBtn');
 const additionalContent = document.getElementById('additionalContent');
 
 //xxxxxxxxxxxxxxxxxxxxx 1. File Upload Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-document.addEventListener('DOMContentLoaded', function () {
+document?.addEventListener('DOMContentLoaded', function () {
   const text = document.getElementById('text');
   const inputField = document.getElementById('image');
   const filePreview = document.getElementById('filePreview');
   const changeButton = document.getElementById('changeButton');
 
-  text.addEventListener('click', function () { inputField.click(); });
+  text?.addEventListener('click', function () { inputField.click(); });
 
-  inputField.addEventListener('change', function () {
+  inputField?.addEventListener('change', function () {
     const file = inputField.files[0];
     const reader = new FileReader();
 
@@ -63,14 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
     reader.readAsDataURL(file);
   });
 
-  changeButton.addEventListener('click', function () {
+  changeButton?.addEventListener('click', function () {
     inputField.click();
   });
 });
 
 
 //xxxxxxxxxxxxxxxxxxxxx 2. Recipe Title Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-input.addEventListener('input', function () {
+input?.addEventListener('input', function () {
   let value = input.value;
 
   if (value.length > 20) {
@@ -90,7 +90,7 @@ input.addEventListener('input', function () {
 
 //xxxxxxxxxxxxxxxxxxxxx 3. Checkbox Behavior xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function () {
+  checkbox?.addEventListener('change', function () {
     if (this.checked) {
       checkboxes.forEach(cb => {
         if (cb !== this) {
@@ -103,12 +103,12 @@ checkboxes.forEach(checkbox => {
 
 
 //xxxxxxxxxxxxxxxxxxxxx 4. Ingredient Adding Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-document.addEventListener('DOMContentLoaded', function () {
+document?.addEventListener('DOMContentLoaded', function () {
   const ingredientInput = document.getElementById('ingredientInput')
   const addIngredientBtn = document.getElementById('addIngredientBtn')
   const ingredientList = document.getElementById('ingredientList')
 
-  addIngredientBtn.addEventListener('click', function () {
+  addIngredientBtn?.addEventListener('click', function () {
     const ingredientText = ingredientInput.value.trim()
 
     if (ingredientText === '') {
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     editBtnIngredient.innerHTML = `
   <i class="fas fa-edit"></i>`;
     editBtnIngredient.classList.add('edit-btn-svg-container');
-    editBtnIngredient.addEventListener('click', function () {
+    editBtnIngredient?.addEventListener('click', function () {
       if (ingredientField.readOnly) {
         ingredientField.readOnly = false;
         ingredientField.focus();
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
     deleteBtnIngredient.innerHTML = `
   <i class="fas fa-trash-alt"></i>`;
     deleteBtnIngredient.classList.add('delimg', 'ms-4', 'me-3');
-    deleteBtnIngredient.addEventListener('click', function () {
+    deleteBtnIngredient?.addEventListener('click', function () {
       ingredientList.removeChild(container);
     });
 
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <i class="fas fa-edit" ></i>
 `;
     editBtnQuantity.classList.add('editimg');
-    editBtnQuantity.addEventListener('click', function () {
+    editBtnQuantity?.addEventListener('click', function () {
       if (quantityField.readOnly) {
         quantityField.readOnly = false;
         quantityField.focus();
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <i class="fas fa-trash-alt" ></i>
     `;
     deleteBtnQuantity.classList.add('delimg', 'ms-4', 'me-3');
-    deleteBtnQuantity.addEventListener('click', function () {
+    deleteBtnQuantity?.addEventListener('click', function () {
       ingredientList.removeChild(container);
     });
 
@@ -237,11 +237,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //xxxxxxxxxxxxxxxxxxxxx 5. Additional Button Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-document.addEventListener('DOMContentLoaded', function () {
+document?.addEventListener('DOMContentLoaded', function () {
   const additionalBtn = document.getElementById('additionalBtn')
   const additionalContent = document.getElementById('additionalContent')
 
-  additionalBtn.addEventListener('click', function () {
+  additionalBtn?.addEventListener('click', function () {
     const newContent = document.createElement('div')
     newContent.classList.add(
       'pt-5',
@@ -272,13 +272,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //xxxxxxxxxxxxxxxxxxxxx 6. Submit Button Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-document.addEventListener('DOMContentLoaded', function () {
+document?.addEventListener('DOMContentLoaded', function () {
   // Form will be cleared when revisiting the page
   const form = document.querySelector('form');
-  form.reset();
+  form?.reset();
 
-  document.getElementById('submitBtn').addEventListener('click', submitbtn);
-  document.querySelector('.btn-close').addEventListener('click', closePopup);
+  document.getElementById('submitBtn')?.addEventListener('click', submitbtn);
+  document.querySelector('.btn-close')?.addEventListener('click', closePopup);
 });
 
 function submitbtn() {
