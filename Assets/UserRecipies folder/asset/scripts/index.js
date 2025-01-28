@@ -16,6 +16,8 @@ const preparationInput = document.querySelector('[placeholder="30 mins"]');
 const additionalBtn = document.getElementById('additionalBtn');
 const additionalContent = document.getElementById('additionalContent');
 
+
+
 //xxxxxxxxxxxxxxxxxxxxx 1. File Upload Functionality xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document?.addEventListener('DOMContentLoaded', function () {
   const text = document.getElementById('text');
