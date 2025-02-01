@@ -123,7 +123,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 
     // Create a new container for ingredient and quantity
     const container = document.createElement('div')
-    container.classList.add( 'd-flex', 'ingre', 'justify-content-start', 'align-items-start', 'mb-2')
+    container.classList.add('d-flex', 'ingre', 'justify-content-start', 'align-items-start', 'mb-2')
 
     // Create the ingredient container
     const ingredientContainer = document.createElement('div')
@@ -250,8 +250,7 @@ document?.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-
-
+ 
 //xxxxxxxxxxxxxxxxxxxxx Submit Button Validation xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 document?.addEventListener('DOMContentLoaded', function () {
   // Form will be cleared when revisiting the page
