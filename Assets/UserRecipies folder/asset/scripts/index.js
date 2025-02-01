@@ -299,10 +299,15 @@ function submitbtn() {
     categories: Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.nextElementSibling.innerText)
   };
 
-  let userCollection = JSON.parse(localStorage.getItem('userCollection')) || [];
-  userCollection.push(formData);
-  localStorage.setItem('userCollection', JSON.stringify(userCollection));
-  console.log('Form data saved to localStorage:', formData);
+let userCollection = JSON.parse(localStorage.getItem('userCollection')) || []; 
+
+// Check for duplicates before pushing new data
+if (!userCollection.some(existingRecipe => existingRecipe.recipeTitle === formData.recipeTitle && existingRecipe.description === formData.description)) {
+    userCollection.push(formData);
+}
+
+localStorage.setItem('userCollection', JSON.stringify(userCollection));
+console.log('Form data saved to localStorage:', formData);
 
 
 
