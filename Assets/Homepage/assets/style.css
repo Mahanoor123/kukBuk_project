@@ -626,7 +626,7 @@ main {
   color: var(--primary-color);
 }
 
-/********** Top Recipes Styling **********/
+/********** Newsletter Styling **********/
 
 .newsletter {
   background-color: var(--headings-color);
@@ -655,7 +655,7 @@ main {
   border-radius: 0 1rem 1rem 0;
 }
 
-/********** Top Recipes Styling **********/
+/********** Footer Styling **********/
 
 footer {
   width: 100vw;
@@ -703,6 +703,187 @@ footer {
   color: var(--primary-color);
   margin: 0 0.4rem;
   font-size: 1.1rem;
+}
+
+/********** User Profile **********/
+
+.main_profile {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  width: 40vw;
+  height: 100%;
+  right: -40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  padding: 2rem 3rem;
+  transition: right 0.4s linear;
+}
+.main_profile .user_info img {
+  width: 6rem;
+}
+.user_info {
+  text-align: center;
+}
+.main_profile .user_buttons button {
+  all: unset;
+  background-color: var(--secondary-color);
+  padding: 0.5rem 2rem;
+  display: block;
+  margin: 2rem 0;
+  width: 100%;
+  color: var(--white-color);
+  text-align: center;
+  font-family: "lato";
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.4s linear;
+
+  &:hover {
+    background: var(--gradient-color);
+  }
+}
+.main_profile a {
+  display: block;
+  text-decoration: none;
+  color: var(--headings-color);
+  margin: 1rem 0;
+  font-family: "lato";
+  font-weight: 500;
+}
+
+/********** Full Profile View **********/
+
+.full_profile{
+  padding: 3rem;
+}
+.user_settings{
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.6rem;
+  padding: 2rem;
+}
+.user_settings .user_head{
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1rem solid var(--black-tint3);
+  padding-bottom: 1rem;
+}
+.user_settings .user_img{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.user_settings .user_img img{
+  width: 5rem;
+}
+.user_settings .user_fields{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem 8rem;
+  padding: 2rem 0;
+}
+.user_fields input{
+  all: unset;
+  width: 100%;
+  border-bottom: 0.1rem solid var(--secondary-color);
+  padding: 0.5rem 0;
+}
+.full_profile .social_accounts, .my_recipes_display, .my_favorites{
+  padding: 2rem 0;
+}
+.social_accounts img{
+  width: 4rem;
+  margin-top: 2.5rem;
+}
+.social_accounts .google , .facebook{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid var(--black-tint2);
+  padding: 0.6rem;
+}
+.social_accounts button{
+  all: unset;
+  border: 0.1rem solid var(--secondary-color);
+  padding: 0.5rem 2rem;
+  color: var(--secondary-color);
+  font-family: "lato";
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.4s linear;
+
+  &:hover {
+    background: var(--gradient-color);
+    color: var(--white-color);
+  }
+}
+.my_recipes_display{
+  border-bottom: 0.1rem solid var(--black-tint2);
+}
+.my_recipes_display .recipe_head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.my_recipes{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  padding: 1rem 0;
+}
+.my_recipes .recipe_card{
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+}
+.my_recipes_display button{
+  all: unset;
+  background-color:  var(--secondary-color);
+  padding: 0.5rem 2rem;
+  color: var(--white-color);
+  font-family: "lato";
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.4s linear;
+
+  &:hover {
+    background: var(--gradient-color);
+  }
+}
+.full_profile .logout, .delete_account{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 0.1rem solid var(--black-tint2);
+}
+.full_profile .logout button, .delete_account button{
+  all: unset;
+  background-color:  var(--secondary-color);
+  padding: 0.5rem 2rem;
+  color: var(--white-color);
+  font-family: "lato";
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.4s linear;
+
+  &:hover {
+    background: var(--gradient-color);
+  }
 }
 
 /******************** Media Query ********************/

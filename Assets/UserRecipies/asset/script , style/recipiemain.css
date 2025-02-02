@@ -36,24 +36,6 @@ body {
   --box-shadow: 1px 4px 5px #c3c3c3 !important;
 }
 
-/********* scrollbar css ************/
-::-webkit-scrollbar {
-  width: 6px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1 !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888 !important;
-  border-radius: 10px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555 !important;
-}
-
 h1,
 h2,
 h3,
@@ -70,17 +52,17 @@ h6 {
 /********* button css ************/
 button {
   all: unset;
-  background-color: var(--secondary-color) !important;
-  padding: 0.1rem 2rem !important;
-  color: var(--white-color) !important;
-  font-family: 'lato' !important;
-  font-size: 0.9rem !important;
-  border-radius: 1rem 0 1rem 0 !important;
-  cursor: pointer !important;
-  transition: background 0.4s linear !important;
+  background-color: var(--secondary-color);
+  padding: 0.1rem 2rem;
+  color: var(--white-color);
+  font-family: 'lato';
+  font-size: 0.9rem;
+  border-radius: 1rem 0 1rem 0;
+  cursor: pointer;
+  transition: background 0.4s linear;
 
   &:hover {
-    background: var(--gradient-color) !important;
+    background: var(--gradient-color);
     transform: scale(1.1);
     transition: transform 0.2s;
   }
