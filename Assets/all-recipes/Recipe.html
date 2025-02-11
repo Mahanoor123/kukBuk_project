@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -9,6 +10,76 @@
 </head>
 <body>
      <!------------------------ hero Section----------------------->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./recipe-assets/style.css">
+</head>
+<body>
+    <!-- navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <!-- Logo with Food Text -->
+      <div class="logo">
+        <span class="food-logo">food_</span>
+        <span class="logo-text">link</span>
+      </div>
+
+      <!-- Links -->
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#">Homepage</a>
+        </li>
+        <li class="dropdown">
+          <a href="#">Recipe page <span class="dropdown-icon">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Desserts</a></li>
+            <li><a href="#">Healthy Meals</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Blog</a>
+        </li>
+        <li>
+          <a href="#">FAQs</a>
+        </li>
+      </ul>
+
+      <!-- Profile and Hamburger -->
+      <div class="profile-container">
+        <label for="profile-upload" id="user-profile" class="profile-placeholder">A</label>
+        <input type="file" id="profile-upload" class="file-upload" accept="image/*">
+        <button class="hamburger" id="hamburger">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#">Homepage</a></li>
+        <li>
+          <a href="#">Recipe page</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Desserts</a></li>
+            <li><a href="#">Healthy Meals</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- recipe section -->
+<br><br><br><br>
+<div>
+
+  <!-- Main Container -->
+
 <div class="main-container">
     <!-- Slider -->
     <div class="sliders">
@@ -38,9 +109,20 @@
         <button id="next">></button>
       </div>
     </div>
+
     
    
   <!-- infinit slider -->
+
+    <div class="circle">
+      Cook, Share, Savor – Your Recipes, Our Community!
+    </div>
+    <div class="arow">
+      <button id="prev"><</button>
+      <button id="next">></button>
+    </div>
+  </div>
+
   
   <h1 class="i-s-h">Popular Category</h1>
   <div class="main" >
