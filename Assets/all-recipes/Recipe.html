@@ -1,167 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Navbar</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./recipe-assets/style.css">
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./recipe-assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  
-    <!-- navbar -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <!-- Logo with Food Text -->
-      <div class="logo">
-        <span class="food-logo">food_</span>
-        <span class="logo-text">link</span>
-      </div>
-
-      <!-- Links -->
-      <ul class="nav-links" id="navLinks">
-        <li>
-          <a href="#">Homepage</a>
-        </li>
-        <li class="dropdown">
-          <a href="#">Recipe page <span class="dropdown-icon">▼</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Desserts</a></li>
-            <li><a href="#">Healthy Meals</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Blog</a>
-        </li>
-        <li>
-          <a href="#">FAQs</a>
-        </li>
-      </ul>
-
-      <!-- Profile and Hamburger -->
-      <div class="profile-container">
-        <label for="profile-upload" id="user-profile" class="profile-placeholder">A</label>
-        <input type="file" id="profile-upload" class="file-upload" accept="image/*">
-        <button class="hamburger" id="hamburger">
-          ☰
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="#">Homepage</a></li>
-        <li>
-          <a href="#">Recipe page</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Desserts</a></li>
-            <li><a href="#">Healthy Meals</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">FAQs</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- recipe section -->
-<br><br><br><br>
- 
-
-
-<div>
-
-  <!-- Main Container -->
+     <!------------------------ hero Section----------------------->
 <div class="main-container">
-  <!-- Slider -->
-  <div class="sliders">
-    <div class="list">
-      <div class="item">
-        <img src="./recipe-assets/images/food/1 (2).png">
+    <!-- Slider -->
+    <div class="sliders">
+      <div class="list">
+        <div class="item">
+          <img src="./recipe-assets/images/1 (2).png">
+        </div>
+        <div class="item active">
+          <img src="./recipe-assets/images/2 (2).png">
+        </div>
+        <div class="item">
+          <img src="./recipe-assets/images/3 (1).png">
+        </div>
+        <div class="item">
+          <img src="./recipe-assets/images/4 (1).png">
+        </div>
+        <div class="item">
+          <img src="./recipe-assets/images/5 (1).png">
+        </div>
       </div>
-      <div class="item active">
-        <img src="./recipe-assets/images/food/2 (2).png">
+      <div class="circle">
+        Cook, Share, Savor – Your Recipes, Our Community!
       </div>
-      <div class="item">
-        <img src="./recipe-assets/images/food/3 (1).png">
-      </div>
-      <div class="item">
-        <img src="./recipe-assets/images/food/4 (1).png">
-      </div>
-      <div class="item">
-        <img src="./recipe-assets/images/food/5 (1).png">
+  
+      <div class="arow">
+        <button id="prev"><</button>
+        <button id="next">></button>
       </div>
     </div>
-    <div class="circle">
-      Cook, Share, Savor – Your Recipes, Our Community!
-    </div>
-
-    <div class="arow">
-      <button id="prev"><</button>
-      <button id="next">></button>
-    </div>
+    
+   
+  <!-- infinit slider -->
+  
+  <h1 class="i-s-h">Popular Category</h1>
+  <div class="main" >
+  
+  <div class="slider" reverse="true" style=" 
+  --width: 200px;
+  --height: 200px;
+  --quantity: 9;
+  ">
+  <div class="list">
+    
+      <div class="item" style="--position: 1"><img src="./recipe-assets/images/food (1).jpg" alt=""></div>
+      <div class="item" style="--position: 2"><img src="./recipe-assets/images/food (2).jpg" alt=""></div>
+      <div class="item" style="--position: 3"><img src="./recipe-assets/images/food (3).jpg" alt=""></div>
+      <div class="item" style="--position: 4"><img src="./recipe-assets/images/food (4).jpg" alt=""></div>
+      <div class="item" style="--position: 5"><img src="./recipe-assets/images/food.jpg" alt=""></div>
+      <div class="item" style="--position: 6"><img src="./recipe-assets/images/food1.jpg" alt=""></div>
+      
+  </div>
+  </div>
   </div>
   
+  <br><br><br><br>
+  <!-- //////////////// All Cards ////////////////////// -->
+
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search recipes..." oninput="searchRecipes()">
+    <select id="cuisine" onchange="filterRecipesByCuisine()">
+      <option value="">Select Cuisine</option>
+      <option value="italian">Italian</option>
+      <option value="indian">Indian</option>
+      <option value="mexican">Mexican</option>
+      <option value="chinese">Chinese</option>
+    </select>
+  </div>
+  <section class="recipes_cards_display" id="recipes"></section>
+  <div class="pagination" id="pagination"></div>
+
+
  
-<!-- infinit slider -->
-
-<h1 class="i-s-h">Popular Category</h1>
-<div class="main" >
-
-<div class="slider" reverse="true" style=" 
---width: 200px;
---height: 200px;
---quantity: 9;
-">
-<div class="list">
-  <img src="./recipe-assets/images/food/stir.png" alt="">
-    <div class="item" style="--position: 1"><img src="./recipe-assets/images/food/pasta/pasta (4).png" alt=""></div>
-    <div class="item" style="--position: 2"><img src="./recipe-assets/images/food/breakfast/breakfast (1).png" alt=""></div>
-    <div class="item" style="--position: 3"><img src="./images/food/steak/steak (1).png" alt=""></div>
-    <div class="item" style="--position: 4"><img src="./recipe-assets/images/food/pizza/pizza (1).png" alt=""></div>
-    <div class="item" style="--position: 5"><img src="./recipe-assets/images/food/breakfast/breakfast (3).png" alt=""></div>
-    <div class="item" style="--position: 6"><img src="./recipe-assets/images/food/pizza/pizza (4).png" alt=""></div>
-    <div class="item" style="--position: 7"><img src="./recipe-assets/images/food/pasta/pasta (4).png" alt=""></div>
-    <div class="item" style="--position: 8"><img src="./recipe-assets/images/food/4 (1).png" alt=""></div>
-    <div class="item" style="--position: 9"><img src="./recipe-assets/images/food/breakfast/breakfast (4).png" alt=""></div>
-    
-</div>
-</div>
-</div>
-
-<br><br><br><br>
-<!-- //////////////// All Cards ////////////////////// -->
-
-
-<div class="content-wrapper " style="background-color: rgb(253, 215, 169);">
-  <!-- Filter Section -->
-  <div class="filter-section">
-      <div class="search-bar">
-          <input type="text" id="search" placeholder="Search recipes..." />
-      </div>
-      <div class="filter-button">
-          <button id="filter-btn">Filter</button>
-      </div>
-  </div>
-
-  <!-- Recipe Grid Section -->
-  <div class="recipe-grid">
-      <!-- Cards will be dynamically added here -->
-  </div>
-  <div class="pagination"></div>
-
-</div>
-
-
-
-
-
-
-
   <script src="./recipe-assets/script.js"></script>
   
 </body>

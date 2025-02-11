@@ -1,27 +1,4 @@
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const profileUpload = document.getElementById('profile-upload');
-const userProfile = document.getElementById('user-profile');
-
-// Toggle mobile menu
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-});
-
-// Upload profile picture
-profileUpload.addEventListener('change', (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      userProfile.style.backgroundImage = `url(${reader.result})`;
-      userProfile.style.backgroundSize = 'cover';
-      userProfile.textContent = '';
-    };
-    reader.readAsDataURL(file);
-  }
-});
-// slider///////////////////////////////////////
+// ------------------Hero Secton-------------------//
 
 
 
@@ -72,209 +49,96 @@ textCircle.forEach((value, key) => {
 
 
 
-// <!-- //////////////// All Cards ////////////////////// -->
+// ------------------All Cards-------------------//
 
 
-// Updated Recipe Data with vegetarian property
-const recipes = [
-  {
-    name: 'Delicious Pasta',
-    rating: '★★★★★',
-    chef: 'Chef John Doe',
-    image: './recipe-assets/images/food/1 (2).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Tasty Pizza',
-    rating: '★★★★☆',
-    chef: 'Chef Jane Smith',
-    image: './recipe-assets/images/food/2 (2).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Mouthwatering Burger',
-    rating: '★★★★☆',
-    chef: 'Chef Mike Lee',
-    image: './recipe-assets/images/food/3 (1).png',
-    isVegetarian: false,
-  },
-  {
-    name: 'Vegetable Stir Fry',
-    rating: '★★★★★',
-    chef: 'Chef Anna Kim',
-    image: './recipe-assets/images/food/4 (1).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Grilled Chicken',
-    rating: '★★★★☆',
-    chef: 'Chef Sarah Brown',
-    image: './recipe-assets/images/food/grilled.png',
-    isVegetarian: false,
-  },
-  {
-    name: 'Hearty Soup',
-    rating: '★★★★☆',
-    chef: 'Chef Oliver Stone',
-    image: 'https://img.freepik.com/free-photo/lentil-soup-with-mixed-ingredients-herbs-white-bowl_114579-3082.jpg?t=st=1735569047~exp=1735572647~hmac=978658f8f46b319cd7ae1920ac45f0cce0fbea256d5d17e801127529f11bda81&w=900',
-    isVegetarian: true,
-  },
-  {
-    name: 'Classic Salad',
-    rating: '★★★★★',
-    chef: 'Chef Emily Green',
-    image: './recipe-assets/images/food/breakfast/breakfast (2).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Cheesy Nachos',
-    rating: '★★★★☆',
-    chef: 'Chef Tony Stark',
-    image: './recipe-assets/images/food/pizza/pizza (5).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'BBQ Ribs',
-    rating: '★★★★☆',
-    chef: 'Chef Bruce Wayne',
-    image: './recipe-assets/images/food/steak/steak (5).png',
-    isVegetarian: false,
-  },
-  {
-    name: 'Spicy Tacos',
-    rating: '★★★★★',
-    chef: 'Chef Clark Kent',
-    image: './recipe-assets/images/food/steak/steak (2).png',
-    isVegetarian: false,
-  },
-  {
-    name: 'Margherita Pizza',
-    rating: '★★★★☆',
-    chef: 'Chef Diana Prince',
-    image: './recipe-assets/images/food/pasta/pasta (4).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Stuffed Bell Peppers',
-    rating: '★★★★★',
-    chef: 'Chef Peter Parker',
-    image: './recipe-assets/images/food/bell.png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Beef Steak',
-    rating: '★★★★☆',
-    chef: 'Chef Steve Rogers',
-    image: './recipe-assets/images/food/pasta/pasta (1).png',
-    isVegetarian: false,
-  },
-  {
-    name: 'Creamy Risotto',
-    rating: '★★★★★',
-    chef: 'Chef Natasha Romanoff',
-    image: './recipe-assets/images/food/pizza/pizza (4).png',
-    isVegetarian: true,
-  },
-  {
-    name: 'Fish and Chips',
-    rating: '★★★★☆',
-    chef: 'Chef Arthur Curry',
-    image: 'https://img.freepik.com/premium-photo/fish-chips-with-french-fries_1339-77069.jpg?w=900',
-    isVegetarian: false,
-  },
-];
-
-
-// Constants
-const recipeGrid = document.querySelector('.recipe-grid');
-const filterBtn = document.getElementById('filter-btn');
-const searchInput = document.getElementById('search');
-const itemsPerPage = 12; // 4 rows x 3 cards per row
+let allRecipes = [];
+let filteredRecipes = [];
 let currentPage = 1;
-let filteredRecipes = [...recipes];
-let currentFilter = 'all';
+const itemsPerPage = 9;
 
-// Render recipe cards
-function renderRecipes(recipesToRender) {
-  recipeGrid.innerHTML = ''; // Clear the grid
-  recipesToRender.forEach((recipe, index) => {
-    const card = document.createElement('div');
-    card.classList.add('hero-card');
+// Fetch recipes from API
+fetch("https://dummyjson.com/recipes")
+  .then((response) => response.json())
+  .then((data) => {
+    allRecipes = data.recipes;
+    filteredRecipes = allRecipes;
+    displayRecipesWithPagination();
+  });
+
+function displayRecipesWithPagination() {
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const recipesToDisplay = filteredRecipes.slice(start, end);
+
+  displayRecipes(recipesToDisplay);
+  updatePaginationButtons();
+}
+
+function displayRecipes(data) {
+  const recipesContainer = document.getElementById("recipes");
+  recipesContainer.innerHTML = "";
+
+  data.forEach((recipe) => {
+    const card = document.createElement("div");
+    card.className = "recipe_card";
     card.innerHTML = `
-      <div class="left-section">
-          <div class="recipe-name">${recipe.name}</div>
-          <div class="rating">${recipe.rating}</div>
-          <div class="chef-name">By ${recipe.chef}</div>
-          <button class="view-recipe-btn"><a href="./recipe.html">View Recipe</a></button>
+      <div class="recipe_content">
+        <h5>${recipe.name}</h5>
+        <div class="stars">Rating: ${recipe.rating || '★★★★☆'}</div>
+        <div class="chef">
+          <img src="https://via.placeholder.com/40" alt="Chef">
+          <span>Chef John Doe</span>
+        </div>
+        <button class="recipe_btn" onclick="viewRecipe(${recipe.id})">View Recipe</button>
+
       </div>
-      <div class="right-section">
-          <div class="dish-ring">
-              <img id="dish-image-${index}" src="${recipe.image}" alt="${recipe.name}">
-          </div>
-      </div>
+      <img src="${recipe.image}" alt="Recipe Image" class="recipe_img">
     `;
-    recipeGrid.appendChild(card);
+
+    recipesContainer.appendChild(card);
   });
 }
 
-// Update pagination
-function renderPagination(totalItems) {
-  const paginationWrapper = document.querySelector('.pagination');
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  paginationWrapper.innerHTML = ''; // Clear previous buttons
+function updatePaginationButtons() {
+  const paginationContainer = document.getElementById("pagination");
+  paginationContainer.innerHTML = "";
+
+  const totalPages = Math.ceil(filteredRecipes.length / itemsPerPage);
 
   for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement('button');
+    const button = document.createElement("button");
     button.textContent = i;
-    button.classList.add('pagination-btn');
-    if (i === currentPage) button.classList.add('active');
-    button.addEventListener('click', () => {
+    button.className = i === currentPage ? "disabled" : "";
+    button.disabled = i === currentPage;
+    button.onclick = () => {
       currentPage = i;
-      displayPage();
-    });
-    paginationWrapper.appendChild(button);
+      displayRecipesWithPagination();
+    };
+
+    paginationContainer.appendChild(button);
   }
 }
 
-// Display recipes for the current page
-function displayPage() {
-  const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  renderRecipes(filteredRecipes.slice(start, end));
-  renderPagination(filteredRecipes.length);
+function searchRecipes() {
+  const searchQuery = document.getElementById("search").value.toLowerCase();
+  filteredRecipes = allRecipes.filter((recipe) =>
+    recipe.name.toLowerCase().includes(searchQuery)
+  );
+  currentPage = 1;
+  displayRecipesWithPagination();
 }
 
-// Search functionality
-searchInput.addEventListener('input', (e) => {
-  const searchText = e.target.value.toLowerCase();
-  filteredRecipes = recipes.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchText) &&
-    (currentFilter === 'all' ||
-      (currentFilter === 'vegetarian' && recipe.isVegetarian) ||
-      (currentFilter === 'non-vegetarian' && !recipe.isVegetarian))
-  );
+function filterRecipesByCuisine() {
+  const cuisine = document.getElementById("cuisine").value.toLowerCase();
+  filteredRecipes = cuisine
+    ? allRecipes.filter((recipe) => recipe.cuisine && recipe.cuisine.toLowerCase() === cuisine)
+    : allRecipes;
   currentPage = 1;
-  displayPage();
-});
+  displayRecipesWithPagination();
+}
 
-// Filter button functionality
-filterBtn.addEventListener('click', () => {
-  const filterOptions = ['all', 'vegetarian', 'non-vegetarian'];
-  const currentIndex = filterOptions.indexOf(currentFilter);
-  currentFilter = filterOptions[(currentIndex + 1) % filterOptions.length];
-
-  filterBtn.textContent = `Filter: ${currentFilter
-    .replace('-', ' ')
-    .toUpperCase()}`;
-  filteredRecipes = recipes.filter(
-    (recipe) =>
-      currentFilter === 'all' ||
-      (currentFilter === 'vegetarian' && recipe.isVegetarian) ||
-      (currentFilter === 'non-vegetarian' && !recipe.isVegetarian)
-  );
-  currentPage = 1;
-  displayPage();
-});
-
-// Initial render
-displayPage();
+function viewRecipe(recipeId) {
+  // Redirect to recipe-details.html page and pass the recipe ID via URL
+  window.location.href = `details-recipe.html?id=${recipeId}`;
+}
