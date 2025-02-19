@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Css File -->
+    <link rel="stylesheet" href="../css/userProfile.css">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <main>
+        <!---------- Full View Profile Code ---------->
+        <section class="full_profile">
+            <div class="user_settings">
+                <div class="user_head">
+                    <h3>Profile</h3>
+                    <button class="save_user">Save Profile</button>
+                </div>
+                <div class="user_img">
+                    <img src="../assets/logo&profiles/chef-pic1 2.png" class="user_pic">
+                    <button class="change_user_pic"><i class="fa-solid fa-edit"> </i>Change Image</button>
+                </div>
+                <div class="user_fields">
+                    <div class="username">
+                        <h6>Username</h6>
+                        <div class="field">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Jane Doe">
+                        </div>
+                    </div>
+                    <div class="usertag">
+                        <h6>User category</h6>
+                        <div class="field">
+                            <i class="fa-solid fa-tag"></i>
+                            <input type="text" placeholder="Master chef">
+                        </div>
+                    </div>
+                    <div class="useremail">
+                        <h6>Email</h6>
+                        <div class="field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" placeholder="Janee123@gmail.com">
+                        </div>
+                    </div>
+                    <div class="userPassword">
+                        <h6>Password</h6>
+                        <div class="field">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="******">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social_accounts">
+                <h3>Connected Accounts</h3>
+                <img src="../assets/logo&profiles/google.png" alt="Google">
+                <div class="google">
+                    <p>Janee123@gmail.com</p>
+                    <button>Disconnect</button>
+                </div>
+                <img src="../assets/logo&profiles/facebook.png" alt="Facebook">
+                <div class="facebook">
+                    <h6>Facebook</h6>
+                    <button>Disconnect</button>
+                </div>
+            </div>
+
+            <div class="my_recipes_display">
+                <div class="recipe_head">
+                    <h3>My Recipes</h3>
+                    <button onclick="window.open('../User-recipes/html/recipeForm/html')">+ Add new recipe</button>
+                </div>
+                <div class="my_recipes">
+                    <div class="recipe_card">
+                        <div class="recipe_content">
+                            <h5>Chinese cheese pasta</h5>
+                            <div class="rating">
+                                4.87
+                            </div>
+                            <div class="chef">
+                                <img src="../assets/chefs/chef1.jpg">
+                                <p>Janee doe</p>
+                            </div>
+                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
+                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        </div>
+                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
+                    </div>
+                    <div class="recipe_card">
+                        <div class="recipe_content">
+                            <h5>Chinese cheese pasta</h5>
+                            <div class="rating">
+                                4.87
+                            </div>
+                            <div class="chef">
+                                <img src="../assets/chefs/chef1.jpg">
+                                <p>Janee doe</p>
+                            </div>
+                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
+                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        </div>
+                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
+                    </div>
+                    <div class="recipe_card">
+                        <div class="recipe_content">
+                            <h5>Chinese cheese pasta</h5>
+                            <div class="rating">
+                                4.87
+                            </div>
+                            <div class="chef">
+                                <img src="../assets/chefs/chef1.jpg">
+                                <p>Janee doe</p>
+                            </div>
+                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
+                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        </div>
+                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
+                    </div>
+                </div>
+                <a href="#">View All</a>
+            </div>
+
+            <div class="my_favorites">
+                <h3>My Favorites</h3>
+                <div class="my_recipes">
+                    <div class="recipe_card">
+                        <div class="recipe_content">
+                            <h5>Chinese cheese pasta</h5>
+                            <div class="rating">
+                                4.87
+                            </div>
+                            <div class="chef">
+                                <img src="../assets/chefs/chef1.jpg">
+                                <p>Janee doe</p>
+                            </div>
+                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
+                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        </div>
+                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
+                    </div>
+                    <div class="recipe_card">
+                        <div class="recipe_content">
+                            <h5>Chinese cheese pasta</h5>
+                            <div class="rating">
+                                4.87
+                            </div>
+                            <div class="chef">
+                                <img src="../assets/chefs/chef1.jpg">
+                                <p>Janee doe</p>
+                            </div>
+                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
+                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        </div>
+                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
+                    </div>
+                    <div class="recipe_card">
+                        <div class="recipe_content">
+                            <h5>Chinese cheese pasta</h5>
+                            <div class="rating">
+                                4.87
+                            </div>
+                            <div class="chef">
+                                <img src="../assets/chefs/chef1.jpg">
+                                <p>Janee doe</p>
+                            </div>
+                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
+                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
+                        </div>
+                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
+                    </div>
+                </div>
+                <a href="#">View All</a>
+            </div>
+            <div class="logout">
+                <h5>Logout</h5>
+                <button><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+            </div>
+            <div class="delete_account">
+                <h5>Delete Account</h5>
+                <button><i class="fa-solid fa-right"></i>Delete Account</button>
+            </div>
+        </section>
+    </main>
+
+    <!---------- Footer Code ---------->
+    <footer>
+        <div class="footer1">
+            <div class="foot_logo">
+                <img src="../assets/logo&profiles/recipe-logo.png">
+            </div>
+            <div class="foot_image">
+                <img src="../assets/logo&profiles/foot_image.png">
+            </div>
+            <div class="foot_links">
+                <h6>Links</h6>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Blog</a>
+                <a href="#">Recipes</a>
+            </div>
+            <div class="foot_legal">
+                <h6>Legal</h6>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact</a>
+                <a href="#">Cookies</a>
+                <a href="#">Copyrights</a>
+            </div>
+        </div>
+        <div class="footer2">
+            <div class="copy_text">
+                <p>© Copyright 2025 | All Rights Reserved</p>
+            </div>
+            <div class="social_icons">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/userProfile.js"></script>
+</body>
+
+</html>
