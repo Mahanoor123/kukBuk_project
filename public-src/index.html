@@ -22,7 +22,7 @@
             </div>
             <div class="links">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <button onclick="window.open('./Assets/User-recipes/html/login.html')">Login</button>
+                <button onclick="window.open('./Assets/User-recipes/html/login.html')" class="login_btn">Login</button>
                 <img src="./Assets/Homepage/assets/logo&profiles/user.png" class="user_profile">
             </div>
         </nav>
@@ -303,17 +303,15 @@
                 <small class="user_tag">Master Chef</small>
             </div>
             <div class="user_buttons">
-                <button onclick="window.open('./Assets/Homepage/html/profile.html')" class="add_recipe">
-                    <i class="fa-solid fa-gear"></i>Dashboard</button>
-                <button onclick="window.open('./Assets/User-recipes/html/recipeForm.html')" class="add_recipe"><i
-                        class="fa-solid fa-plus"></i> Add new recipe</button>
-                <button class="wishlist"><i class="fa-solid fa-heart"></i> My Wishlist</button>
-                <button onclick="window.open('./Assets/User-recipes/html/userRecipe.html')" class="my_recipes"><i
-                        class="fa-solid fa-plate-wheat"></i>My Recipes</button>
+                <button class="add_recipe"><i class="fa-solid fa-plus"></i> Add new recipe</button>
+                <button onclick="window.open('./Assets/User-recipes/html/userRecipe.html')" class="user-setting">
+                    <i class="fa-solid fa-plate-wheat"></i>User Dashboard</button>
+                <button onclick="window.open('./Assets/Homepage/html/profile.html')"><i
+                        class="fa-solid fa-gear"></i>User Settings</button>
                 <button class="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
                 <a href="#"><i class="fa-solid fa-globe"></i> Community</a>
             </div>
-            <i class="fa-solid fa-close"></i>
+            <i class="fa-solid fa-close" id="close-profile"></i>
         </section>
     </main>
 
@@ -353,7 +351,7 @@
         </div>
     </footer>
 
-    <script src="./Assets/Homepage/js/index.js"></script>
+    <script type="module" src="../public-src/Assets/Homepage/js/index.js"></script>
 </body>
 
 </html>

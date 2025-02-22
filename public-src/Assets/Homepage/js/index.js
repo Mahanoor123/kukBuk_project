@@ -1,11 +1,42 @@
+import { onAuthStateChanged, auth, signOut } from "/firebase/firebase-config.js";
+
+onAuthStateChanged(auth, async (user) => {
+  const loginBtn = document.querySelector(".login_btn");
+  const userProfile = document.querySelector(".user_profile");
+
+  if (user) {
+    console.log("User Logged in");
+    if (loginBtn) loginBtn.style.display = "none"; 
+    if (userProfile) userProfile.style.display = "block"; 
+  } else {
+    console.log("No user logged in");
+    if (userProfile) userProfile.style.display = "none"; 
+    if (loginBtn) loginBtn.style.display = "block";
+  }
+});
+
+/***** User profile slider *****/
 
 document.querySelector(".user_profile")?.addEventListener("click", () => {
   document.querySelector(".main_profile").style.right = "0";
 });
 
-document.querySelector(".fa-close")?.addEventListener("click", () => {
-  document.querySelector(".main_profile").style.right = "-40vw";
-});
+document
+  .querySelector(".main_profile .fa-close")
+  ?.addEventListener("click", () => {
+    document.querySelector(".main_profile").style.right = "-50vw";
+  });
+
+  const userLogOut = async () => {
+    try {
+      await signOut(auth);
+      alert("You have been logged out successfully!");
+      window.location.href = "/public-src/index.html";
+    } catch (error) {
+      console.error("Logout Error:", error.message);
+    }
+  };
+document.querySelector(".logout")?.addEventListener("click", userLogOut);
 
 /***** Static Card Generator *****/
 
@@ -253,5 +284,3 @@ document.querySelectorAll(".chef_btn")?.forEach((button, val) => {
     document.querySelector(".chef_preview").style.display = "none";
   });
 });
-
-

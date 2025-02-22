@@ -14,48 +14,68 @@
 <body>
     <main>
         <!---------- Full View Profile Code ---------->
+        <a href="/public-src/index.html">go to home</a>
         <section class="full_profile">
             <div class="user_settings">
                 <div class="user_head">
                     <h3>Profile</h3>
-                    <button class="save_user">Save Profile</button>
+                    <button class="update_user"><i class="fa-solid fa-pen"></i>Update Profile</button>
                 </div>
                 <div class="user_img">
                     <img src="../assets/logo&profiles/chef-pic1 2.png" class="user_pic">
-                    <button class="change_user_pic"><i class="fa-solid fa-edit"> </i>Change Image</button>
+                    <input type="file" class="change_user_pic">
                 </div>
                 <div class="user_fields">
                     <div class="username">
                         <h6>Username</h6>
                         <div class="field">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Jane Doe">
+                            <input type="text" placeholder="Jane Doe" id="prof-username">
                         </div>
                     </div>
                     <div class="usertag">
                         <h6>User category</h6>
                         <div class="field">
                             <i class="fa-solid fa-tag"></i>
-                            <input type="text" placeholder="Master chef">
+                            <input type="text" placeholder="Master chef" id="prof-category">
                         </div>
                     </div>
                     <div class="useremail">
                         <h6>Email</h6>
                         <div class="field">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" placeholder="Janee123@gmail.com">
+                            <input type="email" placeholder="Janee123@gmail.com" id="prof-email">
                         </div>
                     </div>
-                    <div class="userPassword">
-                        <h6>Password</h6>
+                    <div class="userGender">
+                        <h6>Gender</h6>
                         <div class="field">
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" placeholder="******">
+                            <i class="fa-solid fa-venus-mars"></i>
+                            <input type="text" placeholder="gender" id="prof-gender">
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!---------- Update profile form ---------->
+
+            <div class="change_profile_popup">
+                <form class="update_profile">
+                    <div class="update_img">
+                        <img src="../assets/logo&profiles/chef-pic1 2.png" class="user_pic">
+                        <input type="file" class="change_user_pic">
+                    </div>
+                    <div class="form_inputs">
+                        <input type="text" placeholder="Username" id="name">
+                        <input type="text" placeholder="Chef-category" id="category">
+                        <input type="text" placeholder="Chef-gender" id="gender">
+                        <input type="email" placeholder="Email" id="email">
+                    </div>
+                    <button type="submit" class="save_profile">Save profile</button>
+                </form>
+                <i class="fa-solid fa-close"></i>
+            </div>
+            
             <div class="social_accounts">
                 <h3>Connected Accounts</h3>
                 <img src="../assets/logo&profiles/google.png" alt="Google">
@@ -70,119 +90,40 @@
                 </div>
             </div>
 
-            <div class="my_recipes_display">
-                <div class="recipe_head">
-                    <h3>My Recipes</h3>
-                    <button onclick="window.open('../User-recipes/html/recipeForm/html')">+ Add new recipe</button>
+            <div class="changePswd">
+                <h5>Update Password</h5>
+                <button id="changePswd"><i class="fa-solid fa-lock"></i>Change pssword</button>
+            </div>
+            <!---------- Change password popup ---------->
+
+            <div class="change_password">
+                <div class="change-password-section">
+                    <h5>Change Password</h5>
+                    <div class="field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="current-password" placeholder="Current Password">
+                    </div>
+                    <div class="field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="new-password" placeholder="New Password">
+                    </div>
+                    <div class="field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirm-password" placeholder="Confirm New Password">
+                    </div>
+                    <button id="change-password-btn">Update Password</button>
                 </div>
-                <div class="my_recipes">
-                    <div class="recipe_card">
-                        <div class="recipe_content">
-                            <h5>Chinese cheese pasta</h5>
-                            <div class="rating">
-                                4.87
-                            </div>
-                            <div class="chef">
-                                <img src="../assets/chefs/chef1.jpg">
-                                <p>Janee doe</p>
-                            </div>
-                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
-                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                        </div>
-                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
-                    </div>
-                    <div class="recipe_card">
-                        <div class="recipe_content">
-                            <h5>Chinese cheese pasta</h5>
-                            <div class="rating">
-                                4.87
-                            </div>
-                            <div class="chef">
-                                <img src="../assets/chefs/chef1.jpg">
-                                <p>Janee doe</p>
-                            </div>
-                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
-                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                        </div>
-                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
-                    </div>
-                    <div class="recipe_card">
-                        <div class="recipe_content">
-                            <h5>Chinese cheese pasta</h5>
-                            <div class="rating">
-                                4.87
-                            </div>
-                            <div class="chef">
-                                <img src="../assets/chefs/chef1.jpg">
-                                <p>Janee doe</p>
-                            </div>
-                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
-                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                        </div>
-                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
-                    </div>
-                </div>
-                <a href="#">View All</a>
+                <i class="fa-solid fa-close"></i>
             </div>
 
-            <div class="my_favorites">
-                <h3>My Favorites</h3>
-                <div class="my_recipes">
-                    <div class="recipe_card">
-                        <div class="recipe_content">
-                            <h5>Chinese cheese pasta</h5>
-                            <div class="rating">
-                                4.87
-                            </div>
-                            <div class="chef">
-                                <img src="../assets/chefs/chef1.jpg">
-                                <p>Janee doe</p>
-                            </div>
-                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
-                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                        </div>
-                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
-                    </div>
-                    <div class="recipe_card">
-                        <div class="recipe_content">
-                            <h5>Chinese cheese pasta</h5>
-                            <div class="rating">
-                                4.87
-                            </div>
-                            <div class="chef">
-                                <img src="../assets/chefs/chef1.jpg">
-                                <p>Janee doe</p>
-                            </div>
-                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
-                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                        </div>
-                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
-                    </div>
-                    <div class="recipe_card">
-                        <div class="recipe_content">
-                            <h5>Chinese cheese pasta</h5>
-                            <div class="rating">
-                                4.87
-                            </div>
-                            <div class="chef">
-                                <img src="../assets/chefs/chef1.jpg">
-                                <p>Janee doe</p>
-                            </div>
-                            <button class="recipe_btn" onclick="window.open('../all-recipes/fullview.html')"><i
-                                    class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                        </div>
-                        <img src="../assets/Recipes/recipe1.png" class="recipe_img">
-                    </div>
-                </div>
-                <a href="#">View All</a>
-            </div>
             <div class="logout">
                 <h5>Logout</h5>
-                <button><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+                <button id="logoutUser"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
             </div>
+
             <div class="delete_account">
                 <h5>Delete Account</h5>
-                <button><i class="fa-solid fa-right"></i>Delete Account</button>
+                <button id="deleteUser"><i class="fa-solid fa-trash"></i>Delete Account</button>
             </div>
         </section>
     </main>
@@ -223,7 +164,7 @@
         </div>
     </footer>
 
-    <script src="../js/userProfile.js"></script>
+    <script type="module" src="../js/userProfile.js"></script>
 </body>
 
 </html>

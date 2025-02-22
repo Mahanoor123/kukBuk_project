@@ -1,63 +1,133 @@
-// ----------------------------------------------------for user loginin
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "./firebase.config.js";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  doc, setDoc, db, serverTimestamp
+} from "/firebase/firebase-config.js";
+
+// ----------------------------------------------------for user signup
+
 
 const register = async (e) => {
-    e.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  e.preventDefault();
+  
+  const username = document.getElementById("name")?.value;
+  const category = document.getElementById("category")?.value;
+  const gender = document.getElementById("gender")?.value;
+  const email = document.getElementById("email")?.value;
+  const password = document.getElementById("password")?.value;
 
-    console.log(name);
-    console.log(email);
-    console.log(password);
+  if (!username || !category || !email || !password) {
+    console.error("Please fill in all fields.");
+    return;
+  }
+
+  try {
+    let userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    let user = userCredential?.user;
     
-    try {
-        let userCredintial = await createUserWithEmailAndPassword(auth, email, password);
-        console.log(userCredintial?.user);
+    if (!user) {
+      console.error("User creation failed.");
+      return;
     }
-    catch (error) {
-        console.log(error.message);
-    }
+
+    // Send email verification
+    await sendEmailVerification(user);
+    alert("Verification email sent. Please verify your email before logging in.");
+
+    // if (!auth.currentUser.emailVerified) {
+    //   alert("Please verify your email before accessing the app.");
+    //   return;
+    // }    
+
+    // Store user data in Firestore
+    await setDoc(doc(db, "Users", user.uid), {  
+      username,
+      category,
+      gender,
+      email,
+      timestamp: serverTimestamp()
+    });
+
+    // Redirect after successful signup
+    window.location.pathname = "/public-src/Assets/Homepage/html/profile.html";
+
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
 };
 
-document.getElementById("signup-form")?.addEventListener("submit", register);
+document.getElementById("signup")?.addEventListener("submit", register);
 
 
+// ----------------------------------------------------for user SignIn
 
-// ----------------------------------------------------for user signin
 const signIn = async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    console.log(email);
-    console.log(password);
-    
-    try {
-        let userCredintial = await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
-        console.log(userCredintial?.user);
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-        if (userCredintial?.user) window.location.pathname = "/index.html";
-    } catch (error) {
-        console.log(error.message);
-    }
+  try {
+    let userCredintial = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    let user = userCredintial?.user;
+    console.log(user);
+
+    await sendEmailVerification(auth.currentUser);
+
+    alert("Verification email send to your account, check your email");
+
+    if (userCredintial?.user) window.location.pathname = "/public-src/";
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-console.log(window.location.pathname);
 document.getElementById("login-form")?.addEventListener("submit", signIn);
 
+// ---------------------------------------------------- Google Login
 
-// ----------------------------------------------------for user
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        const uid = user.uid;
-        console.log(uid);
-    }
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 
-    else {
-        console.log("user signed out");
+const _sigInWithGoogle = async () => {
+  try {
+    await signOut(auth);
+    console.log("User signed out before sign-in attempt.");
+
+    const result = await signInWithPopup(auth, provider);
+    console.log("User signed in:", result.user);
+  } catch (error) {
+    console.error("Google Sign-In Error:", error.message);
+  }
+};
+
+document
+  .getElementById("signinWithGoogle")
+  ?.addEventListener("click", _sigInWithGoogle);
+
+// ---------------------------------------------------- Forgot password link
+
+const _fPassword = async ()=>{
+    try {
+      const email = document.getElementById("email").value;
+      await sendPasswordResetEmail(auth, email);
+
+      alert("Reset password send to your email");
+
+    } catch (error) {
+      console.log(error);
+      
     }
-});
+  }
+  
+  document.getElementById("forgot_password")?.addEventListener("click",  _fPassword);

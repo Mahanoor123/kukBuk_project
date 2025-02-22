@@ -15,12 +15,14 @@
 <body>
 
     <div class="main">
-        <section class="signup_form" id="signup">
+        <form class="signup_form" id="signup">
             <img src="../asset/logo_imgs/User signin.png" alt="User Signin" class="profile">
             <div class="form_inputs">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Username" id="name">
+                <input type="text" placeholder="Chef-category" id="category">
+                <input type="text" placeholder="Chef-gender" id="gender">
+                <input type="email" placeholder="Email" id="email">
+                <input type="password" placeholder="Password" id="password">
             </div>
             <div class="google_signup">
                 <p>----------Or SignUp with----------</p>
@@ -29,11 +31,13 @@
                 </a>
             </div>
             <div class="signup_btn">
-                <button>SignUp</button>
+                <button type="submit">SignUp</button>
             </div>
             <p class="login_link">Already have an account? <a href="./login.html">Login</a> here</p>
-        </section>
+        </form>
     </div>
+
+    <script type="module" src="../js/signup-login.js"></script>
 </body>
 
 </html>
