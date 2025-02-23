@@ -11,7 +11,6 @@ import {
   EmailAuthProvider,
   updateDoc,
   sendEmailVerification,
-  updateEmail
 } from "/firebase/firebase-config.js";
 
 /****************************************************/
