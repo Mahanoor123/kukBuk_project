@@ -93,6 +93,7 @@ body {
   background: #555 !important;
 }
 
+
 /***********************************/
 
 h1 {
@@ -139,8 +140,8 @@ h1 {
   border-radius: 0 !important;
 }
 
-.form-control input {
 
+.form-control input {
   all: unset !important;
 }
 
@@ -149,6 +150,10 @@ h1 {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
+
+.input-group input:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .form-check-input {
@@ -164,12 +169,25 @@ h1 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
 }
 
+
 .form-control{
   border-bottom: 2px solid #ff9900 !important;
 }
 
+
 .font {
   font-weight: 500 !important;
+}
+
+
+.edit {
+  border: none !important;
+}
+
+.editimg {
+  width: 15px !important;
+  height: 15px !important;
+  cursor: pointer !important;
 }
 
 .Ingredient {
@@ -185,6 +203,24 @@ h1 {
   background-color: var(--orange) !important;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
 }
+
+
+.delimg {
+  width: 15px !important;
+  height: 15px !important;
+  cursor: pointer !important;
+}
+
+.Additional {
+  width: 200px !important;
+  border-radius: 15px !important;
+  background-color: rgba(128, 128, 128, 0.193);
+}
+
+.Additional:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+}
+
 
 .add {
   width: 40px !important;
@@ -308,6 +344,14 @@ input {
 }
 
 /* -------------------------------------------- */
+
+img:hover {
+  transform: scale(1.2) !important;
+  transition: transform 0.2s !important;
+}
+
+/* -------------------------------------------- */
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */

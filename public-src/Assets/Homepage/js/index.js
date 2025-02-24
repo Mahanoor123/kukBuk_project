@@ -1,4 +1,11 @@
-import { onAuthStateChanged, auth, signOut } from "/firebase/firebase-config.js";
+import {
+  onAuthStateChanged,
+  auth,
+  signOut,
+  collection,
+  db,
+  getDocs,
+} from "/firebase/firebase-config.js";
 
 onAuthStateChanged(auth, async (user) => {
   const loginBtn = document.querySelector(".login_btn");
@@ -35,6 +42,58 @@ const userLogOut = async () => {
   }
 };
 document.querySelector(".logout")?.addEventListener("click", userLogOut);
+
+
+
+
+
+const fetchRecipes = async () => {
+  try {
+    // Reference to "Recipes" collection
+    const recipesCollection = collection(db, "Recipes");
+
+    // Get all documents from the collection
+    const querySnapshot = await getDocs(recipesCollection);
+
+    // Store fetched recipes in an array
+    const recipes = [];
+    querySnapshot.forEach((doc) => {
+      recipes.push({ id: doc.id, ...doc.data() });
+    });
+
+    console.log("Fetched Recipes:", recipes); // Debugging
+    displayRecipes(recipes); // Call function to show recipes in UI
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+  }
+};
+
+
+
+const displayRecipes = (recipes) => {
+  const recipeContainer = document.querySelector(".recipes_cards_display"); 
+
+  recipeContainer.innerHTML = "";
+
+  recipes.forEach((recipe) => {
+    const recipeCard = document.createElement("div");
+    recipeCard.classList.add("recipe-card"); 
+
+    recipeCard.innerHTML = `
+      <img src="${recipe.imageURL}" alt="${recipe.recipeTitle}" class="recipe-image">
+      <h3>${recipe.recipeTitle}</h3>
+      <p>${recipe.description}</p>
+      <p><strong>Servings:</strong> ${recipe.servings}</p>
+      <p><strong>Time:</strong> ${recipe.time} minutes</p>
+      <button onclick="viewRecipe('${recipe.id}')">View Recipe</button>
+    `;
+
+    recipeContainer.appendChild(recipeCard);
+  });
+};
+
+document.addEventListener("DOMContentLoaded", fetchRecipes);
+
 
 /***** Static Card Generator *****/
 
