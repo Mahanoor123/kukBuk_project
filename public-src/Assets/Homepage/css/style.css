@@ -13,11 +13,31 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--background-color);
 }
+
+/********* scrollbar css ************/
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
 :root {
   --primary-color: #e81409;
   --secondary-color: #e86209;
@@ -31,6 +51,7 @@ body {
   --white-color: #ffffff;
   --box-shadow: 1px 4px 5px #c3c3c3;
 }
+
 h1 {
   font-family: "inknut antiqua";
   font-weight: 800;
@@ -38,6 +59,7 @@ h1 {
   line-height: 4rem;
   color: var(--headings-color);
 }
+
 h2 {
   font-family: "lato";
   font-weight: 700;
@@ -45,6 +67,7 @@ h2 {
   line-height: 4rem;
   color: var(--secondary-color);
 }
+
 h3 {
   font-family: "inknut antiqua";
   font-weight: 700;
@@ -52,6 +75,7 @@ h3 {
   line-height: 4rem;
   color: var(--headings-color);
 }
+
 h4 {
   font-family: "inknut antiqua";
   font-weight: 600;
@@ -59,6 +83,7 @@ h4 {
   line-height: 2rem;
   color: var(--headings-color);
 }
+
 h5 {
   font-family: "inknut antiqua";
   font-weight: 600;
@@ -66,6 +91,7 @@ h5 {
   line-height: 1.5rem;
   color: var(--headings-color);
 }
+
 h6 {
   font-family: "lato";
   font-weight: 600;
@@ -73,12 +99,14 @@ h6 {
   line-height: 1rem;
   color: var(--headings-color);
 }
+
 p {
   font-family: "lato";
   font-weight: 400;
   font-size: 0.9rem;
   color: var(--black-tint1);
 }
+
 button {
   all: unset;
   background-color: var(--secondary-color);
@@ -111,6 +139,7 @@ button {
   width: 100vw;
   padding: 0.5rem 0;
 }
+
 .home_header nav {
   display: flex;
   justify-content: space-between;
@@ -118,9 +147,11 @@ button {
   width: 90vw;
   margin: 0 auto;
 }
+
 .home_header nav .home_logo {
   width: 7rem;
 }
+
 .home_header nav .home_links button {
   all: unset;
   border: 0.1rem solid var(--primary-color);
@@ -137,15 +168,18 @@ button {
     color: var(--white-color);
   }
 }
+
 .home_header nav .home_links {
   display: flex;
   align-items: center;
 }
+
 .home_header nav .home_links i {
   color: var(--primary-color);
   margin: 0 0.5rem;
   font-size: 1.1rem;
 }
+
 .home_header nav select {
   border: none;
   outline: none;
@@ -171,6 +205,7 @@ button {
   box-shadow: var(--box-shadow);
   width: 100vw;
 }
+
 .header .navbar1 {
   width: 90vw;
   margin: 0 auto;
@@ -180,7 +215,8 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-.header .user_profile{
+
+.header .user_profile {
   width: 2.5rem;
   height: 2.5rem;
   object-fit: cover;
@@ -188,16 +224,19 @@ button {
   border-radius: 50%;
   margin-left: 0.5rem;
 }
+
 .header .navbar1 .socials i {
   color: var(--primary-color);
   margin: 0 0.4rem;
   font-size: 1.1rem;
 }
+
 .header nav .links i {
   color: var(--primary-color);
   padding: 0 0.8rem;
   font-size: 1.1rem;
 }
+
 .header nav .links button {
   all: unset;
   border: 0.1rem solid var(--primary-color);
@@ -214,21 +253,25 @@ button {
     color: var(--white-color);
   }
 }
+
 .hamburger {
   display: none;
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--headings-color);
 }
+
 main {
   width: 90vw;
   margin: 0 auto;
 }
+
 .logo {
   width: 7rem;
   display: block;
   margin: 0.5rem auto;
 }
+
 .navbar2 select {
   border: none;
   outline: none;
@@ -240,11 +283,13 @@ main {
     color: var(--primary-color);
   }
 }
+
 .nav_links {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .nav_links a {
   text-decoration: none;
   font-family: "lato";
@@ -257,6 +302,7 @@ main {
     color: var(--primary-color);
   }
 }
+
 .header .links {
   display: flex;
   align-items: center;
@@ -271,10 +317,12 @@ main {
   background-color: var(--black-tint4);
   margin: 1rem 0 10rem 0;
 }
+
 .hero_section .hero_image {
   width: 100vw;
   height: 80vh;
 }
+
 .hero_section .hero_image video {
   object-fit: cover;
   object-position: center;
@@ -287,12 +335,14 @@ main {
 .category {
   margin: 4rem 0;
 }
+
 .category_display {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
 }
+
 .category_display .category1,
 .category2,
 .category3,
@@ -302,6 +352,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
 .category img {
   width: 9rem;
   height: 9rem;
@@ -311,6 +362,7 @@ main {
   border: 0.1rem solid var(--secondary-color);
   margin: 1rem 0;
 }
+
 .category .category_btn {
   all: unset;
   border: 0.1rem solid var(--secondary-color);
@@ -333,17 +385,20 @@ main {
 .recipes_collection {
   margin: 4rem 0;
 }
+
 .recipes_filter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
 }
+
 .recipes_filter .search {
   border: 0.1rem solid var(--secondary-color);
   padding: 0.3rem;
   border-radius: 1rem;
 }
+
 .recipes_filter .search input {
   all: unset;
   padding-right: 1.5rem;
@@ -351,15 +406,18 @@ main {
   font-family: "lato";
   font-size: 0.7rem;
 }
+
 .recipes_filter .search i {
   color: var(--secondary-color);
   margin: 0 0.5rem;
 }
+
 .recipes_filter .sort {
   background-color: var(--secondary-color);
   padding: 0.3rem;
   border-radius: 1rem;
 }
+
 .recipes_filter .sort select {
   all: unset;
   padding-right: 2rem;
@@ -367,17 +425,20 @@ main {
   font-family: "lato";
   font-size: 0.7rem;
 }
+
 .recipes_filter .sort i {
   color: var(--white-color);
   margin: 0 0.5rem;
   font-size: 0.7rem;
 }
+
 .recipes_cards_display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem 5rem;
   margin: 3rem 0;
 }
+
 .recipes_collection .recipe_card {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
@@ -386,6 +447,7 @@ main {
   display: flex;
   align-items: center;
 }
+
 .recipe_card .recipe_content img {
   width: 2.5rem;
   height: 2.5rem;
@@ -394,19 +456,23 @@ main {
   border: 0.1rem solid var(--primary-color);
   margin-right: 0.5rem;
 }
+
 .recipe_card .recipe_content h5 {
   margin-bottom: 0.5rem;
 }
+
 .recipe_card .recipe_content .rating i {
   color: var(--primary-color);
   font-size: 0.7rem;
   margin-bottom: 0.5rem;
 }
+
 .recipe_card .recipe_content .chef {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
+
 .recipe_card .recipe_img {
   margin-right: -4rem;
   width: 10rem;
@@ -414,6 +480,7 @@ main {
   object-fit: cover;
   object-position: center;
 }
+
 .recipe_card .recipe_btn {
   all: unset;
   background-color: var(--primary-color);
@@ -430,6 +497,7 @@ main {
     background: var(--gradient-color);
   }
 }
+
 .recipe_card .recipe_btn i {
   transform: rotate(-45deg);
   margin-right: 0.2rem;
@@ -440,30 +508,35 @@ main {
 .collections {
   margin: 5rem 0;
 }
+
 .collection_display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   margin: 2rem 0;
   gap: 4rem 6rem;
 }
+
 .collection_display .collection_img {
   width: 564px;
   height: 300px;
   object-fit: cover;
   border-radius: 1rem 1rem 0 0;
 }
+
 .collection_display .collection {
   border: 0.1rem solid var(--primary-color);
   border-radius: 1rem;
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
 }
+
 .collection_display .collection .collection_content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
+
 .collection_display .collection .collection_btn {
   all: unset;
   border: 0.1rem solid var(--primary-color);
@@ -486,17 +559,20 @@ main {
 .chefs {
   margin: 5rem 0;
 }
+
 .chefs_display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem 4rem;
   margin: 6rem 0;
 }
+
 .chefs_display .chef_profile {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
   border-radius: 1rem;
 }
+
 .chefs_display .chef_profile .chef_img {
   width: 7rem;
   height: 7rem;
@@ -507,23 +583,28 @@ main {
   display: block;
   margin: -3rem auto 1rem auto;
 }
+
 .chefs_display .chef_profile .chef_content {
   align-self: center;
   justify-self: center;
   text-align: center;
 }
+
 .chefs_display .chef_profile .ratings {
   margin: 1.5rem 0;
 }
+
 .chefs_display .chef_profile .ratings i {
   font-size: 0.8rem;
   color: var(--primary-color);
 }
+
 .chefs_display .chef_profile .ratings span {
   font-family: "lato";
   font-size: 0.8rem;
   color: var(--black-tint2);
 }
+
 .chefs_display .chef_profile .chef_links {
   display: flex;
   justify-content: space-between;
@@ -531,15 +612,18 @@ main {
   border-top: 0.1rem solid var(--black-tint4);
   padding: 0.5rem 1rem;
 }
+
 .chefs_display .chef_profile .chef_links i {
   color: var(--primary-color);
 }
+
 .chefs_display .chef_profile .chef_links .chef_btn {
   all: unset;
   font-family: "lato";
   color: var(--headings-color);
   font-size: 0.8rem;
 }
+
 .chefs_display .chef_profile .chef_links .chef_btn i {
   transform: rotate(-45deg);
   margin: 0 0.5rem;
@@ -550,39 +634,47 @@ main {
 .top_recipes {
   margin: 4rem 0;
 }
+
 .top_recipes .top_recipes_display {
   margin: 7rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 4rem 2rem;
 }
+
 .top_recipes_display .recipe {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
   border: 0.1rem solid var(--primary-color);
   border-radius: 1rem;
 }
+
 .top_recipes_display .recipe .recipe_img {
   display: block;
   margin: -5rem auto 2rem auto;
   width: 12rem;
 }
+
 .top_recipes_display .recipe .recipe_content {
   margin: 1rem;
 }
+
 .top_recipes_display .recipe .recipe_content small {
   color: var(--black-tint2);
   font-family: "lato";
 }
+
 .top_recipes_display .recipe .recipe_content p {
   margin: 0.5rem 0;
 }
+
 .top_recipes_display .recipe .recipe_content .recipe_links {
   margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .top_recipes_display .recipe .recipe_content button {
   all: unset;
   background-color: var(--primary-color);
@@ -598,9 +690,11 @@ main {
     background: var(--gradient-color);
   }
 }
+
 .top_recipes_display .recipe .recipe_content .recipe_links i {
   color: var(--primary-color);
 }
+
 .top_recipes_display .recipe .recipe_content .recipe_links span {
   margin: 0 0.5rem;
   font-family: "lato";
@@ -613,28 +707,35 @@ main {
 .blog_collection {
   margin: 2rem 0;
 }
+
 .blogs_display {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 2rem;
   margin: 2rem 0;
 }
+
 .blogs_display .blog_col img {
   height: 14rem;
   margin: 0.5rem;
 }
+
 .blogs_display .blog_col2 img {
   width: 50vw;
 }
+
 .blogs_display a {
   text-decoration: none;
 }
+
 .blogs_display .blog {
   text-align: center;
 }
+
 .blogs_display .blog h5 {
   padding: 0.5rem 2rem;
 }
+
 .blogs_display .blog small {
   color: var(--primary-color);
 }
@@ -650,20 +751,24 @@ main {
   align-items: center;
   margin: 4rem 0;
 }
+
 .newsletter h4 {
   color: var(--white-color);
   width: 30rem;
 }
+
 .newsletter .input {
   display: flex;
   align-items: center;
 }
+
 .newsletter input {
   all: unset;
   padding: 0.5rem;
   background-color: var(--white-color);
   border-radius: 1rem 0 0 1rem;
 }
+
 .newsletter .input_join {
   border-radius: 0 1rem 1rem 0;
 }
@@ -676,6 +781,7 @@ footer {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
 }
+
 .footer1 {
   width: 90vw;
   margin: 0 auto;
@@ -684,16 +790,20 @@ footer {
   align-items: center;
   gap: 2rem 4rem;
 }
+
 .footer1 .foot_logo img {
   width: 10rem;
 }
+
 .footer1 .foot_image {
   width: 35vw;
 }
+
 .footer1 .foot_links h6,
 .foot_legal h6 {
   margin-bottom: 0.5rem;
 }
+
 .footer1 .foot_links a,
 .foot_legal a {
   display: block;
@@ -703,15 +813,18 @@ footer {
   color: var(--black-tint2);
   padding: 0.3rem 0;
 }
+
 .footer2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
 }
+
 .footer2 .copy_text {
   font-family: "lato";
 }
+
 .footer2 .social_icons i {
   color: var(--primary-color);
   margin: 0 0.4rem;
@@ -737,6 +850,7 @@ footer {
   padding: 2rem 3rem;
   transition: right 0.4s linear;
 }
+
 .main_profile .user_info img {
   width: 6rem;
   height: 6rem;
@@ -744,13 +858,16 @@ footer {
   border: 1px solid var(--secondary-color);
   border-radius: 50%;
 }
+
 .main_profile .user_tag {
   font-family: "lato";
   color: var(--black-tint2);
 }
+
 .user_info {
   text-align: center;
 }
+
 .main_profile .user_buttons button {
   all: unset;
   background-color: var(--secondary-color);
@@ -769,10 +886,12 @@ footer {
     background: var(--gradient-color);
   }
 }
+
 .main_profile .user_buttons i {
   font-size: 0.9rem;
   margin-right: 0.5rem;
 }
+
 .main_profile a {
   display: block;
   text-decoration: none;
@@ -781,6 +900,7 @@ footer {
   font-family: "lato";
   font-weight: 500;
 }
+
 .main_profile .fa-close {
   position: absolute;
   right: 4rem;
@@ -805,12 +925,15 @@ footer {
   align-items: center;
   transition: all 0.5s linear;
 }
-.chef_preview .fa-close{
+
+.chef_preview .fa-close {
   position: absolute;
   top: 2rem;
-  right: 4rem;;
+  right: 4rem;
+  ;
   color: var(--white-color);
 }
+
 .single_profile {
   background-color: var(--white-color);
   border: 1px solid var(--secondary-color);
@@ -823,10 +946,12 @@ footer {
   align-items: center;
   padding: 4rem 4rem;
 }
+
 .single_profile .chef_image {
   width: 8rem;
   height: 8rem;
 }
+
 .single_profile .chef_image img {
   width: 100%;
   height: 100%;
@@ -834,32 +959,39 @@ footer {
   object-fit: cover;
   border: 1px solid var(--secondary-color);
 }
+
 .single_profile .cheftag {
   color: var(--black-tint1);
   font-family: "lato";
 }
+
 .single_profile .chefbio {
   margin: 2rem 0;
   text-align: center;
   color: var(--black-tint1);
 }
+
 .single_profile .chef_rating {
   margin: 1rem 0;
   display: flex;
   align-items: center;
 }
+
 .single_profile .stars {
   color: var(--primary-color);
   font-size: 0.9rem;
   margin: 0 1rem;
 }
+
 .single_profile .chef_review {
   margin: 0 1rem;
   color: var(--black-tint1);
 }
+
 .single_profile .chef_social {
   margin-top: 2rem;
 }
+
 .single_profile .chef_social i {
   color: var(--primary-color);
   font-size: 1.5rem;
