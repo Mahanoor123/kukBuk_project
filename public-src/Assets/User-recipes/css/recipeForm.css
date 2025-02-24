@@ -150,6 +150,7 @@ h1 {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
+}
 
 .input-group input:focus {
   outline: none;
@@ -170,7 +171,7 @@ h1 {
 }
 
 
-.form-control{
+.form-control {
   border-bottom: 2px solid #ff9900 !important;
 }
 

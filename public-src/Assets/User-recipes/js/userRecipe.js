@@ -88,9 +88,8 @@ document?.addEventListener('DOMContentLoaded', function () {
             <p>${recipe.description}</p>
             <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
               <div class="text-center">
-
-               <button><a href='./fullrecipieview.html' class="text-decoration-none text-light" >View Recipe</a></button> <br/>
-                <br/>
+               <button><a href='/public-src/Assets/all-recipes/html/fullview.html' class="text-decoration-none text-light">View
+            Recipe</a></button> <br /> <br/>
                 </div>
                 <div class="recipe_info">
                 <span>
@@ -125,7 +124,7 @@ document?.addEventListener('DOMContentLoaded', function () {
             </div>
             `;
       userCard.appendChild(card);
-      // <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
+     
     });
   };
 
