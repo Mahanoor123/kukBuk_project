@@ -11,7 +11,6 @@ import {
   EmailAuthProvider,
   updateDoc,
   sendEmailVerification,
-  updateEmail
 } from "/firebase/firebase-config.js";
 
 /****************************************************/
@@ -98,7 +97,7 @@ const updateUserProfile = async (event) => {
 
       // Send verification email to the new email
       const actionCodeSettings = {
-        url: window.location.origin, // Redirect to your site after verification
+        url: window.location.replace('./public-src/Assets/User'), // Redirect to your site after verification
         handleCodeInApp: true,
       };
       await sendEmailVerification(user, actionCodeSettings);
