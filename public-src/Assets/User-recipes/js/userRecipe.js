@@ -68,9 +68,9 @@ document?.addEventListener('DOMContentLoaded', function () {
           <div class="recipe_content">
             <h4 class="h4">${recipe.recipeTitle}</h4>
 
-            <div class="d-flex flex-lg-row flex-md-row text-center flex-sm-row mt-4 flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+            <div class="d-flex  text-center mt-4 flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
 
-            <div class="d-flex flex-lg-row flex-md-row text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+            <div class="d-flex  text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
 
               <div class="recipie-span-div align-items-center justify-content-center">
                 <div>Category:</div>
@@ -85,21 +85,14 @@ document?.addEventListener('DOMContentLoaded', function () {
                 <small><span class="recipie-span">${recipe.servings}</span></small>
               </div>
             </div>
-            <p>${recipe.description}</p>
+            <p >${recipe.description}</p>
             <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
               <div class="text-center">
                <button><a href='/public-src/Assets/all-recipes/html/fullview.html' class="text-decoration-none text-light">View
             Recipe</a></button> <br /> <br/>
                 </div>
-                <div class="recipe_info">
-                <span>
-                <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" onclick="addToFavorites(${index})"> 2k Likes
-                </span>
-                <span>
-                <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
-
-                <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
-              </div>
+              
+                </div>
               <div class="recipe_info">
                 <span>
                   <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" onclick="addToFavorites(${index})"> 2k Likes
@@ -124,7 +117,7 @@ document?.addEventListener('DOMContentLoaded', function () {
             </div>
             `;
       userCard.appendChild(card);
-     
+
     });
   };
 
@@ -179,9 +172,7 @@ document?.addEventListener('DOMContentLoaded', function () {
           <p>${recipe.description}</p>
           <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
 
-            <div class="text-center">                
-            <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
-
+           
             <div class="text-center">
               <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
 
@@ -198,7 +189,9 @@ document?.addEventListener('DOMContentLoaded', function () {
                 <span>${recipe.preparationTime} Min</span>
               </span>
             </div>
+            
           </div>
+          
         </div>
       </div>
     `;
@@ -283,7 +276,7 @@ document?.addEventListener('DOMContentLoaded', function () {
                 <small><span class="recipie-span">${recipe.servings}</span></small>
               </div>
             </div>
-            <p>${recipe.description}</p>
+            <p >${recipe.description}</p>
             <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
               <div class="text-center">
                 <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
@@ -300,6 +293,7 @@ document?.addEventListener('DOMContentLoaded', function () {
                   <span>${recipe.preparationTime} Min</span>
                 </span>
               </div>
+              
             </div>
           </div>
         </div > `;

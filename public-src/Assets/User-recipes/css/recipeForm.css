@@ -346,10 +346,6 @@ input {
 
 /* -------------------------------------------- */
 
-img:hover {
-  transform: scale(1.2) !important;
-  transition: transform 0.2s !important;
-}
 
 /* -------------------------------------------- */
 

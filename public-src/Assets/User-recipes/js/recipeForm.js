@@ -47,7 +47,7 @@ document?.addEventListener('DOMContentLoaded', function () {
         fileElement = document.createElement('img');
         fileElement.src = fileURL;
         fileElement.style.width = '200px';
-        fileElement.style.height = '230px';
+        fileElement.style.height = '200px';
       } else {
         fileElement = document.createElement('p');
         fileElement.textContent = 'Unsupported file type.';
