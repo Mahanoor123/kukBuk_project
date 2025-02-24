@@ -85,7 +85,9 @@ button {
     transform: scale(1.1) !important;
     transition: transform 0.2s !important;
   }
-}/********** nav link  a css **********/
+}
+
+/********** nav link  a css **********/
 .nav-item a {
   color: var(--red) !important;
   font-weight: 700 !important;
@@ -196,7 +198,9 @@ ul .footer {
 
 /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
 .recipiebtn_curd {
-  background-color: #E96728 !important;}
+  background-color: #E96728 !important;
+}
+
 /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
 /* ********* Recipes Styling ********* */
 .container-recipe-cards {
@@ -252,6 +256,12 @@ ul .footer {
 
 .recipe .recipe_content p {
   margin: 0.5rem 0 !important;
+}
+
+.paara {
+  width: 100%;
+  height: 90px !important;
+  overflow: hidden !important;
 }
 
 .recipe .recipe_content .recipe_links {
@@ -323,7 +333,7 @@ ul .footer {
 .recipiemodal {
   font-size: 15px !important;
   font-style: oblique !important;
-   font-family: 'inknut antiqua' !important;
+  font-family: 'inknut antiqua' !important;
   font-weight: bold !important;
 }
 
@@ -399,7 +409,7 @@ p:hover {
     width: 350px !important;
     margin-bottom: 150px !important;
     margin: 10px !important;
-    margin-bottom: 130px !important;
+    margin-bottom: 100px !important;
   }
 
   .recipie-card {
@@ -415,16 +425,23 @@ p:hover {
   }
 }
 
-/* @media (max-width: 768px) {}
+@media (max-width: 425px) {
+  .firstcard {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
 
-@media (max-width: 640px) {} */
+  .cardpara {
+    padding: 5px !important;
+    width: 100% !important;
+  }
+}
 
 @media (max-width: 375px) {
 
   .col {
     width: 100% !important;
-    margin-bottom: 150px !important;
-    margin-bottom: 130px !important;
+    margin-bottom: 50px !important;
   }
 
   .recipie-card {
@@ -446,20 +463,5 @@ p:hover {
 
   p {
     font-size: 13px !important;
-  }
-}
-
-/* @media (max-width: 320px) {} */
-
-
-@media (max-width: 425px) {
-  .firstcard {
-    width: 100% !important;
-    border-radius: 0 !important;
-  }
-
-  .cardpara {
-    padding: 5px !important;
-    width: 100% !important;
   }
 }

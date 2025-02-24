@@ -125,7 +125,7 @@ document?.addEventListener('DOMContentLoaded', function (event) {
                         </span>
                         </div>
                         <br />
-                                       <p >${recipe.description}</p>
+                                       <p class="paara">${recipe.description}</p>
                     <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
                         <div class="text-center">
                             <button><a href='/public-src/Assets/all-recipes/html/fullview.html'
