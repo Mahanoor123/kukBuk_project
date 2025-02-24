@@ -118,7 +118,16 @@ document?.addEventListener('DOMContentLoaded', function () {
     const recipeCalories = document.getElementById('recipie_calories').value;
 
     // Validation checks
-    if (!recipeTitle || !recipeCategoryValues.length || !recipeIngredients.length || !recipeCookingSteps.length || !recipeDescription || !recipeServings || !recipeTime || !recipeCalories || !inputField.files.length) {
+    if (!recipeTitle ||
+      !recipeCategoryValues.length
+      || !recipeIngredients.length
+      || !recipeCookingSteps.length
+      || !recipeDescription
+      || !recipeServings ||
+      !recipeTime ||
+      !recipeCalories ||
+      !inputField.files.length) {
+
       validationModal.style.display = 'block';
       return;
     }
@@ -154,7 +163,7 @@ document?.addEventListener('DOMContentLoaded', function () {
       });
 
       const data = await response.json();
-      console.log("Uploaded Image Data:", data);
+      // console.log("Uploaded Image Data:", data);
 
 
       // Save all data to Firestore
@@ -180,7 +189,7 @@ document?.addEventListener('DOMContentLoaded', function () {
     }
 
     catch (error) {
-      console.error("Error in image ", error);
+      console.error("Error in image ", error.message);
     }
 
   });
@@ -193,9 +202,10 @@ document?.addEventListener('DOMContentLoaded', function () {
   const saveRecipeToFirestore = async (data) => {
     try {
       await addDoc(collection(db, "userrecipie"), data);
-      console.log("Recipe saved to Firestore successfully!");
-    } catch (error) {
-      console.error("Error in saving recipe to Firestore: ", error);
+      console.log("Recipe saved ... ");
+    }
+    catch (error) {
+      console.error("Error in saving recipe ", error.message);
     }
   };
 

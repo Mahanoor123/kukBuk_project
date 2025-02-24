@@ -1,315 +1,174 @@
 import { db, collection, doc, getDocs, query, orderBy, deleteDoc, updateDoc, setDoc } from '/firebase/firebase-config.js';
 
-/**************************************************/
-/*********** Overall function working  ************/
-/**************************************************/
-document?.addEventListener('DOMContentLoaded', function () {
+/***********************************************/
+/*********** Overall function working **********/
+/***********************************************/
+
+document?.addEventListener('DOMContentLoaded', function (event) {
+  event.preventDefault()
   let userCollection = [];
   let favouriteCollection = [];
+
 
   /**************************************************/
   /*********** Fetch and display recipes ************/
   /**************************************************/
   const fetchAndDisplayCards = async () => {
     try {
-
-      console.log("Fetching recipes from Firestore...");
-
       const querySnapshot = await getDocs(query(collection(db, "userrecipie"), orderBy("timestamp", "desc")));
       userCollection = [];
 
       querySnapshot.forEach(doc => {
         const data = doc.data();
-        console.log("Fetched recipe:", data);
-        userCollection.push({
-          id: doc.id,
-          imageURL: data.imageURL,
-          recipeTitle: data.recipeTitle,
-          preparationTime: data.time,
-          servings: data.servings,
-          description: data.description,
-          category: data.category,
-          cookingSteps: data.cookingSteps,
-          calories: data.calories,
-          cookingIngredients: data.cookingIngredients
-        });
+        userCollection.push({ id: doc.id, ...data });
       });
 
-      displayCards(userCollection);
-    } catch (error) {
+      displayCards(userCollection, "userCollection");
+    }
+    catch (error) {
       console.error("Error fetching user recipes from Firestore: ", error);
     }
+
   };
 
-  /******************************************/
-  /***********  Display recipes  ************/
-  /******************************************/
-  const displayCards = (collection) => {
-    const userCard = document.getElementById("userCollection");
 
-    if (!userCard) {
-      return;
-    }
-
-    userCard.innerHTML = '';
-
-    /******************************************************/
-    /***********  Display collection of cards  ************/
-    /******************************************************/
-    collection.forEach((recipe, index) => {
-      console.log("Displaying recipe:", recipe.imageURL);
-      const card = document.createElement("div");
-      card.setAttribute("class", "col");
-      card.innerHTML = `
-        <div class="recipe card recipie-card">
-          <div class="recipe-img-div">
-            <img src="${recipe.imageURL}" class="recipe_img" width="200px" height="200px">
-          </div>
-          <div class="recipe_content">
-            <h4 class="h4">${recipe.recipeTitle}</h4>
-
-            <div class="d-flex  text-center mt-4 flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
-
-            <div class="d-flex  text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
-
-              <div class="recipie-span-div align-items-center justify-content-center">
-                <div>Category:</div>
-                <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
-              </div>
-              <div class="recipie-span-div align-items-center justify-content-center">
-                <div>Calories:</div>
-                <small><span class="recipie-span">${recipe.calories}</span></small>
-              </div>
-              <div class="recipie-span-div align-items-center justify-content-center">
-                <div>Serving:</div>
-                <small><span class="recipie-span">${recipe.servings}</span></small>
-              </div>
-            </div>
-            <p >${recipe.description}</p>
-            <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
-              <div class="text-center">
-               <button><a href='/public-src/Assets/all-recipes/html/fullview.html' class="text-decoration-none text-light">View
-            Recipe</a></button> <br /> <br/>
-                </div>
-              
-                </div>
-              <div class="recipe_info">
-                <span>
-                  <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" onclick="addToFavorites(${index})"> 2k Likes
-                </span>
-                <span>
-                  <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
-
-                </span>
-                <span>
-                  <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
-                  <span>${recipe.preparationTime} Min</span>
-                </span>
-
-                </div>
-                <br/>
-                <div class="text-center">
-                <button href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="deleteCard(${index})">Delete Recipe</button>
-                <button href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="updateCard(${index})">Update Recipe</button>
-                 </div>
-                 </div>
-                 </div>
-            </div>
-            `;
-      userCard.appendChild(card);
-
-    });
-  };
-
-  /***********************************************/
-  /***********  Add to Favorites  ************/
-  /***********************************************/
-  window.addToFavorites = async (index) => {
+  /**************************************************/
+  /*********** Fetch and display favorite recipes ************/
+  /**************************************************/
+  const fetchFavoriteCards = async () => {
     try {
-      const recipe = userCollection[index];
-      await setDoc(doc(db, "favouriterecipie-card", recipe.id), recipe);
-
-      console.log("Recipe added to favorites successfully!");
-      displayFavoriteCard(recipe); // Display the favorite card in the favorite container
-    } catch (error) {
-      console.error("Error adding recipe to favorites: ", error);
-    }
-  };
-
-  /******************************************/
-  /***********  Display favorite card  ************/
-  /******************************************/
-  const displayFavoriteCard = (recipe) => {
-    const favouriteCard = document.getElementById("userfavouriteCollection");
-
-    if (!favouriteCard) {
-      return;
-    }
-
-    const card = document.createElement("div");
-    card.setAttribute("class", "col");
-    card.innerHTML = `
-      <div class="recipe card recipie-card">
-        <div class="recipe-img-div">
-          <img src="${recipe.imageURL}" class="recipe_img" width="200px" height="200px">
-        </div>
-        <div class="recipe_content">
-          <h4 class="h4">${recipe.recipeTitle}</h4>
-          <div class="d-flex flex-lg-row flex-md-row text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
-            <div class="recipie-span-div align-items-center justify-content-center">
-              <div>Category:</div>
-              <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
-            </div>
-            <div class="recipie-span-div align-items-center justify-content-center">
-              <div>Calories:</div>
-              <small><span class="recipie-span">${recipe.calories}</span></small>
-            </div>
-            <div class="recipie-span-div align-items-center justify-content-center">
-              <div>Serving:</div>
-              <small><span class="recipie-span">${recipe.servings}</span></small>
-            </div>
-          </div>
-          <p>${recipe.description}</p>
-          <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
-
-           
-            <div class="text-center">
-              <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
-
-            </div>
-            <div class="recipe_info">
-              <span>
-                <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" onclick="removeFromFavorites('${recipe.id}')"> 2k Likes
-              </span>
-              <span>
-                <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
-              </span>
-              <span>
-                <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
-                <span>${recipe.preparationTime} Min</span>
-              </span>
-            </div>
-            
-          </div>
-          
-        </div>
-      </div>
-    `;
-    favouriteCard.appendChild(card);
-  };
-
-  /***********************************************/
-  /***********  Remove from Favorites  ************/
-  /***********************************************/
-  window.removeFromFavorites = async (id) => {
-    try {
-      await deleteDoc(doc(db, "favouriterecipie-card", id));
-
-      console.log("Recipe removed from favorites successfully!");
-      fetchAndDisplayFavorites();
-    } catch (error) {
-      console.error("Error removing recipe from favorites: ", error);
-    }
-  };
-
-  /***********************************************/
-  /***********  Fetch and display favorites  ************/
-  /***********************************************/
-  const fetchAndDisplayFavorites = async () => {
-    try {
-      console.log("Fetching favorite recipes from Firestore...");
       const querySnapshot = await getDocs(collection(db, "favouriterecipie-card"));
       favouriteCollection = [];
 
       querySnapshot.forEach(doc => {
         const data = doc.data();
-        console.log("Fetched favorite recipe:", data);
-        favouriteCollection.push({
-          id: doc.id,
-          ...data
-        });
+        favouriteCollection.push({ id: doc.id, ...data });
       });
 
-      displayFavorites(favouriteCollection);
+      displayCards(favouriteCollection, "favouriteusercollection");
     } catch (error) {
       console.error("Error fetching favorite recipes from Firestore: ", error);
     }
   };
 
-  /******************************************/
-  /***********  Display favorites  ************/
-  /******************************************/
-  const displayFavorites = (collection) => {
-    const favouriteCard = document.getElementById("userfavouriteCollection");
 
-    if (!favouriteCard) {
+
+  /******************************************/
+  /*********** Display recipes **************/
+  /******************************************/
+  const displayCards = (collection, containerId) => {
+    const container = document.getElementById(containerId);
+    if (!container) {
       return;
     }
 
-    favouriteCard.innerHTML = '';
-
-    /******************************************************/
-    /***********  Display collection of favorite cards  ************/
-    /******************************************************/
+    container.innerHTML = '';
     collection.forEach((recipe, index) => {
-      console.log("Displaying favorite recipe:", recipe.imageURL);
+
       const card = document.createElement("div");
       card.setAttribute("class", "col");
       card.innerHTML = `
-      <div class="recipe card recipie-card" >
-          <div class="recipe-img-div">
+      
+    <div class="recipe card recipie-card">
+        <div class="recipe-img-div">
             <img src="${recipe.imageURL}" class="recipe_img" width="200px" height="200px">
-          </div>
-          <div class="recipe_content">
+        </div>
+        <div class="recipe_content">
             <h4 class="h4">${recipe.recipeTitle}</h4>
-            <div class="d-flex flex-lg-row flex-md-row text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
-              <div class="recipie-span-div align-items-center justify-content-center">
-                <div>Category:</div>
-                <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
-              </div>
-              <div class="recipie-span-div align-items-center justify-content-center">
-                <div>Calories:</div>
-                <small><span class="recipie-span">${recipe.calories}</span></small>
-              </div>
-              <div class="recipie-span-div align-items-center justify-content-center">
-                <div>Serving:</div>
-                <small><span class="recipie-span">${recipe.servings}</span></small>
-              </div>
+            <div class="d-flex text-center mt-4 flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+                <div class="d-flex text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+                    <div class="recipie-span-div d-flex align-items-center justify-content-center">
+                        <div> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 48 48">
+                                <defs>
+                                    <mask id="ipSTag0">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
+                                            <path fill="#fff" stroke="#fff"
+                                                d="M8 44V6a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v38l-16-8.273z" />
+                                            <path stroke="#000" stroke-linecap="round" d="M16 18h16" />
+                                        </g>
+                                    </mask>
+                                </defs>
+                                <path fill="#e86209" d="M0 0h48v48H0z" mask="url(#ipSTag0)" />
+                            </svg> Category : &nbsp; </div>&nbsp;
+                        <span>
+
+                            <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
+                        </span>
+
+                    </div>
+                    <div class="recipie-span-div d-flex align-items-center justify-content-center">
+
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 2048 2048">
+                                <path fill="#e86209"
+                                    d="M1280 64q0 179 66 330t190 278t190 278t66 330q0 106-27 204t-78 183t-120 156t-155 120t-184 77t-204 28t-204-27t-183-78t-156-120t-120-155t-77-184t-28-204q0-84 18-165t52-155t84-141t113-121q7 38 19 78t28 80t38 76t46 67q20 25 52 25q27 0 45-19t19-46q0-11-3-20t-10-18q-28-41-49-81t-37-82t-23-87t-8-95q0-119 45-224t124-183T992 46t224-46h64zm-256 1856q133 0 249-50t204-137t137-203t50-250q0-151-56-281t-162-236q-130-131-204-289t-88-342q-83 11-153 50t-123 99t-81 135t-29 160q0 78 23 141t68 126q19 26 29 54t11 62q0 40-15 75t-42 61t-61 42t-75 15q-46 0-81-17t-62-46t-48-65t-40-72q-46 73-68 157t-23 171q0 133 50 249t137 204t203 137t250 50" />
+                            </svg>
+                            Calories : &nbsp;
+                        </div>&nbsp;
+                        <span>
+
+                            <small><span class="recipie-span">${recipe.calories}</span></small>
+                        </span>
+                    </div>
+                    <div class="recipie-span-div d-flex align-items-center justify-content-center">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                                <path fill="#e86209" fill-rule="evenodd"
+                                    d="M7 .103a.75.75 0 0 1 .75.75v1.04A7 7 0 0 1 14 8.854a1.5 1.5 0 0 1-1.5 1.5h-11a1.5 1.5 0 0 1-1.5-1.5a7 7 0 0 1 6.25-6.96V.854A.75.75 0 0 1 7 .103M.78 11.75a.75.75 0 0 0 0 1.5h12.44a.75.75 0 0 0 0-1.5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Serving : &nbsp;
+                        </div>&nbsp;
+                        <span>
+
+                            <small><span class="recipie-span">${recipe.servings}</span></small>
+                        </span>
+                        </div>
+                        <br />
+                                       <p >${recipe.description}</p>
+                    <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
+                        <div class="text-center">
+                            <button><a href='/public-src/Assets/all-recipes/html/fullview.html'
+                                    class="text-decoration-none text-light">View Recipe</a></button> <br /> <br />
+                        </div>
+                    </div>
+                    <div class="recipe_info">
+                        <span>
+                            <img src="../asset/logo_imgs/heart.png" alt="img" width="18px"
+                                onclick="addToFavorites(${index})"> 2k Likes
+                        </span>
+                        <span>
+                            <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px">
+                            243
+                        </span>
+                        <span>
+                        
+                            <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
+                            <span>${recipe.time} Min</span>
+                        </span>
+                    </div>
+                     <br />
+                    <div class="text-center">
+                        <button href="#" class="btn mb-3 recipiebtn_curd text-light"
+                            onclick="deleteCard(${index}, '${containerId}')">Delete Recipe</button>
+                        <button href="#" class="btn mb-3 recipiebtn_curd text-light"
+                            onclick="updateCard(${index}, '${containerId}')">Update Recipe</button>
+                    </div>
+                </div>
             </div>
-            <p >${recipe.description}</p>
-            <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
-              <div class="text-center">
-                <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
-              </div>
-              <div class="recipe_info">
-                <span>
-                  <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" onclick="removeFromFavorites('${recipe.id}')"> 2k Likes
-                </span>
-                <span>
-                  <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
-                </span>
-                <span>
-                  <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
-                  <span>${recipe.preparationTime} Min</span>
-                </span>
-              </div>
-              
-            </div>
-          </div>
-        </div > `;
-      favouriteCard.appendChild(card);
+        </div>
+        `;
+      container.appendChild(card);
     });
   };
 
   /***********************************************/
-  /***********  delete Card function  ************/
+  /*********** Delete Card Function **************/
   /***********************************************/
-  window.deleteCard = async (index) => {
+  window.deleteCard = async (index, containerId) => {
     try {
-      const recipe = userCollection[index];
-      const deletecard = await deleteDoc(doc(db, "userrecipie", recipe.id));
-
-      console.log(deletecard);
+      const recipe = containerId === "userCollection" ? userCollection[index] : favouriteCollection[index];
+      await deleteDoc(doc(db, containerId === "userCollection" ? "userrecipie" : "favouriterecipie-card", recipe.id));
       console.log("Recipe deleted successfully!");
       fetchAndDisplayCards();
     } catch (error) {
@@ -318,12 +177,12 @@ document?.addEventListener('DOMContentLoaded', function () {
   };
 
   /***********************************************/
-  /***********  update Card function  ************/
+  /*********** Update Card Function **************/
   /***********************************************/
-
-  window.updateCard = (index) => {
-    const recipe = userCollection[index];
+  window.updateCard = (index, containerId) => {
+    const recipe = containerId === "userCollection" ? userCollection[index] : favouriteCollection[index];
     document.getElementById('recipeIndex').value = index;
+    document.getElementById('recipeType').value = containerId;
     document.getElementById('recipeTitle').value = recipe.recipeTitle;
     document.getElementById('preparationTime').value = recipe.preparationTime;
     document.getElementById('servings').value = recipe.servings;
@@ -337,11 +196,14 @@ document?.addEventListener('DOMContentLoaded', function () {
     updateRecipeModal.show();
   };
 
-
+  /***********************************************/
+  /*********** Update Recipe Form Submission ******/
+  /***********************************************/
   document.getElementById('updateRecipeForm')?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const index = document.getElementById('recipeIndex').value;
+    const containerId = document.getElementById('recipeType').value;
     const recipe = {
       recipeTitle: document.getElementById('recipeTitle').value,
       preparationTime: document.getElementById('preparationTime').value,
@@ -354,195 +216,136 @@ document?.addEventListener('DOMContentLoaded', function () {
     };
 
     try {
-      const updatecards = await updateDoc(doc(db, "userrecipie", userCollection[index].id), recipe);
+      if (containerId === "userCollection") {
+        const updatecards = await updateDoc(doc(db, "userrecipie", userCollection[index].id), recipe);
+      }
+      else {
+        const updatecards = await updateDoc(doc(db, "favouriterecipie-card", favouriteCollection[index].id), recipe);
+      } console.log("Recipe updated successfully!");
 
-      console.log(updatecards);
-      console.log("Recipe updated successfully!");
+
       fetchAndDisplayCards();
 
       const updateRecipeModal = bootstrap.Modal.getInstance(document.getElementById('updateRecipeModal'));
       updateRecipeModal.hide();
-    }
-
-    catch (error) {
+    } catch (error) {
       console.error("Error updating recipe in Firestore: ", error);
     }
   });
 
-  window.updateCard = async (index) => {
+  /***********************************************/
+  /*********** Add to Favorites ************/
+  /***********************************************/
+  window.addToFavorites = async (index) => {
     try {
       const recipe = userCollection[index];
-      const newRecipeTitle = prompt("Enter new recipe title:", recipe.recipeTitle);
+      await setDoc(doc(db, "favouriterecipie-card", recipe.id), recipe);
 
-      if (newRecipeTitle) {
-        const updatecards = await updateDoc(doc(db, "userrecipie", recipe.id), {
-          recipeTitle: newRecipeTitle
-        });
-
-        console.log(updatecards);
-        console.log("Recipe updated successfully!");
-        fetchAndDisplayCards();
-      }
+      console.log("Recipe added to favorites successfully!");
+      favouriteCollection.push(recipe);
+      displayFavoriteCard(recipe, favouriteCollection.length - 1);
     } catch (error) {
-      console.error("Error updating recipe in Firestore: ", error);
+      console.error("Error adding recipe to favorites: ", error);
     }
   };
 
+  /***********************************************/
+  /*********** Display Favorite Card *************/
+  /***********************************************/
+  const displayFavoriteCard = (recipe, index) => {
+    const favouriteUserCollection = document.getElementById("favouriteusercollection");
+
+    if (!favouriteUserCollection) {
+      return;
+    }
+
+    const card = document.createElement("div");
+    card.setAttribute("class", "col");
+    card.innerHTML = `
+      <div class="recipe card recipie-card">
+        <div class="recipe-img-div">
+          <img src="${recipe.imageURL}" class="recipe_img" width="200px" height="200px">
+        </div>
+        <div class="recipe_content">
+          <h4 class="h4">${recipe.recipeTitle}</h4>
+                   <div class="d-flex text-center mt-4 flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+                <div class="d-flex text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+                    <div class="recipie-span-div d-flex align-items-center justify-content-center">
+                        <div> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 48 48">
+                                <defs>
+                                    <mask id="ipSTag0">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
+                                            <path fill="#fff" stroke="#fff"
+                                                d="M8 44V6a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v38l-16-8.273z" />
+                                            <path stroke="#000" stroke-linecap="round" d="M16 18h16" />
+                                        </g>
+                                    </mask>
+                                </defs>
+                                <path fill="#e86209" d="M0 0h48v48H0z" mask="url(#ipSTag0)" />
+                            </svg> Category : &nbsp; </div>&nbsp;
+                        <span>
+
+                            <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
+                        </span>
+
+                    </div>
+                    <div class="recipie-span-div d-flex align-items-center justify-content-center">
+
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 2048 2048">
+                                <path fill="#e86209"
+                                    d="M1280 64q0 179 66 330t190 278t190 278t66 330q0 106-27 204t-78 183t-120 156t-155 120t-184 77t-204 28t-204-27t-183-78t-156-120t-120-155t-77-184t-28-204q0-84 18-165t52-155t84-141t113-121q7 38 19 78t28 80t38 76t46 67q20 25 52 25q27 0 45-19t19-46q0-11-3-20t-10-18q-28-41-49-81t-37-82t-23-87t-8-95q0-119 45-224t124-183T992 46t224-46h64zm-256 1856q133 0 249-50t204-137t137-203t50-250q0-151-56-281t-162-236q-130-131-204-289t-88-342q-83 11-153 50t-123 99t-81 135t-29 160q0 78 23 141t68 126q19 26 29 54t11 62q0 40-15 75t-42 61t-61 42t-75 15q-46 0-81-17t-62-46t-48-65t-40-72q-46 73-68 157t-23 171q0 133 50 249t137 204t203 137t250 50" />
+                            </svg>
+                            Calories : &nbsp;
+                        </div>&nbsp;
+                        <span>
+
+                            <small><span class="recipie-span">${recipe.calories}</span></small>
+                        </span>
+                    </div>
+                    <div class="recipie-span-div d-flex align-items-center justify-content-center">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                                <path fill="#e86209" fill-rule="evenodd"
+                                    d="M7 .103a.75.75 0 0 1 .75.75v1.04A7 7 0 0 1 14 8.854a1.5 1.5 0 0 1-1.5 1.5h-11a1.5 1.5 0 0 1-1.5-1.5a7 7 0 0 1 6.25-6.96V.854A.75.75 0 0 1 7 .103M.78 11.75a.75.75 0 0 0 0 1.5h12.44a.75.75 0 0 0 0-1.5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Serving : &nbsp;
+                        </div>&nbsp;
+                        <span>
+
+                            <small><span class="recipie-span">${recipe.servings}</span></small>
+                        </span>
+                    </div>
+            <p>${recipe.description}</p>
+            <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
+              <div class=" d-flex flex-lg-row justify-content-between ">
+                <button>
+                <a href='/public-src/Assets/all-recipes/html/fullview.html' class="text-decoration-none text-light">View Recipe</a>
+                </button>&nbsp;&nbsp;
+               <button href="#" class="btn mb-3 ms-2 recipiebtn_curd text-light" onclick="deleteCard(${index}, 'favouriteusercollection')">Delete Recipe</button>
+              </div>
+            </div> <br/><br/>
+            <div class="recipe_info">
+              <span>
+                <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" > 2k Likes
+              </span>
+              <span>
+                <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
+              </span>
+              <span>
+                <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
+                <span>${recipe.preparationTime} Min</span>
+              </span>
+            </div>
+            <br/>
+            </div>
+        </div>
+      </div>
+    `;
+
+    favouriteUserCollection.appendChild(card);
+  };
+
   fetchAndDisplayCards();
-  fetchAndDisplayFavorites();
 });
-
-
-
-
-// import { db, collection, doc, getDocs, query, orderBy, deleteDoc, updateDoc } from '/firebase/firebase-config.js';
-
-// /**************************************************/
-// /*********** Overall function working  ************/
-// /**************************************************/
-// document?.addEventListener('DOMContentLoaded', function () {
-//   let userCollection = [];
-
-//   /**************************************************/
-//   /*********** Fetch and display recipes ************/
-//   /**************************************************/
-//   const fetchAndDisplayCards = async () => {
-//     try {
-//       console.log("Fetching recipes from Firestore...");
-//       const querySnapshot = await getDocs(query(collection(db, "userrecipie"), orderBy("timestamp", "desc")));
-//       userCollection = [];
-
-//       querySnapshot.forEach(doc => {
-//         const data = doc.data();
-//         console.log("Fetched recipe:", data);
-//         userCollection.push({
-//           id: doc.id,
-//           imageURL: data.imageURL,
-//           recipeTitle: data.recipeTitle,
-//           preparationTime: data.time,
-//           servings: data.servings,
-//           description: data.description,
-//           category: data.category,
-//           cookingSteps: data.cookingSteps,
-//           calories: data.calories,
-//           cookingIngredients: data.cookingIngredients
-//         });
-//       });
-
-//       displayCards(userCollection);
-//     } catch (error) {
-//       console.error("Error fetching user recipes from Firestore: ", error);
-//     }
-//   };
-
-//   /******************************************/
-//   /***********  Display recipes  ************/
-//   /******************************************/
-//   const displayCards = (collection) => {
-//     const userCard = document.getElementById("userCollection");
-
-//     if (!userCard) {
-//       return;
-//     }
-
-//     userCard.innerHTML = '';
-
-//     /******************************************************/
-//     /***********  Display collection of cards  ************/
-//     /******************************************************/
-//     collection.forEach((recipe, index) => {
-//       console.log("Displaying recipe:", recipe.imageURL);
-//       const card = document.createElement("div");
-//       card.setAttribute("class", "col");
-//       card.innerHTML = `
-//         <div class="recipe card recipie-card">
-//           <div class="recipe-img-div">
-//             <img src="${recipe.imageURL}" class="recipe_img" width="200px" height="200px">
-//           </div>
-//           <div class="recipe_content">
-//             <h4 class="h4">${recipe.recipeTitle}</h4>
-//             <div class="d-flex flex-lg-row flex-md-row text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
-//               <div class="recipie-span-div align-items-center justify-content-center">
-//                 <div>Category:</div>
-//                 <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
-//               </div>
-//               <div class="recipie-span-div align-items-center justify-content-center">
-//                 <div>Calories:</div>
-//                 <small><span class="recipie-span">${recipe.calories}</span></small>
-//               </div>
-//               <div class="recipie-span-div align-items-center justify-content-center">
-//                 <div>Serving:</div>
-//                 <small><span class="recipie-span">${recipe.servings}</span></small>
-//               </div>
-//             </div>
-//             <p>${recipe.description}</p>
-//             <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
-//               <div class="text-center">
-//                 <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
-//               </div>
-//               <div class="recipe_info">
-//                 <span>
-//                   <img src="../asset/logo_imgs/heart.png" alt="img" width="18px"> 2k Likes
-//                 </span>
-//                 <span>
-//                   <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
-//                 </span>
-//                 <span>
-//                   <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
-//                   <span>${recipe.preparationTime} Min</span>
-//                 </span>
-//               </div>
-//             </div>
-//             <div class="text-center">
-//               <a href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="deleteCard(${index})">Delete Recipe</a>
-//               <a href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="updateCard(${index})">Update Recipe</a>
-//             </div>
-//           </div>
-//         </div>
-//       `;
-//       userCard.appendChild(card);
-//     });
-
-//   };
-
-//   /***********************************************/
-//   /***********  delete Card function  ************/
-//   /***********************************************/
-//   window.deleteCard = async (index) => {
-//     try {
-//       const recipe = userCollection[index];
-//       const deletecard = await deleteDoc(doc(db, "userrecipie", recipe.id));
-
-//       console.log(deletecard);
-//       console.log("Recipe deleted successfully!");
-//       fetchAndDisplayCards();
-//     } catch (error) {
-//       console.error("Error deleting recipe from Firestore: ", error);
-//     }
-//   };
-
-//   /***********************************************/
-//   /***********  update Card function  ************/
-//   /***********************************************/
-//   window.updateCard = async (index) => {
-//     try {
-//       const recipe = userCollection[index];
-//       const newRecipeTitle = prompt("Enter new recipe title:", recipe.recipeTitle);
-
-//       if (newRecipeTitle) {
-//         const updatecards = await updateDoc(doc(db, "userrecipie", recipe.id), {
-//           recipeTitle: newRecipeTitle
-//         });
-
-//         console.log(updatecards);
-//         console.log("Recipe updated successfully!");
-//         fetchAndDisplayCards();
-//       }
-//     } catch (error) {
-//       console.error("Error updating recipe in Firestore: ", error);
-//     }
-//   };
-
-//   fetchAndDisplayCards();
-// });
-

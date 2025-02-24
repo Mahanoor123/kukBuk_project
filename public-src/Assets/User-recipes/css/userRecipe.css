@@ -85,86 +85,7 @@ button {
     transform: scale(1.1) !important;
     transition: transform 0.2s !important;
   }
-}
-
-
-/********** Navbar Styling **********/
-
-/* .header {
-  position: sticky  !important;
-  top: 0  !important;
-  left: 0  !important;
-  right: 0  !important;
-  bottom: 0  !important;
-  z-index: 1000  !important;
-  background-color: var(--white-color)  !important;
-  box-shadow: var(--box-shadow)  !important;
-}
-
-.header nav {
-  width: 90vw  !important;
-  margin: 0 auto  !important;
-  padding: 0.5rem 0  !important;
-  display: flex  !important;
-  flex-wrap: wrap  !important;
-  justify-content: space-between  !important;
-  align-items: center  !important;
-}
-
-.header nav .logo {
-  width: 8rem  !important;
-}
-
-.header nav .nav_links a {
-  text-decoration: none  !important;
-  font-family: 'lato'  !important;
-  font-size: 1rem  !important;
-  padding: 0 1rem  !important;
-  color: var(--headings-color)  !important;
-  transition: color 0.4s linear  !important;
-
-  &:hover {
-    color: var(--primary-color)  !important;
-    font-weight: 600  !important;
-  }
-}
-
-.header nav .links {
-  display: flex  !important;
-  align-items: center  !important;
-}
-
-.header nav .links i {
-  color: var(--primary-color)  !important;
-  padding: 0 0.8rem  !important;
-}
-
-.header nav .links button {
-  all: unset  !important;
-  border: 0.1rem solid var(--primary-color)  !important;
-  color: var(--primary-color)  !important;
-  padding: 0.3rem 1.5rem  !important;
-  border-radius: 0.8rem 0 0.8rem 0  !important;
-  font-size: 0.8rem  !important;
-  font-family: 'lato'  !important;
-  cursor: pointer  !important;
-  transition: background 0.4s linear  !important;
-
-  &:hover {
-    background: var(--gradient-color)  !important;
-    color: var(--white-color)  !important;
-  }
-}
-
-.header .hamburger {
-  display: none  !important;
-  cursor: pointer  !important;
-  font-size: 1.5rem  !important;
-  color: var(--headings-color)  !important;
-} */
-
-
-/********** nav link  a css **********/
+}/********** nav link  a css **********/
 .nav-item a {
   color: var(--red) !important;
   font-weight: 700 !important;
@@ -251,19 +172,6 @@ ul .footer {
   margin: 0 auto !important;
 }
 
-.user-recipie-card {
-  width: 300px !important;
-  height: 700px !important;
-  flex-wrap: wrap !important;
-  margin: 7px !important;
-  margin: 0 auto !important;
-  border: 2px solid #000000 !important;
-  transition: background 0.4s linear !important;
-
-  &:hover {
-    background-color: #e86209 !important;
-  }
-}
 
 .user-recipie-body {
   overflow-x: hidden !important;
@@ -288,13 +196,9 @@ ul .footer {
 
 /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
 .recipiebtn_curd {
-  background-color: #E96728 !important;
-  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px   !important; */
-}
-
+  background-color: #E96728 !important;}
 /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
-
-/********** Recipes Styling **********/
+/* ********* Recipes Styling ********* */
 .container-recipe-cards {
   width: 100% !important;
   height: auto !important;
@@ -389,6 +293,46 @@ ul .footer {
   font-size: 12px !important;
 }
 
+
+.recipie-card {
+  margin: 0 auto !important;
+  border: 2px solid #000000 !important;
+  width: 400px !important;
+  height: 650px !important;
+  margin-bottom: 150px !important;
+
+}
+
+
+
+/***************** checkbox bootstrap css ****************/
+
+
+.form-control input {
+  all: unset !important;
+}
+
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  border: 2px solid #ff9900 !important;
+  margin-bottom: 35px !important;
+}
+
+.recipiemodal {
+  font-size: 15px !important;
+  font-style: oblique !important;
+   font-family: 'inknut antiqua' !important;
+  font-weight: bold !important;
+}
+
+.modalbutton {
+  text-align: center;
+  border-radius: 15px !important;
+  width: 80px !important;
+  font-size: 13px !important;
+}
 
 /* -------------------------------------------- */
 
