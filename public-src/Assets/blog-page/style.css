@@ -11,11 +11,31 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--background-color);
 }
+
+/********* scrollbar css ************/
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
 :root {
   --primary-color: #e81409;
   --secondary-color: #e86209;
@@ -29,6 +49,7 @@ body {
   --white-color: #ffffff;
   --box-shadow: 1px 4px 5px #c3c3c3;
 }
+
 h1 {
   font-family: "inknut antiqua";
   font-weight: 800;
@@ -36,6 +57,7 @@ h1 {
   line-height: 4rem;
   color: var(--headings-color);
 }
+
 h2 {
   font-family: "lato";
   font-weight: 700;
@@ -43,6 +65,7 @@ h2 {
   line-height: 4rem;
   color: var(--headings-color);
 }
+
 h3 {
   font-family: "inknut antiqua";
   font-weight: 700;
@@ -50,6 +73,7 @@ h3 {
   line-height: 4rem;
   color: var(--headings-color);
 }
+
 h4 {
   font-family: "inknut antiqua";
   font-weight: 600;
@@ -57,6 +81,7 @@ h4 {
   line-height: 2rem;
   color: var(--headings-color);
 }
+
 h5 {
   font-family: "inknut antiqua";
   font-weight: 600;
@@ -64,6 +89,7 @@ h5 {
   line-height: 1.5rem;
   color: var(--headings-color);
 }
+
 h6 {
   font-family: "lato";
   font-weight: 600;
@@ -71,12 +97,14 @@ h6 {
   line-height: 1rem;
   color: var(--headings-color);
 }
+
 p {
   font-family: "lato";
   font-weight: 400;
   font-size: 0.9rem;
   color: var(--black-tint1);
 }
+
 button {
   all: unset;
   background-color: var(--secondary-color);
@@ -94,10 +122,12 @@ button {
     background: var(--gradient-color);
   }
 }
-.navbar{
+
+.navbar {
   padding: 0.4rem 4rem;
 }
-main{
+
+main {
   width: 90vw;
   margin: 0 auto;
 }
@@ -110,22 +140,27 @@ main{
   font-family: "Inknut Antiqua";
   margin: 6rem 0 2rem 0;
 }
+
 .slider {
   margin-bottom: 50px;
 }
+
 .abt-para {
   font-family: "Inter";
   color: #2b2b2b;
 }
+
 .abt-con {
   margin-top: 80px;
   margin-bottom: 90px;
 }
+
 .abt-row {
   background-color: #2f1f21;
   border-radius: 10px;
   height: 500px;
 }
+
 .abt-h3 {
   font-family: "Inknut Antiqua";
   color: white;
@@ -134,12 +169,14 @@ main{
   margin-left: 90px;
   margin-top: 150px;
 }
+
 .team {
   font-family: "Inknut Antiqua";
   font-size: 43px;
   margin-bottom: 40px;
   margin-left: 50px;
 }
+
 .abt-card1 {
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   position: relative;
@@ -153,49 +190,59 @@ main{
   margin-bottom: 50px;
   margin-left: 25px;
 }
+
 .abt-card3 {
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   position: relative;
   margin-bottom: 50px;
   margin-left: 25px;
 }
+
 .abt-card4 {
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   position: relative;
   margin-bottom: 50px;
   margin-left: 25px;
 }
+
 .card-heading {
   font-family: "Inter";
   font-size: 29px;
   font-weight: 500;
   margin-top: 90px;
 }
+
 .card-para {
   font-family: "Lato";
   color: #363636;
   font-size: 18px;
 }
+
 .card-heading:hover {
   color: #e81409;
 }
+
 .card-para:hover {
   color: #e81409;
 }
+
 .icons {
   margin-left: 40px;
   margin-bottom: 20px;
 }
+
 .icon1 {
   color: #e81409;
   margin-top: 2px;
 }
+
 .review {
   font-family: "Lato";
   font-size: 15px;
   color: #6d6d6d;
   margin-left: 10px;
 }
+
 .view {
   background-color: white;
   width: 287px;
@@ -203,23 +250,28 @@ main{
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+
 .view-btn {
   font-family: "Inter";
   margin-top: 10px;
   margin-left: 100px;
 }
+
 .view-btn:hover {
   color: #e81409;
 }
+
 .like {
   margin-top: 12px;
   font-size: 20px;
   color: #e81409;
   margin-left: 20px;
 }
+
 .arr {
   margin-left: 10px;
 }
+
 .text-abt {
   font-family: "Inknut Antiqua";
   font-size: 48px;
@@ -235,9 +287,11 @@ main{
   grid-template-rows: repeat(8, 5vw);
   grid-gap: 0.8rem;
 }
+
 .gallery_grid .gallery__item {
   position: relative;
 }
+
 .gallery__item figcaption {
   position: absolute;
   top: 0;
@@ -255,9 +309,11 @@ main{
   opacity: 0;
   transition: all 0.6s linear;
 }
+
 .gallery__item:hover figcaption {
   opacity: 1;
 }
+
 .gallery__item figcaption button {
   outline: none;
   border: none;
@@ -272,54 +328,63 @@ main{
     background-color: #a6161c;
   }
 }
+
 .gallery__item--1 {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
 }
+
 .gallery__item--2 {
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 3;
 }
+
 .gallery__item--3 {
   grid-column-start: 5;
   grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: 6;
 }
+
 .gallery__item--4 {
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 6;
 }
+
 .gallery__item--5 {
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 6;
   grid-row-end: 9;
 }
+
 .gallery__item--6 {
   grid-column-start: 7;
   grid-column-end: 9;
   grid-row-start: 6;
   grid-row-end: 10;
 }
+
 .gallery__item--7 {
   grid-column-start: 5;
   grid-column-end: 7;
   grid-row-start: 6;
   grid-row-end: 10;
 }
+
 .gallery__item--8 {
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 9;
   grid-row-end: 10;
 }
+
 .gallery_grid .gallery__img {
   width: 100%;
   height: 100%;
@@ -337,20 +402,24 @@ main{
   align-items: center;
   margin: 4rem 0;
 }
+
 .newsletter h4 {
   color: var(--white-color);
   width: 30rem;
 }
+
 .newsletter .input {
   display: flex;
   align-items: center;
 }
+
 .newsletter input {
   all: unset;
   padding: 0.4rem 2rem 0.4rem 0.4rem;
   background-color: var(--white-color);
   border-radius: 1rem 0 0 1rem;
 }
+
 .newsletter .input_join {
   border-radius: 0 1rem 1rem 0;
 }
@@ -360,17 +429,20 @@ main{
 .chefs {
   margin: 5rem 0;
 }
+
 .chefs_display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 6rem 4rem;
   margin: 6rem 0;
 }
+
 .chefs_display .chef_profile {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
   border-radius: 1rem;
 }
+
 .chefs_display .chef_profile .chef_img {
   width: 7rem;
   height: 7rem;
@@ -381,23 +453,28 @@ main{
   display: block;
   margin: -3rem auto 1rem auto;
 }
+
 .chefs_display .chef_profile .chef_content {
   align-self: center;
   justify-self: center;
   text-align: center;
 }
+
 .chefs_display .chef_profile .ratings {
   margin: 1.5rem 0;
 }
+
 .chefs_display .chef_profile .ratings i {
   font-size: 0.8rem;
   color: var(--primary-color);
 }
+
 .chefs_display .chef_profile .ratings span {
   font-family: "lato";
   font-size: 0.8rem;
   color: var(--black-tint2);
 }
+
 .chefs_display .chef_profile .chef_links {
   display: flex;
   justify-content: space-between;
@@ -405,15 +482,18 @@ main{
   border-top: 0.1rem solid var(--black-tint4);
   padding: 0.5rem 1rem;
 }
+
 .chefs_display .chef_profile .chef_links i {
   color: var(--primary-color);
 }
+
 .chefs_display .chef_profile .chef_links .chef_btn {
   all: unset;
   font-family: "lato";
   color: var(--headings-color);
   font-size: 0.8rem;
 }
+
 .chefs_display .chef_profile .chef_links .chef_btn i {
   transform: rotate(-45deg);
   margin: 0 0.5rem;
@@ -436,12 +516,15 @@ main{
   align-items: center;
   transition: all 0.5s linear;
 }
-.chef_preview .fa-close{
+
+.chef_preview .fa-close {
   position: absolute;
   top: 2rem;
-  right: 4rem;;
+  right: 4rem;
+  ;
   color: var(--white-color);
 }
+
 .single_profile {
   background-color: var(--white-color);
   border: 1px solid var(--secondary-color);
@@ -454,10 +537,12 @@ main{
   align-items: center;
   padding: 4rem 4rem;
 }
+
 .single_profile .chef_image {
   width: 8rem;
   height: 8rem;
 }
+
 .single_profile .chef_image img {
   width: 100%;
   height: 100%;
@@ -465,32 +550,39 @@ main{
   object-fit: cover;
   border: 1px solid var(--secondary-color);
 }
+
 .single_profile .cheftag {
   color: var(--black-tint1);
   font-family: "lato";
 }
+
 .single_profile .chefbio {
   margin: 2rem 0;
   text-align: center;
   color: var(--black-tint1);
 }
+
 .single_profile .chef_rating {
   margin: 1rem 0;
   display: flex;
   align-items: center;
 }
+
 .single_profile .stars {
   color: var(--primary-color);
   font-size: 0.9rem;
   margin: 0 1rem;
 }
+
 .single_profile .chef_review {
   margin: 0 1rem;
   color: var(--black-tint1);
 }
+
 .single_profile .chef_social {
   margin-top: 2rem;
 }
+
 .single_profile .chef_social i {
   color: var(--primary-color);
   font-size: 1.5rem;
@@ -502,51 +594,62 @@ main{
 .blog_collection {
   margin: 2rem 0;
 }
+
 .blogs_display {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 2rem;
   margin: 2rem 0;
 }
+
 .blogs_display .blog_col img {
   height: 14rem;
   margin: 0.5rem;
 }
+
 .blogs_display .blog_col2 img {
   width: 50vw;
 }
+
 .blogs_display a {
   text-decoration: none;
 }
+
 .blogs_display .blog {
   text-align: center;
 }
+
 .blogs_display .blog h5 {
   padding: 0.5rem 2rem;
 }
+
 .blogs_display .blog small {
   color: var(--primary-color);
 }
 
 /********** Blogs Card Styling **********/
 
-.container{
+.container {
   width: 100vw;
   margin: 5rem 0;
 }
+
 .heading {
   font-family: "Inknut Antiqua";
   font-weight: bold;
   margin: 1rem 0;
 }
+
 .list {
   list-style-type: none;
   display: flex;
   gap: 0 1rem;
 }
+
 .feature-img1 {
   margin-top: 2rem;
 }
+
 .world {
   position: absolute;
   margin-top: 1rem;
@@ -556,13 +659,16 @@ main{
   padding: 10px 70px;
   border-radius: 10px;
 }
+
 .p {
   text-align: center;
   margin-top: 20px;
 }
+
 li:hover {
   color: #e81409;
 }
+
 .More-btn {
   background-color: #e86209;
   color: white;
@@ -578,6 +684,7 @@ li:hover {
   border: 2px solid #e86209;
   border-radius: 15px;
 }
+
 .cr-box {
   background-color: #ffffff;
   border: 1px solid #e86209;
@@ -588,17 +695,20 @@ li:hover {
   height: 50px;
   border-radius: 10px;
 }
+
 .cr-text {
   margin-left: 150px;
   margin-top: 10px;
   color: #2f1f21;
 }
+
 .star-icon {
   color: #e81409;
   margin-top: 90px;
   gap: 3px;
   font-size: 17px;
 }
+
 .rev {
   color: #363636;
   font-family: "Lato";
@@ -606,49 +716,60 @@ li:hover {
   font-size: 14px;
   margin-top: 90px;
 }
+
 .heading-blog {
   font-family: "Inknut Antiqua";
   font-size: 32px;
 }
+
 .long-para {
   font-family: "Inter";
   font-size: 17px;
   color: #6d6d6d;
   margin-top: 40px;
 }
+
 .see-more {
   color: #e86209;
 }
+
 .heart {
   color: #e81409;
   font-size: 22px;
 }
+
 .like1 {
   margin-left: 15px;
   font-family: "Lato";
 }
+
 .message {
   color: #e81409;
   font-size: 22px;
   margin-left: 30px;
 }
+
 .clock {
   color: #e81409;
   font-size: 22px;
   margin-left: 30px;
 }
+
 .blog-icons {
   color: #e81409;
   margin-left: 240px;
 }
+
 .b-icon1 {
   margin-left: 20px;
   font-size: 25px;
 }
+
 .dia1 {
   margin-top: 80px;
   margin-left: 80px;
 }
+
 .dia2 {
   margin-top: 40px;
   margin-left: 80px;
@@ -662,6 +783,7 @@ footer {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
 }
+
 .footer1 {
   width: 90vw;
   margin: 0 auto;
@@ -670,16 +792,20 @@ footer {
   align-items: center;
   gap: 2rem 4rem;
 }
+
 .footer1 .foot_logo img {
   width: 10rem;
 }
+
 .footer1 .foot_image {
   width: 35vw;
 }
+
 .footer1 .foot_links h6,
 .foot_legal h6 {
   margin-bottom: 0.5rem;
 }
+
 .footer1 .foot_links a,
 .foot_legal a {
   display: block;
@@ -689,15 +815,18 @@ footer {
   color: var(--black-tint2);
   padding: 0.3rem 0;
 }
+
 .footer2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
 }
+
 .footer2 .copy_text {
   font-family: "lato";
 }
+
 .footer2 .social_icons i {
   color: var(--primary-color);
   margin: 0 0.4rem;

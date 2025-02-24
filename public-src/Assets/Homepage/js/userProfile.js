@@ -190,9 +190,7 @@ const updateUserPassword = async () => {
   }
 };
 
-document
-  .getElementById("change-password-btn")
-  ?.addEventListener("click", updateUserPassword);
+document.getElementById("change-password-btn")?.addEventListener("click", updateUserPassword);
 
 /****************************************************/
 /*************** Logout User Function ***************/

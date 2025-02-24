@@ -28,11 +28,9 @@ document.querySelector(".user_profile")?.addEventListener("click", () => {
   document.querySelector(".main_profile").style.right = "0";
 });
 
-document
-  .querySelector(".main_profile .fa-close")
-  ?.addEventListener("click", () => {
-    document.querySelector(".main_profile").style.right = "-50vw";
-  });
+document.querySelector(".main_profile .fa-close")?.addEventListener("click", () => {
+  document.querySelector(".main_profile").style.right = "-50vw";
+});
 
 const userLogOut = async () => {
   try {

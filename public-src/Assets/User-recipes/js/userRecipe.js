@@ -12,6 +12,9 @@ document?.addEventListener('DOMContentLoaded', function () {
   /**************************************************/
   const fetchAndDisplayCards = async () => {
     try {
+
+      console.log("Fetching recipes from Firestore...");
+
       const querySnapshot = await getDocs(query(collection(db, "userrecipie"), orderBy("timestamp", "desc")));
       userCollection = [];
 
@@ -64,7 +67,11 @@ document?.addEventListener('DOMContentLoaded', function () {
           </div>
           <div class="recipe_content">
             <h4 class="h4">${recipe.recipeTitle}</h4>
+
+            <div class="d-flex flex-lg-row flex-md-row text-center flex-sm-row mt-4 flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+
             <div class="d-flex flex-lg-row flex-md-row text-center flex-column align-items-center justify-content-between mt-lg-4 mb-4 ">
+
               <div class="recipie-span-div align-items-center justify-content-center">
                 <div>Category:</div>
                 <small><span class="recipie-span">${recipe.category.join(", ")}</span></small>
@@ -81,6 +88,17 @@ document?.addEventListener('DOMContentLoaded', function () {
             <p>${recipe.description}</p>
             <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
               <div class="text-center">
+
+               <button><a href='./fullrecipieview.html' class="text-decoration-none text-light" >View Recipe</a></button> <br/>
+                <br/>
+                </div>
+                <div class="recipe_info">
+                <span>
+                <img src="../asset/logo_imgs/heart.png" alt="img" width="18px" onclick="addToFavorites(${index})"> 2k Likes
+                </span>
+                <span>
+                <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
+
                 <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
               </div>
               <div class="recipe_info">
@@ -89,11 +107,26 @@ document?.addEventListener('DOMContentLoaded', function () {
                 </span>
                 <span>
                   <img src="../asset/logo_imgs/material-symbols--comment-outline.png" alt="img" width="18px"> 243
+
                 </span>
                 <span>
                   <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
                   <span>${recipe.preparationTime} Min</span>
                 </span>
+
+                </div>
+                <br/>
+                <div class="text-center">
+                <button href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="deleteCard(${index})">Delete Recipe</button>
+                <button href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="updateCard(${index})">Update Recipe</button>
+                 </div>
+                 </div>
+                 </div>
+            </div>
+            `;
+            userCard.appendChild(card);
+            // <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
+
               </div>
             </div>
             <div class="text-center">
@@ -104,6 +137,7 @@ document?.addEventListener('DOMContentLoaded', function () {
         </div>
       `;
       userCard.appendChild(card);
+
     });
   };
 
@@ -157,8 +191,13 @@ document?.addEventListener('DOMContentLoaded', function () {
           </div>
           <p>${recipe.description}</p>
           <div class="recipe_links d-flex flex-lg-row flex-column justify-content-center align-items-center">
+
+            <div class="text-center">                
+            <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
+
             <div class="text-center">
               <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
+
             </div>
             <div class="recipe_info">
               <span>
@@ -301,6 +340,55 @@ document?.addEventListener('DOMContentLoaded', function () {
   /***********************************************/
   /***********  update Card function  ************/
   /***********************************************/
+
+  window.updateCard = (index) => {
+    const recipe = userCollection[index];
+    document.getElementById('recipeIndex').value = index;
+    document.getElementById('recipeTitle').value = recipe.recipeTitle;
+    document.getElementById('preparationTime').value = recipe.preparationTime;
+    document.getElementById('servings').value = recipe.servings;
+    document.getElementById('description').value = recipe.description;
+    document.getElementById('category').value = recipe.category.join(", ");
+    document.getElementById('calories').value = recipe.calories;
+    document.getElementById('cookingSteps').value = recipe.cookingSteps;
+    document.getElementById('cookingIngredients').value = recipe.cookingIngredients;
+
+    const updateRecipeModal = new bootstrap.Modal(document.getElementById('updateRecipeModal'));
+    updateRecipeModal.show();
+  };
+
+
+  document.getElementById('updateRecipeForm')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const index = document.getElementById('recipeIndex').value;
+    const recipe = {
+      recipeTitle: document.getElementById('recipeTitle').value,
+      preparationTime: document.getElementById('preparationTime').value,
+      servings: document.getElementById('servings').value,
+      description: document.getElementById('description').value,
+      category: document.getElementById('category').value.split(",").map(cat => cat.trim()),
+      calories: document.getElementById('calories').value,
+      cookingSteps: document.getElementById('cookingSteps').value,
+      cookingIngredients: document.getElementById('cookingIngredients').value
+    };
+
+    try {
+      const updatecards = await updateDoc(doc(db, "userrecipie", userCollection[index].id), recipe);
+
+      console.log(updatecards);
+      console.log("Recipe updated successfully!");
+      fetchAndDisplayCards();
+
+      const updateRecipeModal = bootstrap.Modal.getInstance(document.getElementById('updateRecipeModal'));
+      updateRecipeModal.hide();
+    }
+    
+    catch (error) {
+      console.error("Error updating recipe in Firestore: ", error);
+    }
+  });
+
   window.updateCard = async (index) => {
     try {
       const recipe = userCollection[index];
@@ -323,8 +411,6 @@ document?.addEventListener('DOMContentLoaded', function () {
   fetchAndDisplayCards();
   fetchAndDisplayFavorites();
 });
-
-
 
 
 
@@ -479,3 +565,4 @@ document?.addEventListener('DOMContentLoaded', function () {
 
 //   fetchAndDisplayCards();
 // });
+
