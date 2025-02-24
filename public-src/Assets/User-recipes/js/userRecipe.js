@@ -124,20 +124,8 @@ document?.addEventListener('DOMContentLoaded', function () {
                  </div>
             </div>
             `;
-            userCard.appendChild(card);
-            // <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
-
-              </div>
-            </div>
-            <div class="text-center">
-              <a href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="deleteCard(${index})">Delete Recipe</a>
-              <a href="#" class="btn mb-3 recipiebtn_curd text-light" onclick="updateCard(${index})">Update Recipe</a>
-            </div>
-          </div>
-        </div>
-      `;
       userCard.appendChild(card);
-
+      // <button onclick="window.open('./Assets/all-recipes/html/fullView.html')">View Recipe</button>
     });
   };
 
@@ -315,8 +303,7 @@ document?.addEventListener('DOMContentLoaded', function () {
               </div>
             </div>
           </div>
-        </div >
-    `;
+        </div > `;
       favouriteCard.appendChild(card);
     });
   };
@@ -383,7 +370,7 @@ document?.addEventListener('DOMContentLoaded', function () {
       const updateRecipeModal = bootstrap.Modal.getInstance(document.getElementById('updateRecipeModal'));
       updateRecipeModal.hide();
     }
-    
+
     catch (error) {
       console.error("Error updating recipe in Firestore: ", error);
     }
