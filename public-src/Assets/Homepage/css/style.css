@@ -386,6 +386,8 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis; 
+  padding: 0.4rem 0.6rem 0.2rem 0;
+  color: var(--black-tint1);
 }
 
 .recipe_card .recipe_btn {

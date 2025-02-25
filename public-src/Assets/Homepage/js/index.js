@@ -107,6 +107,7 @@ const fetchRecipes = async () => {
   }
 };
 
+
 const displayRecipes = (recipes) => {
   const recipeContainer = document.querySelector(".recipes_cards_display");
 
@@ -129,7 +130,7 @@ const displayRecipes = (recipes) => {
           </div>
           <p><strong>Time:</strong> ${recipe.time} minutes</p>
           <p class="recipe_desc">${recipe.description}</p>
-          <button class="recipe_btn" onclick="viewRecipe('${recipe.id}')">
+          <button class="recipe_btn" data-id="${recipe.id}">
               <i class="fa-solid fa-arrow-right"></i> View Recipe
           </button>
       </div>
@@ -138,7 +139,26 @@ const displayRecipes = (recipes) => {
 
     recipeContainer.appendChild(recipeCard);
   });
+
+  // Add event listener to all buttons
+  document.querySelectorAll(".recipe_btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const recipeId = event.target.getAttribute("data-id");
+      viewRecipe(recipeId);
+    });
+  });
 };
+
+
+const viewRecipe = (recipeId) => {
+  if (recipeId) {
+    window.location.href = `/public-src/Assets/Homepage/html/fullViewRecipe.html?id=${recipeId}`;
+  } else {
+    console.error("Invalid Recipe ID");
+  }
+};
+
+
 
 // **Search Function**
 const searchRecipes = () => {
