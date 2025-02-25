@@ -87,6 +87,13 @@ button {
   }
 }
 
+
+.add_recipe{
+  width: 130px !important;
+  padding: 5px !important;
+}
+
+
 /********** nav link  a css **********/
 .nav-item a {
   color: var(--red) !important;
@@ -481,7 +488,6 @@ p:hover {
     transform: rotate(360deg);
   }
 }
-
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */

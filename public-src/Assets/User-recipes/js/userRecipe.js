@@ -56,22 +56,20 @@ document?.addEventListener('DOMContentLoaded', function (event) {
   /******************************************/
   /*********** Display recipes **************/
   /******************************************/
-
-  // Ensure this function is called when the page is loaded
   document.addEventListener("DOMContentLoaded", (event) => {
     setUpRealTimeListeners();
   });
 
 
-  const displayCards = (collection, containerId) => {
-    const container = document.getElementById(containerId);
-    if (!container) {
-      return;
-    }
+  const displayCards = (collection, containerId, userId) => {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    return;
+  }
 
-    container.innerHTML = '';
-    collection.forEach((recipe, index) => {
-
+  container.innerHTML = '';
+  collection.forEach((recipe, index) => {
+    if (recipe.userId === userId) { // Filter by user ID
       const card = document.createElement("div");
       card.setAttribute("class", "col");
       card.innerHTML = `
