@@ -1,3 +1,7 @@
+
+
+
+
 import {
   onAuthStateChanged,
   doc,
@@ -11,6 +15,7 @@ import {
   EmailAuthProvider,
   updateDoc,
   sendEmailVerification,
+  setDoc,
 } from "/firebase/firebase-config.js";
 
 /****************************************************/
@@ -29,7 +34,8 @@ const updateProfileUI = (userData) => {
     userPic.src = userData.profileImage;
   } else {
     userPic.src = "../assets/logo&profiles/user.png";
-}};
+  }
+};
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
@@ -49,6 +55,58 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
+/****************************************************/
+/********** Upload Image to Cloudinary & Firestore **********/
+/****************************************************/
+
+const uploadImg = async () => {
+  const fileInput = document.getElementById("image");
+  const selectedImg = fileInput.files[0];
+
+  if (!selectedImg) {
+    alert("Please select an image first.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", selectedImg);
+  formData.append("upload_preset", "User-images");
+  formData.append("cloud_name", "dizomf7uh");
+
+  try {
+    const response = await fetch('https://api.cloudinary.com/v1_1/dizomf7uh/image/upload', {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    console.log("Uploaded Image URL:", data.secure_url);
+
+    if (!data.secure_url) {
+      throw new Error("Failed to upload image.");
+    }
+
+    // Update Firestore with the new image URL
+    const user = auth.currentUser;
+    if (user) {
+      const userRef = doc(db, "Users", user.uid);
+      await updateDoc(userRef, {
+        profileImage: data.secure_url,
+      });
+
+      // Update UI with the new image
+      document.querySelector(".user_pic").src = data.secure_url;
+      alert("Profile picture updated successfully!");
+    } else {
+      alert("User not found.");
+    }
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    alert("Error uploading image: " + error.message);
+  }
+};
+
+document.querySelector("#uploadBtn").addEventListener("click", uploadImg);
 
 /****************************************************/
 /*************** Update Profile Popup ***************/
@@ -120,8 +178,6 @@ const updateUserProfile = async (event) => {
     alert("Error updating profile: " + error.message);
   }
 };
-
-document.querySelector(".save_profile")?.addEventListener("click", updateUserProfile);
 
 document.querySelector(".save_profile")?.addEventListener("click", updateUserProfile);
 

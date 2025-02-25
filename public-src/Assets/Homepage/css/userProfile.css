@@ -127,6 +127,11 @@ button {
 /********** Full Profile View **********/
 /***************************************/
 
+
+#uploadBtn{
+  width: 6rem;
+}
+
 .full_profile {
   padding: 3rem;
 }
