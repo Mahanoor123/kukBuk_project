@@ -87,6 +87,13 @@ button {
   }
 }
 
+
+.add_recipe{
+  width: 130px !important;
+  padding: 5px !important;
+}
+
+
 /********** nav link  a css **********/
 .nav-item a {
   color: var(--red) !important;
@@ -208,9 +215,12 @@ ul .footer {
   height: auto !important;
   padding: 20px !important;
   padding-top: 130px !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
+.recipie-card h4 {
+  font-size: 20px !important;
+}
 
 .recipie-span-div {
   width: 100% !important;
@@ -261,11 +271,20 @@ ul .footer {
 .paara {
   width: 100%;
   height: 90px !important;
+  flex-wrap: wrap !important;
   overflow: hidden !important;
 }
 
+.paara2 {
+  width: 100%;
+  height: 90px !important;
+  flex-wrap: wrap !important;
+  overflow: hidden !important;
+  padding-top: 20px !important;
+}
+
 .recipe .recipe_content .recipe_links {
-  margin-top: 2rem !important;
+  margin-top: 20px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -313,6 +332,15 @@ ul .footer {
 
 }
 
+.recipie-card2 {
+  margin: 0 auto !important;
+  border: 2px solid #000000 !important;
+  width: 400px !important;
+  height: 580px !important;
+  margin-bottom: 150px !important;
+
+}
+
 
 
 /***************** checkbox bootstrap css ****************/
@@ -345,9 +373,8 @@ ul .footer {
 }
 
 /* -------------------------------------------- */
-
-img:hover {
-  transform: scale(1.2) !important;
+.recipie-card img:hover {
+  transform: scale(1.1) !important;
   transition: all ease .5s !important;
 }
 
@@ -366,8 +393,6 @@ p:hover {
   transition: all ease .5s !important;
   font-weight: 500 !important;
 }
-
-
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
