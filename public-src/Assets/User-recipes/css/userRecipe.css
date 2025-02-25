@@ -110,10 +110,10 @@ button {
   }
 }
 
-.navbar-toggler-icon {
+/* .navbar-toggler-icon {
   padding: 2px !important;
   background-color: var(white) !important;
-}
+} */
 
 ul .footer {
   color: #6d6d6d !important;
@@ -490,4 +490,12 @@ p:hover {
   p {
     font-size: 13px !important;
   }
+}
+
+
+.togg-button {
+  margin-top: 20px !important;
+  padding: 10px !important;
+  border: 1px solid #e86209 !important;
+background-color: #e86209;
 }

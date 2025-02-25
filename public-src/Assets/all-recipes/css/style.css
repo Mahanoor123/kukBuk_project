@@ -205,13 +205,13 @@ main {
   margin: 0 0.5rem;
 }
 
-.recipes_filter .sort {
+.sort {
   background-color: var(--secondary-color);
   padding: 0.3rem;
   border-radius: 1rem;
 }
 
-.recipes_filter .sort select {
+.sort select {
   all: unset;
   padding-right: 2rem;
   color: var(--white-color);
@@ -254,17 +254,23 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.recipe_card .recipe_content .rating i {
+.rating {
   color: var(--primary-color);
-  font-size: 0.7rem;
-  margin-bottom: 0.5rem;
+  font-size: 20px;
+  margin-bottom: 0.7rem;
 }
 
 .recipe_card .recipe_content .chef {
   display: flex;
   align-items: center;
+  margin-top: 10px;
   margin-bottom: 0.5rem;
 }
+
+option {
+  background-color: #626261;
+}
+
 
 .recipe_card .recipe_img {
   margin-right: -4rem;

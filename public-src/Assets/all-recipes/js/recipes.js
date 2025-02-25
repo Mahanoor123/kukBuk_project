@@ -34,11 +34,13 @@ function displayRecipes(data) {
        <div class="recipe_content">
                         <h5>${recipe.name}</h5>
                         <div class="rating">
+                        
                         ${recipe.rating || "★★★★☆"}
+                       
                         </div>
                         <div class="chef">
-                            <img src="https://via.placeholder.com/40" alt="Chef">
-                            <span>John Doe</span>
+                        <img src="/public-src/Assets/all-recipes/images/chef-pic1 2.png" alt="Chef">
+                            <span>Sofie</span>
                         </div>
                         <button class="recipe_btn" onclick="viewRecipe(${recipe.id})"><i class="fa-solid fa-arrow-right"></i> View Recipe</button>
                     </div>
