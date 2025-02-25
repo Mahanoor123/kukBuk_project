@@ -1,5 +1,19 @@
 
 import { db, addDoc, collection, serverTimestamp } from '/firebase/firebase-config.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCMeJCTXbdJorjOdi-5woYwoG6rb7ddDDQ",
+  authDomain: "kukbuk-project-45362.firebaseapp.com",
+  projectId: "kukbuk-project-45362",
+  storageBucket: "kukbuk-project-45362.firebasestorage.app",
+  messagingSenderId: "695377977253",
+  appId: "1:695377977253:web:e4bf823163001937c6924c",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 
 /*********************************************************************/
@@ -100,13 +114,17 @@ document?.addEventListener('DOMContentLoaded', function () {
 
 
 
-  /***************************************/
-  /******* Form filling funtion **********/
-  /***************************************/
+  // /***************************************/
+  // /******* Form filling funtion **********/
+  // /***************************************/
 
   form?.addEventListener('submit', async function (e) {
     e.preventDefault();
-
+    const user = auth.currentUser;
+    if (!user) {
+      console.error("No user is currently logged in.");
+      return;
+    }
     const recipeTitle = document.getElementById('recipeTitle').value;
     const recipeCategory = document.querySelectorAll('input[name="form-check-input"]:checked');
     const recipeCategoryValues = Array.from(recipeCategory).map(cb => cb.value);
@@ -133,6 +151,7 @@ document?.addEventListener('DOMContentLoaded', function () {
     }
 
     const recipeData = {
+      userId: user.uid, // Include userId here
       recipeTitle,
       category: recipeCategoryValues,
       cookingIngredients: recipeIngredients,
@@ -201,14 +220,13 @@ document?.addEventListener('DOMContentLoaded', function () {
 
   const saveRecipeToFirestore = async (data) => {
     try {
-      await addDoc(collection(db, "userrecipie"), data);
+      await addDoc(collection(db, "userRecipes"), data);
       console.log("Recipe saved ... ");
     }
     catch (error) {
       console.error("Error in saving recipe ", error.message);
     }
   };
-
 
   /********************************************/
   /*************** close Popup ****************/
