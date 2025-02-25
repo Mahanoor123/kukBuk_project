@@ -4,7 +4,7 @@ let chefsProfile = [
   {
     name: "John Doe",
     tag: "perfect Food Nutritionist",
-    image: "/Assets/Homepage/assets/chefs/chef1.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef1.jpg",
     bio: "John Doe Miller is a really good and top rated chef who serve the community and sharing her recipes since 4 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -15,7 +15,7 @@ let chefsProfile = [
   {
     name: "Aina batool",
     tag: "Desi Cuisine expert",
-    image: "/Assets/Homepage/assets/chefs/chef6.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef6.jpg",
     bio: "Aina Batool is our desi cuisine expert chef and one of the top rated chef, having above 100+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -26,7 +26,7 @@ let chefsProfile = [
   {
     name: "Janny shen",
     tag: "Master Chef of Chinese",
-    image: "/Assets/Homepage/assets/chefs/chef11.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef11.jpg",
     bio: "Janny Shen is a really good and people's favorite chef who serve and sharing her recipes since 2 years, having above 40+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -37,7 +37,7 @@ let chefsProfile = [
   {
     name: "Iliana Dcruz",
     tag: "Bakery items expert",
-    image: "/Assets/Homepage/assets/chefs/chef12.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef12.jpg",
     bio: "Iliana Dcruz is favorite chef of anyone who love to eat bakery items, she connect with us since 2 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -48,7 +48,7 @@ let chefsProfile = [
   {
     name: "Tina Joe",
     tag: "Italian Chef",
-    image: "/Assets/Homepage/assets/chefs/chef2.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef2.jpg",
     bio: "Tina Joe is our Italian chef, expert in making different kinds of pasta and donuts having 40+ recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -59,7 +59,7 @@ let chefsProfile = [
   {
     name: "Anum Nawaz",
     tag: "Dessert Master",
-    image: "/Assets/Homepage/assets/chefs/chef7.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef7.jpg",
     bio: "Anum Nawaz is a really good and top rated chef who serve a sharing her recipes since 4 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -70,7 +70,7 @@ let chefsProfile = [
   {
     name: "Ansa Asif",
     tag: "Pasta expert",
-    image: "/Assets/Homepage/assets/chefs/chef4.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef4.jpg",
     bio: "Ansa Asif is a really good and top rated chef who serve a sharing her recipes since 4 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
@@ -81,7 +81,7 @@ let chefsProfile = [
   {
     name: "Zain Meer",
     tag: "Snacks variety Expert",
-    image: "/Assets/Homepage/assets/chefs/chef5.jpg",
+    image: "/public-src/Assets/Homepage/assets/chefs/chef5.jpg",
     bio: "Zain Meer is a really good and top rated chef who serve a sharing her recipes since 4 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>

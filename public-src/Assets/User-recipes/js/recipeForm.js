@@ -220,7 +220,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 
   const saveRecipeToFirestore = async (data) => {
     try {
-      await addDoc(collection(db, "userRecipes"), data);
+      await addDoc(collection(doc(db, "userRecipes")), data);
       console.log("Recipe saved ... ");
     }
     catch (error) {

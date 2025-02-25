@@ -75,5 +75,4 @@ export {
   reauthenticateWithCredential,
   EmailAuthProvider,
   updateEmail,
-  app
 };

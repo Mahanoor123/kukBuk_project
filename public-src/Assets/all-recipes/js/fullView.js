@@ -6,7 +6,7 @@ async function getRecipeDetail() {
 
   if (!recipeId || isNaN(recipeId)) {
     document.getElementById("recipe-details").innerHTML =
-      "<p>Invalid recipe ID. Please check the URL and try again.</p>";
+      "<h3>Comment here</h3>";
     return;
   }
 
