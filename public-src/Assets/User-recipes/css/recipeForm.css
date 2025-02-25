@@ -150,7 +150,7 @@ h1 {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
-
+}
 .input-group input:focus {
   outline: none;
   box-shadow: none;
