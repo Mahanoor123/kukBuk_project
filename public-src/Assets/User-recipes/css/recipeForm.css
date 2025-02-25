@@ -150,6 +150,7 @@ h1 {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
+}
 
 .input-group input:focus {
   outline: none;
@@ -170,7 +171,7 @@ h1 {
 }
 
 
-.form-control{
+.form-control {
   border-bottom: 2px solid #ff9900 !important;
 }
 
@@ -317,9 +318,6 @@ h1 {
   align-items: center !important;
 }
 
-.form-control .edit {
-  margin-right: 10px !important;
-}
 
 .fas {
   padding-top: 10px !important;
@@ -345,10 +343,6 @@ input {
 
 /* -------------------------------------------- */
 
-img:hover {
-  transform: scale(1.2) !important;
-  transition: transform 0.2s !important;
-}
 
 /* -------------------------------------------- */
 
