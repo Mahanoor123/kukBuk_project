@@ -998,3 +998,361 @@ footer {
   font-size: 1.5rem;
   padding: 0 0.5rem;
 }
+
+
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa user card css -->bushra*/
+
+
+/* -------------------------------------------- */
+.swiper {
+  width: 100% !important;
+  height: 87vh !important;
+}
+
+.swiper-slide {
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.swiper-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 87vh !important;
+}
+
+/* -------------------------------------------- */
+.carousel-item img {
+  width: 300px !important;
+  height: 300px !important;
+  border-radius: 15px !important;
+}
+
+/* -------------------------------------------- */
+.firstcard {
+  width: 80% !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+
+.cardpara {
+  width: 75% !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: gray !important;
+}
+
+.spanpara {
+  font-size: 15px !important;
+  color: gray !important;
+}
+
+
+
+
+/* -------------------------------------------- */
+.user-recipie-description {
+  overflow: hidden !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  font-size: 15px !important;
+  font-weight: normal !important;
+}
+
+#usercontainer {
+  justify-content: center !important;
+  align-items: center !important;
+  display: none !important;
+  margin: 0 auto !important;
+}
+
+
+.user-recipie-body {
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+  height: 440px !important;
+  cursor: pointer !important;
+  padding: 15px !important;
+  color: #000 !important;
+  background-color: white !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
+}
+
+.user-recipie-imagediv {
+  padding: 10px !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
+}
+
+.user-recipie-card-2 {
+  margin-bottom: 1.1rem !important;
+}
+
+
+/* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
+.recipiebtn_curd {
+  background-color: #E96728 !important;
+}
+
+/* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
+/* ********* Recipes Styling ********* */
+.container-recipe-cards {
+  width: 100% !important;
+  height: auto !important;
+  padding: 20px !important;
+  padding-top: 130px !important;
+  overflow: hidden;
+}
+
+
+.recipie-span-div {
+  width: 100% !important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow' !important;
+}
+
+.recipe {
+  background-color: var(--white-color) !important;
+  box-shadow: var(--box-shadow) !important;
+  border: 0.1rem solid var(--primary-color) !important;
+  border-radius: 1rem !important;
+}
+
+.recipe-img-div {
+  width: 240px;
+  height: 240px;
+  border-radius: 50% !important;
+  margin: -7rem auto 2rem auto !important;
+  background-color: #ffffff !important;
+  border: 10px solid #E96728 !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset !important;
+}
+
+.recipe .recipe_img {
+  width: 195px;
+  height: 195px;
+  display: block !important;
+  margin: 0.6rem auto 2rem auto !important;
+  width: 12rem !important;
+  border-radius: 50% !important;
+  border: 10px solid #ffffff !important;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px !important;
+}
+
+.recipe .recipe_content {
+  margin: 1rem !important;
+}
+
+.recipe .recipe_content small {
+  color: var(--black-tint2) !important;
+  font-family: "lato" !important;
+}
+
+.recipe .recipe_content p {
+  margin: 0.5rem 0 !important;
+}
+
+.paara {
+  width: 100%;
+  height: 90px !important;
+  overflow: hidden !important;
+}
+
+.recipe .recipe_content .recipe_links {
+  margin-top: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.recipe .recipe_content button {
+  all: unset !important;
+  background-color: var(--primary-color) !important;
+  color: var(--white-color) !important;
+  font-family: "lato" !important;
+  font-size: 0.8rem !important;
+  padding: 0.3rem 1rem !important;
+  border-radius: 1rem !important;
+  cursor: pointer !important;
+  transition: background 0.4s linear !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+
+  &:hover {
+    background: var(--gradient-color) !important;
+  }
+}
+
+.recipe .recipe_content .recipe_links i {
+  color: var(--primary-color) !important;
+}
+
+.recipe .recipe_content .recipe_links span {
+  margin: 0 0.5rem !important;
+  font-family: "lato" !important;
+  font-size: 0.8rem !important;
+  color: var(--black-tint1) !important;
+}
+
+.recipie-span {
+  font-size: 12px !important;
+}
+
+
+.recipie-card {
+  margin: 0 auto !important;
+  border: 2px solid #000000 !important;
+  width: 400px !important;
+  height: 650px !important;
+  margin-bottom: 150px !important;
+
+}
+
+
+
+/***************** checkbox bootstrap css ****************/
+
+
+.form-control input {
+  all: unset !important;
+}
+
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  border: 2px solid #ff9900 !important;
+  margin-bottom: 35px !important;
+}
+
+.recipiemodal {
+  font-size: 15px !important;
+  font-style: oblique !important;
+  font-family: 'inknut antiqua' !important;
+  font-weight: bold !important;
+}
+
+.modalbutton {
+  text-align: center;
+  border-radius: 15px !important;
+  width: 80px !important;
+  font-size: 13px !important;
+}
+
+/* -------------------------------------------- */
+
+img:hover {
+  transform: scale(1.2) !important;
+  transition: all ease .5s !important;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  color: #E96728 !important;
+  transition: all ease .5s !important;
+}
+
+p:hover {
+  color: #E96728 !important;
+  transition: all ease .5s !important;
+  font-weight: 500 !important;
+}
+
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxx media query xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxx media query xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxx media query xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxx media query xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxx media query xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+@media (max-width: 1024px) {
+
+  .col {
+    width: 400px !important;
+    margin-bottom: 150px !important;
+    padding: 1px !important;
+    margin: 20px !important;
+    margin-bottom: 130px !important;
+  }
+
+  .recipie-card {
+    width: 400px !important;
+
+  }
+
+  .recipe_content button {
+    overflow: hidden !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .col {
+    width: 350px !important;
+    margin-bottom: 150px !important;
+    margin: 10px !important;
+    margin-bottom: 100px !important;
+  }
+
+  .recipie-card {
+    width: 330px !important;
+
+  }
+
+  .recipe_content button {
+    overflow: hidden !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .firstcard {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .cardpara {
+    padding: 5px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .col {
+    width: 100% !important;
+    margin-bottom: 50px !important;
+  }
+
+  .recipie-card {
+    width: 280px !important;
+  }
+
+  .recipe_content button {
+    width: 280px !important;
+    overflow: hidden !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+  }
+
+
+  h4 {
+    font-size: 19px !important;
+  }
+
+  p {
+    font-size: 13px !important;
+  }
+}
