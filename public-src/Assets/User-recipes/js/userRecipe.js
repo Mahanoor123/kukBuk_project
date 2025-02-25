@@ -1,4 +1,4 @@
-import { db, collection, doc, getDocs, query, orderBy, deleteDoc, updateDoc, setDoc } from '/firebase/firebase-config.js';
+import { db, collection, doc, getDocs, query, orderBy, deleteDoc, updateDoc, setDoc, onSnapshot, } from '/firebase/firebase-config.js';
 
 /***********************************************/
 /*********** Overall function working **********/
@@ -165,16 +165,56 @@ document?.addEventListener('DOMContentLoaded', function (event) {
   /***********************************************/
   /*********** Delete Card Function **************/
   /***********************************************/
+  // Function to set up real-time listeners
+  const setUpRealTimeListeners = () => {
+    const userCollectionRef = collection(db, "userrecipie");
+    const favouriteCollectionRef = collection(db, "favouriterecipie-card");
+
+    // Listen for real-time updates in userCollection
+    onSnapshot(userCollectionRef, (snapshot) => {
+      userCollection = [];
+      snapshot.forEach((doc) => {
+        userCollection.push({ id: doc.id, ...doc.data() });
+      });
+      fetchAndDisplayCards(); // Ensure this function is called correctly
+    });
+
+    // Listen for real-time updates in favouriteCollection
+    onSnapshot(favouriteCollectionRef, (snapshot) => {
+      favouriteCollection = [];
+      snapshot.forEach((doc) => {
+        favouriteCollection.push({ id: doc.id, ...doc.data() });
+      });
+      fetchAndDisplayCards(); // Ensure this function is called correctly
+    });
+  };
+
+  // Call the function to set up real-time listeners
+  setUpRealTimeListeners();
+
   window.deleteCard = async (index, containerId) => {
     try {
+      const collectionName = containerId === "userCollection" ? "userrecipie" : "favouriterecipie-card";
       const recipe = containerId === "userCollection" ? userCollection[index] : favouriteCollection[index];
-      await deleteDoc(doc(db, containerId === "userCollection" ? "userrecipie" : "favouriterecipie-card", recipe.id));
+      await deleteDoc(doc(db, collectionName, recipe.id));
       console.log("Recipe deleted successfully!");
-      fetchAndDisplayCards();
+      // No need to call fetchAndDisplayCards here since real-time listeners handle updates
     } catch (error) {
       console.error("Error deleting recipe from Firestore: ", error);
     }
   };
+
+
+
+  /***********************************************/
+  /***********************************************/
+  /***********************************************/
+  /***********************************************/
+  /***********************************************/
+  /***********************************************/
+  /***********************************************/
+
+
 
   /***********************************************/
   /*********** Update Card Function **************/
@@ -324,7 +364,7 @@ document?.addEventListener('DOMContentLoaded', function (event) {
                 <a href='/public-src/Assets/all-recipes/html/fullview.html' class="text-decoration-none text-light">View Recipe</a>
                 </button>&nbsp;&nbsp;
                <button href="#" class="btn mb-3 ms-2 recipiebtn_curd text-light" onclick="deleteCard(${index}, 'favouriteusercollection')">Delete Recipe</button>
-              </div>
+  </div>
             </div> <br/><br/>
             <div class="recipe_info">
               <span>
@@ -335,7 +375,7 @@ document?.addEventListener('DOMContentLoaded', function (event) {
               </span>
               <span>
                 <img src="../asset/logo_imgs/icons8-time-50.png" alt="img" width="18px">
-                <span>${recipe.preparationTime} Min</span>
+                <span>${recipe.time} Min</span>
               </span>
             </div>
             <br/>
@@ -349,3 +389,4 @@ document?.addEventListener('DOMContentLoaded', function (event) {
 
   fetchAndDisplayCards();
 });
+

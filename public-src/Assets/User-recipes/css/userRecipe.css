@@ -345,9 +345,8 @@ ul .footer {
 }
 
 /* -------------------------------------------- */
-
-img:hover {
-  transform: scale(1.2) !important;
+.recipie-card img:hover {
+  transform: scale(1.1) !important;
   transition: all ease .5s !important;
 }
 
@@ -366,7 +365,6 @@ p:hover {
   transition: all ease .5s !important;
   font-weight: 500 !important;
 }
-
 
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
