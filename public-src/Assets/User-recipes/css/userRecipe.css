@@ -271,6 +271,7 @@ ul .footer {
 .paara {
   width: 100%;
   height: 90px !important;
+  flex-wrap: wrap !important;
   overflow: hidden !important;
 }
 
