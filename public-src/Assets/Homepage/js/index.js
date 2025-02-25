@@ -4,23 +4,62 @@ import {
   signOut,
   collection,
   db,
+  doc,
+  getDoc,
   getDocs,
 } from "/firebase/firebase-config.js";
 
 onAuthStateChanged(auth, async (user) => {
   const loginBtn = document.querySelector(".login_btn");
   const userProfile = document.querySelector(".user_profile");
+  const usernameElement = document.querySelector(".username");
+  const userPic = document.querySelector(".user_pic");
+  const userTag = document.querySelector(".user_tag");
 
   if (user) {
     console.log("User Logged in");
+
     if (loginBtn) loginBtn.style.display = "none";
     if (userProfile) userProfile.style.display = "block";
+
+    const userRef = doc(db, "Users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+      
+      if (usernameElement) {
+        usernameElement.textContent = userData.username || "Jane Doe";
+        userTag.textContent = userData.category || "Masterrrr Chef";
+      }
+
+      if (userPic) {
+        userPic.src = userData.profileImage || "../assets/logo&profiles/user.png";
+      }
+    } else {
+      if (usernameElement) {
+        usernameElement.textContent = "Jane Doe";
+      }
+      if (userPic) {
+        userPic.src = "../assets/logo&profiles/user.png";
+      }
+    }
   } else {
     console.log("No user logged in");
+
     if (userProfile) userProfile.style.display = "none";
     if (loginBtn) loginBtn.style.display = "block";
+
+    if (usernameElement) {
+      usernameElement.textContent = "Guest";
+    }
+    if (userPic) {
+      userPic.src = "../assets/logo&profiles/user.png";
+    }
   }
 });
+
+
 
 /***** User profile slider *****/
 
@@ -28,11 +67,9 @@ document.querySelector(".user_profile")?.addEventListener("click", () => {
   document.querySelector(".main_profile").style.right = "0";
 });
 
-document
-  .querySelector(".main_profile .fa-close")
-  ?.addEventListener("click", () => {
-    document.querySelector(".main_profile").style.right = "-50vw";
-  });
+document.querySelector(".main_profile .fa-close")?.addEventListener("click", () => {
+  document.querySelector(".main_profile").style.right = "-50vw";
+});
 
 const userLogOut = async () => {
   try {
@@ -46,203 +83,121 @@ const userLogOut = async () => {
 document.querySelector(".logout")?.addEventListener("click", userLogOut);
 
 
-
-
+/********************************/
+/***** Fetching recipes data *****/
+/********************************/
 
 const fetchRecipes = async () => {
   try {
-    // Reference to "Recipes" collection
-    const recipesCollection = collection(db, "Recipes");
-
-    // Get all documents from the collection
+    const recipesCollection = collection(db, "userrecipie");
     const querySnapshot = await getDocs(recipesCollection);
-
-    // Store fetched recipes in an array
     const recipes = [];
+
     querySnapshot.forEach((doc) => {
       recipes.push({ id: doc.id, ...doc.data() });
     });
 
-    console.log("Fetched Recipes:", recipes); // Debugging
-    displayRecipes(recipes); // Call function to show recipes in UI
+    console.log("Fetched Recipes:", recipes);
+    displayRecipes(recipes);
+
+    // Store recipes globally for searching and filtering
+    window.allRecipes = recipes;  
   } catch (error) {
     console.error("Error fetching recipes:", error);
   }
 };
 
 
-
 const displayRecipes = (recipes) => {
-  const recipeContainer = document.querySelector(".recipes_cards_display"); 
+  const recipeContainer = document.querySelector(".recipes_cards_display");
 
   recipeContainer.innerHTML = "";
 
+  if (recipes.length === 0) {
+    recipeContainer.innerHTML = "<p>No recipes found.</p>";
+    return;
+  }
+
   recipes.forEach((recipe) => {
     const recipeCard = document.createElement("div");
-    recipeCard.classList.add("recipe-card"); 
+    recipeCard.classList.add("recipe_card");
 
     recipeCard.innerHTML = `
-      <img src="${recipe.imageURL}" alt="${recipe.recipeTitle}" class="recipe-image">
-      <h3>${recipe.recipeTitle}</h3>
-      <p>${recipe.description}</p>
-      <p><strong>Servings:</strong> ${recipe.servings}</p>
-      <p><strong>Time:</strong> ${recipe.time} minutes</p>
-      <button onclick="viewRecipe('${recipe.id}')">View Recipe</button>
+      <div class="recipe_content">
+          <h5>${recipe.recipeTitle}</h5>
+          <div class="rating">
+              <p><strong>Servings:</strong> ${recipe.servings}</p>
+          </div>
+          <p><strong>Time:</strong> ${recipe.time} minutes</p>
+          <p class="recipe_desc">${recipe.description}</p>
+          <button class="recipe_btn" data-id="${recipe.id}">
+              <i class="fa-solid fa-arrow-right"></i> View Recipe
+          </button>
+      </div>
+      <img src="${recipe.imageURL}" alt="${recipe.recipeTitle}" class="recipe_img">
     `;
 
     recipeContainer.appendChild(recipeCard);
   });
+
+  // Add event listener to all buttons
+  document.querySelectorAll(".recipe_btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const recipeId = event.target.getAttribute("data-id");
+      viewRecipe(recipeId);
+    });
+  });
 };
 
-document.addEventListener("DOMContentLoaded", fetchRecipes);
+
+const viewRecipe = (recipeId) => {
+  if (recipeId) {
+    window.location.href = `/public-src/Assets/Homepage/html/fullViewRecipe.html?id=${recipeId}`;
+  } else {
+    console.error("Invalid Recipe ID");
+  }
+};
 
 
-/***** Static Card Generator *****/
 
-let recipesCard = [
-  {
-    title: "Creamy Meatball Spaghetti",
-    image: "./Assets/Homepage/assets/Recipes/recipe1.png",
-    chef: "./Assets/Homepage/assets/chefs/chef1.jpg",
-    chef_name: "John Doe",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Red sauce cherry pasta",
-    image: "./Assets/Homepage/assets/Recipes/recipe2.png",
-    chef: "./Assets/Homepage/assets/chefs/chef2.jpg",
-    chef_name: "Suzzy yan",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Potatoes Chicken veg",
-    image: "./Assets/Homepage/assets/Recipes/recipe3.png",
-    chef: "./Assets/Homepage/assets/chefs/chef3.jpg",
-    chef_name: "Sheraz khan",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Special Chinese Prawns",
-    image: "./Assets/Homepage/assets/Recipes/recipe4.png",
-    chef: "./Assets/Homepage/assets/chefs/chef4.jpg",
-    chef_name: "Layana Sbari",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Italian Sauce Lasagna",
-    image: "./Assets/Homepage/assets/Recipes/recipe5.png",
-    chef: "./Assets/Homepage/assets/chefs/chef5.jpg",
-    chef_name: "Ella michale",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Ultimate Tomato Purry pasta",
-    image: "./Assets/Homepage/assets/Recipes/recipe6.png",
-    chef: "./Assets/Homepage/assets/chefs/chef6.jpg",
-    chef_name: "Aina Batool",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Merinated Mayo Potatoes",
-    image: "./Assets/Homepage/assets/Recipes/recipe7.png",
-    chef: "./Assets/Homepage/assets/chefs/chef7.jpg",
-    chef_name: "Suzzena",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Chicken Bombay Style Biryani",
-    image: "./Assets/Homepage/assets/Recipes/recipe8.png",
-    chef: "./Assets/Homepage/assets/chefs/chef8.jpg",
-    chef_name: "Asra sheikh",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Spicy Reshmi Seekh Kabab",
-    image: "./Assets/Homepage/assets/Recipes/recipe9.png",
-    chef: "./Assets/Homepage/assets/chefs/chef9.jpg",
-    chef_name: "Billie Ben",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Coffe and milk pudding",
-    image: "./Assets/Homepage/assets/Recipes/recipe10.png",
-    chef: "./Assets/Homepage/assets/chefs/chef10.jpg",
-    chef_name: "Jamaica husn",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Strawberry chia smoothie",
-    image: "./Assets/Homepage/assets/Recipes/recipe11.png",
-    chef: "./Assets/Homepage/assets/chefs/chef11.jpg",
-    chef_name: "Janny shen",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-  {
-    title: "Special mint and pine colada",
-    image: "./Assets/Homepage/assets/Recipes/recipe12.png",
-    chef: "./Assets/Homepage/assets/chefs/chef12.jpg",
-    chef_name: "Iliana Dcruz",
-    rating: `<i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>`,
-  },
-];
+// **Search Function**
+const searchRecipes = () => {
+  const searchInput = document.querySelector("#searchInput").value.toLowerCase();
+  const filteredRecipes = window.allRecipes.filter((recipe) => 
+    recipe.recipeTitle.toLowerCase().includes(searchInput) ||
+    recipe.description.toLowerCase().includes(searchInput)
+  );
 
-for (let val = 0; val < recipesCard.length; val++) {
-  let recipeDisplay = document.querySelector(".recipes_cards_display");
-  let recipeCard = document.createElement("div");
-  recipeCard.setAttribute("class", "recipe_card");
-  let cardContent = `<div class="recipe_content">
-                        <h5>${recipesCard[val].title}</h5>
-                        <div class="rating">
-                            ${recipesCard[val].rating}
-                        </div>
-                        <div class="chef">
-                            <img src="${recipesCard[val].chef}">
-                            <p>${recipesCard[val].chef_name}</p>
-                        </div>
-                        <button class="recipe_btn"onclick="window.open('./Assets/all-recipes/html/fullView.html')"><i class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                    </div>
-                    <img src="${recipesCard[val].image}" class="recipe_img">`;
-  recipeCard.innerHTML = cardContent;
-  recipeDisplay.appendChild(recipeCard);
-}
+  displayRecipes(filteredRecipes);
+};
 
-/***** Chef Profiling *****/
+// **Filter Recipes by Category**
+const filterByCategory = (category) => {
+  const filteredRecipes = window.allRecipes.filter(
+    (recipe) => recipe.category && recipe.category.toLowerCase() === category.toLowerCase()
+  );
+  displayRecipes(filteredRecipes);
+};
+
+// **Add Click Event Listeners to Category Buttons**
+document.addEventListener("DOMContentLoaded", () => {
+  fetchRecipes();
+  document.querySelector("#searchInput").addEventListener("input", searchRecipes);
+
+  // Select all category buttons and add click event
+  document.querySelectorAll(".category_btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedCategory = button.textContent.trim(); // Get button text as category
+      filterByCategory(selectedCategory);
+    });
+  });
+});
+
+
+
+/********************************/
+/***** Chef Profiling ***********/
+/********************************/
 
 var chefsProfile = [
   {

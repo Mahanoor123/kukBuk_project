@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/logo&profiles/recipe-logo.png" type="image/x-icon" />
     <!-- Font Awesome Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <!-- Css File -->
@@ -14,16 +15,26 @@
 <body>
     <main>
         <!---------- Full View Profile Code ---------->
-        <a href="/public-src/index.html">go to home</a>
+        <a href="/public-src/index.html"><i class="fa-solid fa-left-arrow"></i></a>
         <section class="full_profile">
             <div class="user_settings">
                 <div class="user_head">
                     <h3>Profile</h3>
-                    <button class="update_user"><i class="fa-solid fa-pen"></i>Update Profile</button>
+                    <button class="update_user">
+                        <i class="fa-solid fa-pen"></i>
+                        Update Profile
+                    </button>
                 </div>
                 <div class="user_img">
+<<<<<<< HEAD
+                    <input id="image" type="file" class="change_user_pic">
+                    <button id="uploadBtn">Upload Image</button>
+                    <img id="img" alt="Uploaded Image" id="profImg" class="user_pic">
+=======
                     <img src="../assets/logo&profiles/chef-pic1 2.png" class="user_pic">
-                    <input type="file" class="change_user_pic">
+                    <input type="file" class="change_user_pic" style="opacity:0;">
+                    Update Pic
+>>>>>>> bb0cb8bba66268363da817cdd89d93cdc412b996
                 </div>
                 <div class="user_fields">
                     <div class="username">
@@ -63,7 +74,8 @@
                 <form class="update_profile">
                     <div class="update_img">
                         <img src="../assets/logo&profiles/chef-pic1 2.png" class="user_pic">
-                        <input type="file" class="change_user_pic">
+                        <input type="file" class="change_user_pic" style="opacity:0;">
+                    Update Pic
                     </div>
                     <div class="form_inputs">
                         <input type="text" placeholder="Username" id="name">
@@ -75,7 +87,7 @@
                 </form>
                 <i class="fa-solid fa-close"></i>
             </div>
-            
+
             <div class="social_accounts">
                 <h3>Connected Accounts</h3>
                 <img src="../assets/logo&profiles/google.png" alt="Google">

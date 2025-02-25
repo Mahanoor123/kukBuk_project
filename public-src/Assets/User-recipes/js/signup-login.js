@@ -15,7 +15,7 @@ import {
 
 const register = async (e) => {
   e.preventDefault();
-  
+
   const username = document.getElementById("name")?.value;
   const category = document.getElementById("category")?.value;
   const gender = document.getElementById("gender")?.value;
@@ -30,7 +30,7 @@ const register = async (e) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(auth, email, password);
     let user = userCredential?.user;
-    
+
     if (!user) {
       console.error("User creation failed.");
       return;
@@ -46,7 +46,7 @@ const register = async (e) => {
     // }    
 
     // Store user data in Firestore
-    await setDoc(doc(db, "Users", user.uid), {  
+    await setDoc(doc(db, "Users", user.uid), {
       username,
       category,
       gender,
@@ -73,11 +73,7 @@ const signIn = async (e) => {
   const password = document.getElementById("password").value;
 
   try {
-    let userCredintial = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    let userCredintial = await signInWithEmailAndPassword(auth, email, password);
 
     let user = userCredintial?.user;
     console.log(user);
@@ -117,17 +113,17 @@ document
 
 // ---------------------------------------------------- Forgot password link
 
-const _fPassword = async ()=>{
-    try {
-      const email = document.getElementById("email").value;
-      await sendPasswordResetEmail(auth, email);
+const _fPassword = async () => {
+  try {
+    const email = document.getElementById("email").value;
+    await sendPasswordResetEmail(auth, email);
 
-      alert("Reset password send to your email");
+    alert("Reset password send to your email");
 
-    } catch (error) {
-      console.log(error);
-      
-    }
+  } catch (error) {
+    console.log(error);
+
   }
-  
-  document.getElementById("forgot_password")?.addEventListener("click",  _fPassword);
+}
+
+document.getElementById("forgot_password")?.addEventListener("click", _fPassword);

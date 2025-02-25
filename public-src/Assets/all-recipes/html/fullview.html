@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../images/recipe-logo.png" type="image/x-icon" />
+
   <!-- Font Awesome Library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Bootstrap cdn link -->
@@ -29,28 +31,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto justify-content-center align-items-center gap-lg-5 gap-3  mb-2 mb-lg-0">
         <li class="nav-item mb-3 mb-lg-0">
-          <a class="nav-link active " aria-current="page" href="/index.html">Homepage</a>
+          <a class="nav-link active " aria-current="page" href="/public-src/index.html">Homepage</a>
         </li>
         <li class="nav-item mb-3 mb-lg-0">
-          <a class="nav-link active" aria-current="page" href="/Assets/all-recipes/html/Recipes.html">Recipes</a>
+          <a class="nav-link active" aria-current="page" href="../Assets/all-recipes/html/recipees.html">Recipes</a>
         </li>
         <li class="nav-item mb-3 mb-lg-0">
-          <a class="nav-link active" aria-current="page" href="/Assets/blog-page/html/about.html">About</a>
+          <a class="nav-link active" aria-current="page" href="../Assets/blog-page/html/about.html">About</a>
         </li>
         <li class="nav-item mb-3 mb-lg-0">
-          <a class="nav-link active" aria-current="page" href="/Assets/blog-page/html/blogs.html">Blogs</a>
+          <a class="nav-link active" aria-current="page" href="../Assets/blog-page/html/blogs.html">Blogs</a>
         </li>
       </ul>
+
       <form class="d-flex justify-content-center align-items-center mb-3 mb-lg-0" role="search">
-        <span class="me-3 pt-1">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
         <span class="me-3">
-          <img src="../images/chef-pic1 2.png" alt="img" class="navcolor img" width="30" height="30">
+          <img src="/public-src/Assets/User-recipes/asset/logo_imgs/chef-pic1 2 (1).png" alt="img" class="navcolor img" width="40" height="40">
         </span>
       </form>
+
     </div>
   </nav>
+
+
 
   <!---------- Full Recipe View Code ---------->
   <div class="recipe-details" id="recipe-details">
@@ -188,7 +191,9 @@
   </footer>
 
 
-  <script src="../js/fullView.js"></script>
+  <script src="../js/fullView.js" type="module"></script>
+  <script src="/public-src/Assets/User-recipes/js/userRecipe.js" type="module"></script>
+
 </body>
 
 </html>

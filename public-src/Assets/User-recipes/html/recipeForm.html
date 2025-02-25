@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recipie page</title>
+  <title>Recipie Form</title>
   <link rel="shortcut icon" href="../asset/logo_imgs/recipe-logo.png" type="image/x-icon" />
 
   <!-- Bootstrap cdn link -->
@@ -16,9 +16,15 @@
     crossorigin="anonymous"></script>
 
   <!-- google font link -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="../asset/BebasNeue-Regular.ttf" rel="stylesheet">
+
   <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
   <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
   <!-- <link href="../asset/BebasNeue-Regular.ttf" rel="stylesheet"> -->
+
 
   <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.0.1/dist/aos.css" />
   <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.1/dist/aos.js"></script>
@@ -30,9 +36,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
   <!-- animation link -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  <script type="text/javascript" src="cssanimation-gsap.js"></script>
+
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> -->
   <!-- <script type="text/javascript" src="cssanimation-gsap.js"></script> -->
+
 
   <!-- slider link -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -236,11 +248,9 @@
           </div>
         </div>
 
-
-
-
       </form>
 
+      
       <!-- Validation Modal -->
       <div class="modal vertical-centered modal-sm" id="validationModal" tabindex="-1"
         aria-labelledby="validationModalLabel" aria-hidden="true">
@@ -268,7 +278,6 @@
       </div>
 
     </div>
-
     <!-- form end container-div -->
   </div>
   <!-- maincontainer start-->
@@ -281,6 +290,10 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+
+  <script type="module" src="../js/userRecipe.js"></script>
+  <script type="module" src="../js/recipeForm.js"></script>
 
   <script type="module" src="../js/recipieForm.js"></script>
   <script type="module" src="../js/userRecipe.js"></script>

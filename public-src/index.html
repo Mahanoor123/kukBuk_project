@@ -33,11 +33,7 @@
         <div class="navbar2">
             <ul class="nav_links">
                 <a href="./index.html">Homepage</a>
-                <a href="./Assets/all-recipes/html/recipees.html"><select name="recipes">
-                        <option value="Recipes">Recipes</option>
-                        <option value="Collections">Collections</option>
-                        <option value="Category">Categories</option>
-                    </select></a>
+                <a href="./Assets/all-recipes/html/recipees.html"> Recipes</a>
                 <a href="./Assets/blog-page/html/about.html">About</a>
                 <a href="./Assets/blog-page/html/blogs.html">Blogs</a>
             </ul>
@@ -89,17 +85,9 @@
             </div>
             <section class="recipes_filter">
                 <div class="search">
-                    <i class="fa-solid fa-magnifying-glass"></i><input type="search" placeholder="Search Recipes">
+                    <i class="fa-solid fa-magnifying-glass"></i><input type="search" placeholder="Search Recipes" id="searchInput">
                 </div>
-                <div class="sort">
-                    <i class="fa-solid fa-filter"></i>
-                    <select name="sort">
-                        <option value="sort">Sort by name</option>
-                        <option value="sort">Sort by category</option>
-                        <option value="sort">Sort by ingredient</option>
-                        <option value="sort">Sort by popularity</option>
-                    </select>
-                </div>
+
             </section>
             <section class="recipes_cards_display">
                 <!-- Dynamic Cards added here -->
@@ -112,48 +100,42 @@
                 <h3>Curated Collections</h3>
             </div>
             <section class="collection_display">
-                <div class="collection">
-                    <img src="./Assets/Homepage/assets/collections/collec1.png" class="collection_img">
+                <div class="collection1" style="background-image: url('./Assets/Homepage/assets/collections/collec1.png');">
                     <div class="collection_content">
                         <h5>The ultimate Fizzy Smoothie</h5>
                         <button onclick="window.open('./Assets/all-recipes/html/Recipes.html')"
                             class="collection_btn">201 Recipes</button>
                     </div>
                 </div>
-                <div class="collection">
-                    <img src="./Assets/Homepage/assets/collections/collec2.png" class="collection_img">
+                <div class="collection2" style="background-image: url('./Assets/Homepage/assets/collections/collec2.png');">
                     <div class="collection_content">
                         <h5>Exquisite Dinner Recipes</h5>
                         <button onclick="window.open('./Assets/all-recipes/html/Recipes.html')"
                             class="collection_btn">201 Recipes</button>
                     </div>
                 </div>
-                <div class="collection">
-                    <img src="./Assets/Homepage/assets/collections/collec3.png" class="collection_img">
+                <div class="collection3" style="background-image: url('./Assets/Homepage/assets/collections/collec3.png');">
                     <div class="collection_content">
                         <h5>Sushi Combos for Next Party</h5>
                         <button onclick="window.open('./Assets/all-recipes/html/Recipes.html')"
                             class="collection_btn">201 Recipes</button>
                     </div>
                 </div>
-                <div class="collection">
-                    <img src="./Assets/Homepage/assets/collections/collec4.png" class="collection_img">
+                <div class="collection4" style="background-image: url('./Assets/Homepage/assets/collections/collec4.png');">
                     <div class="collection_content">
                         <h5>The ultimate Cookies Frenzy</h5>
                         <button onclick="window.open('./Assets/all-recipes/html/Recipes.html')"
                             class="collection_btn">201 Recipes</button>
                     </div>
                 </div>
-                <div class="collection">
-                    <img src="./Assets/Homepage/assets/collections/collec5.png" class="collection_img">
+                <div class="collection5" style="background-image: url('./Assets/Homepage/assets/collections/collec5.png');">
                     <div class="collection_content">
                         <h5>For the love of Creamy Dessert</h5>
                         <button onclick="window.open('./Assets/all-recipes/html/Recipes.html')"
                             class="collection_btn">201 Recipes</button>
                     </div>
                 </div>
-                <div class="collection">
-                    <img src="./Assets/Homepage/assets/collections/collec6.png" class="collection_img">
+                <div class="collection6" style="background-image: url('./Assets/Homepage/assets/collections/collec6.png');">
                     <div class="collection_content">
                         <h5>Freshness of Healthy Breakfast</h5>
                         <button onclick="window.open('./Assets/all-recipes/html/Recipes.html')"
@@ -202,6 +184,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="recipe">
                     <img src="./Assets/Homepage/assets/Recipes/recipe6.png" class="recipe_img">
                     <div class="recipe_content">
@@ -304,11 +287,17 @@
                 <small class="user_tag">Master Chef</small>
             </div>
             <div class="user_buttons">
-                <button  onclick="window.open('./Assets/User-recipes/html/recipeForm.html')" class="add_recipe"><i class="fa-solid fa-plus"></i> Add new recipe</button>
+
+                <br><br><br>
+                <button onclick="window.open('./Assets/User-recipes/html/recipeForm.html')" class="add_recipe"><i
+                        class="fa-solid fa-plus"></i> Add new recipe</button>
+
                 <button onclick="window.open('./Assets/User-recipes/html/userRecipe.html')" class="user-setting">
                     <i class="fa-solid fa-plate-wheat"></i>User Dashboard</button>
+
                 <button onclick="window.open('./Assets/Homepage/html/profile.html')"><i
                         class="fa-solid fa-gear"></i>User Settings</button>
+
                 <button class="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
                 <a href="#"><i class="fa-solid fa-globe"></i> Community</a>
             </div>

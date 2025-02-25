@@ -41,6 +41,8 @@ const firebaseConfig = {
   appId: "1:695377977253:web:e4bf823163001937c6924c",
 };
 
+
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -72,5 +74,5 @@ export {
   updatePassword,
   reauthenticateWithCredential,
   EmailAuthProvider,
-  updateEmail
+  updateEmail,
 };
