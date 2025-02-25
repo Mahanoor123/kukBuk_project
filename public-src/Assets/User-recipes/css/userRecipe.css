@@ -87,83 +87,6 @@ button {
   }
 }
 
-
-/********** Navbar Styling **********/
-
-/* .header {
-  position: sticky  !important;
-  top: 0  !important;
-  left: 0  !important;
-  right: 0  !important;
-  bottom: 0  !important;
-  z-index: 1000  !important;
-  background-color: var(--white-color)  !important;
-  box-shadow: var(--box-shadow)  !important;
-}
-
-.header nav {
-  width: 90vw  !important;
-  margin: 0 auto  !important;
-  padding: 0.5rem 0  !important;
-  display: flex  !important;
-  flex-wrap: wrap  !important;
-  justify-content: space-between  !important;
-  align-items: center  !important;
-}
-
-.header nav .logo {
-  width: 8rem  !important;
-}
-
-.header nav .nav_links a {
-  text-decoration: none  !important;
-  font-family: 'lato'  !important;
-  font-size: 1rem  !important;
-  padding: 0 1rem  !important;
-  color: var(--headings-color)  !important;
-  transition: color 0.4s linear  !important;
-
-  &:hover {
-    color: var(--primary-color)  !important;
-    font-weight: 600  !important;
-  }
-}
-
-.header nav .links {
-  display: flex  !important;
-  align-items: center  !important;
-}
-
-.header nav .links i {
-  color: var(--primary-color)  !important;
-  padding: 0 0.8rem  !important;
-}
-
-.header nav .links button {
-  all: unset  !important;
-  border: 0.1rem solid var(--primary-color)  !important;
-  color: var(--primary-color)  !important;
-  padding: 0.3rem 1.5rem  !important;
-  border-radius: 0.8rem 0 0.8rem 0  !important;
-  font-size: 0.8rem  !important;
-  font-family: 'lato'  !important;
-  cursor: pointer  !important;
-  transition: background 0.4s linear  !important;
-
-  &:hover {
-    background: var(--gradient-color)  !important;
-    color: var(--white-color)  !important;
-  }
-}
-
-.header .hamburger {
-  display: none  !important;
-  cursor: pointer  !important;
-  font-size: 1.5rem  !important;
-  color: var(--headings-color)  !important;
-} */
-
-
 /********** nav link  a css **********/
 .nav-item a {
   color: var(--red) !important;
@@ -251,19 +174,6 @@ ul .footer {
   margin: 0 auto !important;
 }
 
-.user-recipie-card {
-  width: 300px !important;
-  height: 700px !important;
-  flex-wrap: wrap !important;
-  margin: 7px !important;
-  margin: 0 auto !important;
-  border: 2px solid #000000 !important;
-  transition: background 0.4s linear !important;
-
-  &:hover {
-    background-color: #e86209 !important;
-  }
-}
 
 .user-recipie-body {
   overflow-x: hidden !important;
@@ -289,12 +199,10 @@ ul .footer {
 /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
 .recipiebtn_curd {
   background-color: #E96728 !important;
-  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px   !important; */
 }
 
 /* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
-
-/********** Recipes Styling **********/
+/* ********* Recipes Styling ********* */
 .container-recipe-cards {
   width: 100% !important;
   height: auto !important;
@@ -350,6 +258,12 @@ ul .footer {
   margin: 0.5rem 0 !important;
 }
 
+.paara {
+  width: 100%;
+  height: 90px !important;
+  overflow: hidden !important;
+}
+
 .recipe .recipe_content .recipe_links {
   margin-top: 2rem !important;
   display: flex !important;
@@ -390,6 +304,46 @@ ul .footer {
 }
 
 
+.recipie-card {
+  margin: 0 auto !important;
+  border: 2px solid #000000 !important;
+  width: 400px !important;
+  height: 650px !important;
+  margin-bottom: 150px !important;
+
+}
+
+
+
+/***************** checkbox bootstrap css ****************/
+
+
+.form-control input {
+  all: unset !important;
+}
+
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  border: 2px solid #ff9900 !important;
+  margin-bottom: 35px !important;
+}
+
+.recipiemodal {
+  font-size: 15px !important;
+  font-style: oblique !important;
+  font-family: 'inknut antiqua' !important;
+  font-weight: bold !important;
+}
+
+.modalbutton {
+  text-align: center;
+  border-radius: 15px !important;
+  width: 80px !important;
+  font-size: 13px !important;
+}
+
 /* -------------------------------------------- */
 
 img:hover {
@@ -412,6 +366,8 @@ p:hover {
   transition: all ease .5s !important;
   font-weight: 500 !important;
 }
+
+
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
@@ -453,7 +409,7 @@ p:hover {
     width: 350px !important;
     margin-bottom: 150px !important;
     margin: 10px !important;
-    margin-bottom: 130px !important;
+    margin-bottom: 100px !important;
   }
 
   .recipie-card {
@@ -469,16 +425,23 @@ p:hover {
   }
 }
 
-/* @media (max-width: 768px) {}
+@media (max-width: 425px) {
+  .firstcard {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
 
-@media (max-width: 640px) {} */
+  .cardpara {
+    padding: 5px !important;
+    width: 100% !important;
+  }
+}
 
 @media (max-width: 375px) {
 
   .col {
     width: 100% !important;
-    margin-bottom: 150px !important;
-    margin-bottom: 130px !important;
+    margin-bottom: 50px !important;
   }
 
   .recipie-card {
@@ -500,20 +463,5 @@ p:hover {
 
   p {
     font-size: 13px !important;
-  }
-}
-
-/* @media (max-width: 320px) {} */
-
-
-@media (max-width: 425px) {
-  .firstcard {
-    width: 100% !important;
-    border-radius: 0 !important;
-  }
-
-  .cardpara {
-    padding: 5px !important;
-    width: 100% !important;
   }
 }
