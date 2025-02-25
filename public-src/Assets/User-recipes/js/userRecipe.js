@@ -56,6 +56,13 @@ document?.addEventListener('DOMContentLoaded', function (event) {
   /******************************************/
   /*********** Display recipes **************/
   /******************************************/
+
+  // Ensure this function is called when the page is loaded
+  document.addEventListener("DOMContentLoaded", (event) => {
+    setUpRealTimeListeners();
+  });
+
+
   const displayCards = (collection, containerId) => {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -160,11 +167,13 @@ document?.addEventListener('DOMContentLoaded', function (event) {
         `;
       container.appendChild(card);
     });
+
   };
 
   /***********************************************/
   /*********** Delete Card Function **************/
   /***********************************************/
+
   // Function to set up real-time listeners
   const setUpRealTimeListeners = () => {
     const userCollectionRef = collection(db, "userrecipie");
@@ -176,7 +185,7 @@ document?.addEventListener('DOMContentLoaded', function (event) {
       snapshot.forEach((doc) => {
         userCollection.push({ id: doc.id, ...doc.data() });
       });
-      fetchAndDisplayCards(); // Ensure this function is called correctly
+      displayCards(userCollection, 'userCollection');
     });
 
     // Listen for real-time updates in favouriteCollection
@@ -185,12 +194,13 @@ document?.addEventListener('DOMContentLoaded', function (event) {
       snapshot.forEach((doc) => {
         favouriteCollection.push({ id: doc.id, ...doc.data() });
       });
-      fetchAndDisplayCards(); // Ensure this function is called correctly
+      displayCards(favouriteCollection, 'favouriteCollection');
     });
   };
 
   // Call the function to set up real-time listeners
   setUpRealTimeListeners();
+
 
   window.deleteCard = async (index, containerId) => {
     try {
@@ -284,10 +294,17 @@ document?.addEventListener('DOMContentLoaded', function (event) {
       console.log("Recipe added to favorites successfully!");
       favouriteCollection.push(recipe);
       displayFavoriteCard(recipe, favouriteCollection.length - 1);
-    } catch (error) {
+    }
+
+    catch (error) {
       console.error("Error adding recipe to favorites: ", error);
     }
   };
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    setUpRealTimeListeners();
+  });
+
 
   /***********************************************/
   /*********** Display Favorite Card *************/
