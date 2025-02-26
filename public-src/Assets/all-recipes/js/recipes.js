@@ -1,3 +1,90 @@
+
+import {
+  auth,
+  signOut,
+  onAuthStateChanged,
+  db,
+  doc,
+  getDoc,
+} from "../../../firebase/firebase-config.js";
+
+
+onAuthStateChanged(auth, async (user) => {
+  const loginBtn = document.querySelector(".login_btn");
+  const userProfile = document.querySelector(".user_profile");
+  const usernameElement = document.querySelector(".username");
+  const userPic = document.querySelector(".user_pic");
+  const userTag = document.querySelector(".user_tag");
+
+  if (user) {
+    console.log("User Logged in");
+
+    if (loginBtn) loginBtn.style.display = "none";
+    if (userProfile) userProfile.style.display = "block";
+
+    const userRef = doc(db, "Users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+      
+      if (usernameElement) {
+        usernameElement.textContent = userData.username || "Jane Doe";
+        userTag.textContent = userData.category || "Masterrrr Chef";
+      }
+
+      if (userPic) {
+        userPic.src = userData.profileImage || "../assets/logo&profiles/user.png";
+      }
+    } else {
+      if (usernameElement) {
+        usernameElement.textContent = "Jane Doe";
+      }
+      if (userPic) {
+        userPic.src = "../assets/logo&profiles/user.png";
+      }
+    }
+  } else {
+    console.log("No user logged in");
+
+    if (userProfile) userProfile.style.display = "none";
+    if (loginBtn) loginBtn.style.display = "block";
+
+    if (usernameElement) {
+      usernameElement.textContent = "Guest";
+    }
+    if (userPic) {
+      userPic.src = "../assets/logo&profiles/user.png";
+    }
+  }
+});
+
+
+
+/***** User profile slider *****/
+
+document.querySelector(".user_profile")?.addEventListener("click", () => {
+  document.querySelector(".main_profile").style.right = "0";
+});
+
+document.querySelector(".main_profile .fa-close")?.addEventListener("click", () => {
+  document.querySelector(".main_profile").style.right = "-50vw";
+});
+
+const userLogOut = async () => {
+  try {
+    await signOut(auth);
+    alert("You have been logged out successfully!");
+    window.location.href = "/public-src/index.html";
+  } catch (error) {
+    console.error("Logout Error:", error.message);
+  }
+};
+document.querySelector(".logout")?.addEventListener("click", userLogOut);
+
+
+
+
 let allRecipes = [];
 let filteredRecipes = [];
 let currentPage = 1;

@@ -118,6 +118,74 @@ button {
   height: 100vh;
 }
 
+/********** User Profile **********/
+
+.main_profile {
+  position: fixed;
+  right: -40vw;
+  top: 0;
+  z-index: 2000;
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  width: 20vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 3rem;
+  transition: right 0.4s linear;
+}
+.main_profile .user_info img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+}
+.main_profile .user_tag {
+  font-family: "lato";
+  color: var(--black-tint2);
+}
+.user_info {
+  text-align: center;
+}
+.main_profile .user_buttons button {
+  all: unset;
+  background-color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  display: block;
+  margin: 2rem 0;
+  width: 100%;
+  color: var(--white-color);
+  font-family: "lato";
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.4s linear;
+}
+.main_profile .user_buttons button:hover {
+  background: var(--gradient-color);
+}
+.main_profile .user_buttons i {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+.main_profile a {
+  display: block;
+  text-decoration: none;
+  color: var(--headings-color);
+  margin: 1rem 0;
+  font-family: "lato";
+  font-weight: 500;
+}
+.main_profile .fa-close {
+  position: absolute;
+  right: 3rem;
+  top: 4rem;
+  color: var(--black-tint2);
+  font-size: larger;
+}
 /********** Category Styling **********/
 
 main {

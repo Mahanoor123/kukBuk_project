@@ -49,11 +49,35 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <span class="me-3">
-                    <img src="../images/chef-pic1 2.png" alt="img" class="navcolor img" width="40" height="40">
+                    <img src="../images/chef-pic1 2.png" alt="img" class="user_profile" width="40" height="40">
+                </span>
+                <span>
+                <button onclick="window.open('./public-src/Assets/User-recipes/html/login.html')" class="login_btn">Login</button>
                 </span>
             </form>
         </div>
     </nav>
+
+    <!---------- Profile Code ---------->
+    <section class="main_profile">
+        <div class="user_info">
+            <img src="./public-src/Assets/Homepage/assets/logo&profiles/user.png" class="user_pic">
+            <h5 class="username">Jane Doee</h5>
+            <small class="user_tag">Master Chef</small>
+        </div>
+        <div class="user_buttons">
+            <br><br><br>
+            <button onclick="window.open('./public-src/Assets/User-recipes/html/recipeForm.html')" class="add_recipe"><i
+                    class="fa-solid fa-plus"></i> Add new recipe</button>
+            <button onclick="window.open('./public-src/Assets/User-recipes/html/userRecipe.html')" class="user-setting">
+                <i class="fa-solid fa-plate-wheat"></i>User Dashboard</button>
+            <button onclick="window.open('./public-src/Assets/Homepage/html/profile.html')"><i
+                    class="fa-solid fa-gear"></i>User Settings</button>
+            <button class="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+            <a href="#"><i class="fa-solid fa-globe"></i> Community</a>
+        </div>
+        <i class="fa-solid fa-close" id="close-profile"></i>
+    </section>
     <!---------- Hero Section Code ---------->
     <div class="hero_section">
         <div class="hero_image">
@@ -158,11 +182,11 @@
         </div>
     </footer>
 
+    <script type="module" src="../js/recipes.js"></script>
 
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../js/recipes.js"></script>
 </body>
 
 </html>

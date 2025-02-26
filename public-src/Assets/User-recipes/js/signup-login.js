@@ -8,7 +8,7 @@ import {
   sendEmailVerification,
   sendPasswordResetEmail,
   doc, setDoc, db, serverTimestamp
-} from "/firebase/firebase-config.js";
+} from "../../../firebase/firebase-config.js";
 
 // ----------------------------------------------------for user signup
 
@@ -40,11 +40,6 @@ const register = async (e) => {
     await sendEmailVerification(user);
     alert("Verification email sent. Please verify your email before logging in.");
 
-    // if (!auth.currentUser.emailVerified) {
-    //   alert("Please verify your email before accessing the app.");
-    //   return;
-    // }    
-
     // Store user data in Firestore
     await setDoc(doc(db, "Users", user.uid), {
       username,
@@ -55,7 +50,7 @@ const register = async (e) => {
     });
 
     // Redirect after successful signup
-    window.location.pathname = "/public-src/Assets/Homepage/html/profile.html";
+    window.location.pathname = "./public-src/Assets/Homepage/html/profile.html";
 
   } catch (error) {
     console.error("Error:", error.message);

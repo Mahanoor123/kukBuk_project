@@ -1,7 +1,4 @@
 
-
-
-
 import {
   onAuthStateChanged,
   doc,
@@ -16,7 +13,7 @@ import {
   updateDoc,
   sendEmailVerification,
   setDoc,
-} from "/firebase/firebase-config.js";
+} from "../../../firebase/firebase-config.js";
 
 /****************************************************/
 /*************** Update Profile data ***************/

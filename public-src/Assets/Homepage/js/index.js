@@ -1,51 +1,14 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-  onAuthStateChanged,
-  reauthenticateWithCredential,
-  EmailAuthProvider,
-  updatePassword,
-  updateEmail
-} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
 import {
-  getFirestore,
+  auth,
+  signOut,
+  onAuthStateChanged,
+  db,
   doc,
-  setDoc,
   getDoc,
   collection,
   getDocs,
-  onSnapshot,
-  updateDoc,
-  addDoc,
-  serverTimestamp,
-  query,
-  orderBy,
-  where,
-  deleteDoc,
-} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCMeJCTXbdJorjOdi-5woYwoG6rb7ddDDQ",
-  authDomain: "kukbuk-project-45362.firebaseapp.com",
-  projectId: "kukbuk-project-45362",
-  storageBucket: "kukbuk-project-45362.firebasestorage.app",
-  messagingSenderId: "695377977253",
-  appId: "1:695377977253:web:e4bf823163001937c6924c",
-};
-
-
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+} from "../../../firebase/firebase-config.js";
 
 
 onAuthStateChanged(auth, async (user) => {
@@ -139,7 +102,6 @@ const fetchRecipes = async () => {
     console.log("Fetched Recipes:", recipes);
     displayRecipes(recipes);
 
-    // Store recipes globally for searching and filtering
     window.allRecipes = recipes;  
   } catch (error) {
     console.error("Error fetching recipes:", error);
@@ -179,7 +141,6 @@ const displayRecipes = (recipes) => {
     recipeContainer.appendChild(recipeCard);
   });
 
-  // Add event listener to all buttons
   document.querySelectorAll(".recipe_btn").forEach((button) => {
     button.addEventListener("click", (event) => {
       const recipeId = event.target.getAttribute("data-id");
@@ -196,7 +157,6 @@ const viewRecipe = (recipeId) => {
     console.error("Invalid Recipe ID");
   }
 };
-
 
 
 // **Search Function**
@@ -218,20 +178,17 @@ const filterByCategory = (category) => {
   displayRecipes(filteredRecipes);
 };
 
-// **Add Click Event Listeners to Category Buttons**
 document.addEventListener("DOMContentLoaded", () => {
   fetchRecipes();
   document.querySelector("#searchInput").addEventListener("input", searchRecipes);
 
-  // Select all category buttons and add click event
   document.querySelectorAll(".category_btn").forEach((button) => {
     button.addEventListener("click", () => {
-      const selectedCategory = button.textContent.trim(); // Get button text as category
+      const selectedCategory = button.textContent.trim();
       filterByCategory(selectedCategory);
     });
   });
 });
-
 
 
 /********************************/
@@ -242,7 +199,7 @@ var chefsProfile = [
   {
     name: "John Doe",
     tag: "perfect Food Nutritionist",
-    image: "./Assets/Homepage/assets/chefs/chef1.jpg",
+    image: "./public-src/Assets/Homepage/assets/chefs/chef1.jpg",
     bio: "John Doe Miller is a really good and top rated chef who serve the community and sharing her recipes since 4 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -253,7 +210,7 @@ var chefsProfile = [
   {
     name: "Aina batool",
     tag: "Desi Cuisine expert",
-    image: "./Assets/Homepage/assets/chefs/chef6.jpg",
+    image: "./public-src/Assets/Homepage/assets/chefs/chef6.jpg",
     bio: "Aina Batool is our desi cuisine expert chef and one of the top rated chef, having above 100+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -264,7 +221,7 @@ var chefsProfile = [
   {
     name: "Janny shen",
     tag: "Master Chef of Chinese",
-    image: "./Assets/Homepage/assets/chefs/chef11.jpg",
+    image: "./public-src/Assets/Homepage/assets/chefs/chef11.jpg",
     bio: "Janny Shen is a really good and people's favorite chef who serve and sharing her recipes since 2 years, having above 40+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -275,7 +232,7 @@ var chefsProfile = [
   {
     name: "Iliana Dcruz",
     tag: "Bakery items expert",
-    image: "./Assets/Homepage/assets/chefs/chef12.jpg",
+    image: "./public-src/Assets/Homepage/assets/chefs/chef12.jpg",
     bio: "Iliana Dcruz is favorite chef of anyone who love to eat bakery items, she connect with us since 2 years, having above 50+ delicious recipes.",
     rating: `<i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>

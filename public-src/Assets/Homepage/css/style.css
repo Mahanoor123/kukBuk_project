@@ -804,8 +804,6 @@ footer {
   padding: 2rem 3rem;
   transition: right 0.4s linear;
 }
-
-/* Profile Image */
 .main_profile .user_info img {
   width: 6rem;
   height: 6rem;
@@ -813,18 +811,13 @@ footer {
   border: 1px solid var(--secondary-color);
   border-radius: 50%;
 }
-
-/* User Information */
 .main_profile .user_tag {
   font-family: "lato";
   color: var(--black-tint2);
 }
-
 .user_info {
   text-align: center;
 }
-
-/* Buttons */
 .main_profile .user_buttons button {
   all: unset;
   background-color: var(--secondary-color);
@@ -839,16 +832,13 @@ footer {
   cursor: pointer;
   transition: background 0.4s linear;
 }
-
 .main_profile .user_buttons button:hover {
   background: var(--gradient-color);
 }
-
 .main_profile .user_buttons i {
   font-size: 0.9rem;
   margin-right: 0.5rem;
 }
-
 .main_profile a {
   display: block;
   text-decoration: none;
@@ -857,8 +847,6 @@ footer {
   font-family: "lato";
   font-weight: 500;
 }
-
-/* Close Icon */
 .main_profile .fa-close {
   position: absolute;
   right: 3rem;
@@ -866,8 +854,6 @@ footer {
   color: var(--black-tint2);
   font-size: larger;
 }
-
-/* 🔹 RESPONSIVE DESIGN */
 
 
 /********** Chef Preview **********/

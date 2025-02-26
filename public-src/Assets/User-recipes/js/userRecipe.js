@@ -10,14 +10,9 @@ import {
   getDocs,
   onSnapshot,
   updateDoc,
-  // addDoc,
-  // serverTimestamp,
-  // query,
-  // orderBy,
-  // where,
   deleteDoc,
 }
-  from "/firebase/firebase-config.js";
+  from "../../../firebase/firebase-config.js";
 //  , query, orderBy,
 
 /***********************************************/
@@ -243,6 +238,7 @@ document?.addEventListener("DOMContentLoaded", function (event) {
   /***********************************************/
   /*********** Delete Card Function **************/
   /***********************************************/
+  
   window.deleteCard = async (index, containerId) => {
     try {
       const recipe = userCollection[index];
