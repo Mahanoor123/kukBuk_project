@@ -1,13 +1,52 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import {
-  onAuthStateChanged,
-  auth,
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
   signOut,
-  collection,
-  db,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  onAuthStateChanged,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+  updatePassword,
+  updateEmail
+} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+import {
+  getFirestore,
   doc,
+  setDoc,
   getDoc,
+  collection,
   getDocs,
-} from "/firebase/firebase-config.js";
+  onSnapshot,
+  updateDoc,
+  addDoc,
+  serverTimestamp,
+  query,
+  orderBy,
+  where,
+  deleteDoc,
+} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCMeJCTXbdJorjOdi-5woYwoG6rb7ddDDQ",
+  authDomain: "kukbuk-project-45362.firebaseapp.com",
+  projectId: "kukbuk-project-45362",
+  storageBucket: "kukbuk-project-45362.firebasestorage.app",
+  messagingSenderId: "695377977253",
+  appId: "1:695377977253:web:e4bf823163001937c6924c",
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
 
 onAuthStateChanged(auth, async (user) => {
   const loginBtn = document.querySelector(".login_btn");
