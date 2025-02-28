@@ -141,6 +141,7 @@ const displayRecipes = (recipes) => {
     recipeContainer.appendChild(recipeCard);
   });
 
+
   document.querySelectorAll(".recipe_btn").forEach((button) => {
     button.addEventListener("click", (event) => {
       const recipeId = event.target.getAttribute("data-id");
@@ -159,7 +160,7 @@ const viewRecipe = (recipeId) => {
 };
 
 
-// **Search Function**
+// **Search Function**//
 const searchRecipes = () => {
   const searchInput = document.querySelector("#searchInput").value.toLowerCase();
   const filteredRecipes = window.allRecipes.filter((recipe) => 

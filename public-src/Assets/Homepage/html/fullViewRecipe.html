@@ -34,60 +34,81 @@
                     <a class="nav-link active " aria-current="page" href="/index.html">Homepage</a>
                 </li>
                 <li class="nav-item mb-3 mb-lg-0">
+                    <a class="nav-link active" aria-current="page" <a
+                        href="/public-src/Assets/all-recipes/html/recipees.html">Recipes</a>
+                </li>
+                <li class="nav-item mb-3 mb-lg-0">
                     <a class="nav-link active" aria-current="page"
-                        href="/Assets/all-recipes/html/Recipes.html">Recipes</a>
+                        href="/public-src/Assets/blog-page/html/about.html">About</a>
                 </li>
                 <li class="nav-item mb-3 mb-lg-0">
-                    <a class="nav-link active" aria-current="page" href="/Assets/blog-page/html/about.html">About</a>
-                </li>
-                <li class="nav-item mb-3 mb-lg-0">
-                    <a class="nav-link active" aria-current="page" href="/Assets/blog-page/html/blogs.html">Blogs</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="/public-src/Assets/blog-page/html/blogs.html">Blogs</a>
                 </li>
             </ul>
-        </div>
-        <div class="links">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <button onclick="window.open('./Assets/User-recipes/html/login.html')" class="login_btn">Login</button>
-            <img src="./Assets/Homepage/assets/logo&profiles/user.png" class="user_profile">
+            <form class="d-flex justify-content-center align-items-center mb-3 mb-lg-0" role="search">
+                <span class="me-3 pt-1">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <span class="me-3">
+                    <img src="../assets/logo&profiles/user.png" alt="img" class="user_profile" width="40" height="40">
+                </span>
+                <span>
+                    <button onclick="window.open('./public-src/Assets/User-recipes/html/login.html')"
+                        class="login_btn">Login</button>
+                </span>
+            </form>
         </div>
     </nav>
 
+    <!---------- Profile Code ---------->
+    <section class="main_profile">
+        <div class="user_info">
+            <img src="./public-src/Assets/Homepage/assets/logo&profiles/user.png" class="user_pic">
+            <h5 class="username">Jane Doee</h5>
+            <small class="user_tag">Master Chef</small>
+        </div>
+        <div class="user_buttons">
+            <br><br>
+            <button onclick="window.open('../../User-recipes/html/recipeForm.html')" class="add_recipe"><i
+                    class="fa-solid fa-plus"></i> Add new recipe</button>
+            <button onclick="window.open('../../User-recipes/html/recipeForm.html/userRecipe.html')" class="user-setting">
+                <i class="fa-solid fa-plate-wheat"></i>User Dashboard</button>
+            <button onclick="window.open('./public-src/Assets/Homepage/html/profile.html')"><i
+                    class="fa-solid fa-gear"></i>User Settings</button>
+            <button class="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+            <a href="#"><i class="fa-solid fa-globe"></i> Community</a>
+        </div>
+        <i class="fa-solid fa-close" id="close-profile"></i>
+    </section>
+
     <!---------- Full Recipe View Code ---------->
     <div class="recipe-details" id="recipe-details">
-        <div class="header">
+        <div class="recipe_head">
             <h3 id="recipe-name"></h3>
             <div class="icons">
                 <span>
                     <script src="https://cdn.lordicon.com/lordicon.js"></script>
                     <lord-icon src="https://cdn.lordicon.com/xyboiuok.json" trigger="morph" state="morph-heart"
-                        colors="primary:#e83a30" style="width:30px;height:30px"></lord-icon>
+                        id="favorite-btn" colors="primary:#e83a30" style="width:30px;height:30px;"></lord-icon>
                 </span>
                 <span>
                     <script src="https://cdn.lordicon.com/lordicon.js"></script>
                     <lord-icon src="https://cdn.lordicon.com/ercyvufy.json" trigger="morph" state="morph-share"
-                        colors="primary:#e83a30" style="width:30px;height:30px"></lord-icon>
+                        colors="primary:#e83a30" style="width:30px;height:30px;"></lord-icon>
                 </span>
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="morph" state="morph-comment"
+                    colors="primary:#e83a30" style="width:30px;height:30px;">
+                </lord-icon>
             </div>
         </div>
-
-        <!-- Profile, Date, Comments, Rating in One Line -->
-        <div class="profile-bar">
-            <div class="profile">
-                <img id="chef-image" src="" alt="Chef Profile">
-                <p id="chef-name"></p>
-            </div>
-            <p id="upload-time"></p>
-            <p id="comments"></p>
-            <p id="rating"></p>
+        <div class="header">
+            <div class="recipe_cat"></div>
+            <p class="recipe_desc"></p>
         </div>
-
-        <!-- Grey Line -->
         <div class="grey-line"></div>
-
-        <!-- Recipe Image -->
         <img id="recipe-image" class="banner" src="" alt="Recipe Image">
-
-        <!-- Recipe Details -->
         <div class="details">
             <p class="serving">
                 <script src="https://cdn.lordicon.com/lordicon.js"></script>
@@ -106,7 +127,6 @@
                 <span id="time"></span>
             </p>
         </div>
-
         <div class="recipe_detail">
             <div class="recipe_ingredient">
                 <h4>Ingredients:</h4>
@@ -117,31 +137,24 @@
                 <ol id="instructions"></ol>
             </div>
         </div>
-
-        <!-- Calories Per Serving (Below Steps) -->
         <div class="recipe_extra">
             <h5>Calories Per Serving:</h5>
             <p id="calories"></p>
         </div>
-
     </div>
 
     <!---------- Comment Section Code ---------->
 
     <div class="comment_section">
         <h3 class="Feedback">Do you like it? Send Feedback</h3>
-        <!-- Comment Box -->
         <div class="comment-box">
             <h5>Leave a Comment</h5>
             <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
-            <button onclick="addComment()">Submit</button>
+            <button class="postComment">Post</button>
         </div>
-
-        <!-- Comment List -->
         <div class="comment-list" id="comment-list"></div>
-        <button id="view-more" onclick="showAllComments()">View More</button>
+        <button id="view-more">View More</button>
     </div>
-
 
     <!---------- Footer Code ---------->
     <footer>
@@ -178,7 +191,6 @@
             </div>
         </div>
     </footer>
-
 
     <script type="module" src="../js/fullViewRecipe.js"></script>
 </body>

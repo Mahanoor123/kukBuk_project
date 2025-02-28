@@ -30,6 +30,7 @@ import {
   orderBy,
   where,
   deleteDoc,
+  arrayUnion, arrayRemove
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -75,4 +76,5 @@ export {
   reauthenticateWithCredential,
   EmailAuthProvider,
   updateEmail,
+  arrayUnion, arrayRemove
 };
