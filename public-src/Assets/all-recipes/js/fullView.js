@@ -115,24 +115,10 @@ async function getRecipeDetail() {
     console.log("Fetched Recipe Data:", recipe);
 
     // Populate HTML with API Data
-<<<<<<< HEAD
-    document.getElementById("recipe-name").textContent =
-      recipe.name || "Unknown Recipe";
-    document.getElementById("recipe-image").src =
-      recipe.image || "https://via.placeholder.com/800";
-    document.getElementById("upload-time").textContent =
-      recipe.uploadTime || "Recently Uploaded";
-    document.getElementById("comments").textContent = `Comments: ${
-      recipe.reviewCount || "No comments yet"
-    }`;
-=======
     document.getElementById("recipe-name").textContent = recipe.name || "Unknown Recipe";
     document.getElementById("recipe-image").src = recipe.image || "/public-src/Assets/Homepage/assets/logo&profiles/chef-pic12(1).png";
-    document.getElementById("chef-name").textContent = recipe.chef || "Unknown Chef";
     document.getElementById("upload-time").textContent = recipe.uploadTime || "Recently Uploaded";
     document.getElementById("comments").textContent = `Comments: ${ recipe.reviewCount || "No comments yet" }`;
-
->>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
     document.getElementById("rating").textContent = `Rating: ${
       recipe.rating || "★★★★☆"
     }`;
