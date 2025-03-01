@@ -143,25 +143,6 @@ const displayRecipes = (recipes) => {
         </div>
         <img src="${recipe.image || '/default-image.jpg'}" class="recipe_img">
     `;
-<<<<<<< HEAD
-=======
-=======
-                        <h5>${recipe.name}</h5>
-                        <div class="rating">
-                        ${recipe.rating || "★★★★☆"}
-                        </div>
-                        <div class="chef" style="margin-top:  7px;">
-                          <img src="/public-src/Assets/all-recipes/images/chef-pic12(1).png" alt="Chef">
-                        <span>Sofie</span>
-                        </div>
-                        
-                        <button class="recipe_btn"><a href="/public-src/Assets/all-recipes/html/fullview.html"
-                                    style="color: white; text-decoration: none;">Comment here <i class="fa-solid fa-arrow-right"></i></a></button>
-                    </div>
-                    <img src="${recipe.image}" class="recipe_img">`;
->>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
->>>>>>> c2ce49a6cdb362bfcc6648208050c0dc0c72e7a4
-
     recipeContainer.appendChild(recipeCard);
   });
 
