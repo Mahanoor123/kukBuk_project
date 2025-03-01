@@ -30,7 +30,7 @@ const updateProfileUI = (userData) => {
   if (userData.profileImage) {
     userPic.src = userData.profileImage;
   } else {
-    userPic.src = "../assets/logo&profiles/user.png";
+    userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
   }
 };
 
@@ -48,7 +48,7 @@ onAuthStateChanged(auth, async (user) => {
     }
   } else {
     console.log("User is logged out.");
-    window.location.href = "/public-src/index.html";
+    window.location.href = "index.html";
   }
 });
 
@@ -252,7 +252,7 @@ const signOutUser = async () => {
   try {
     await signOut(auth);
     alert("You have been logged out successfully!");
-    window.location.href = "/public-src/index.html";
+    window.location.href = "/index.html";
   } catch (error) {
     console.error("Logout Error:", error.message);
   }
@@ -274,7 +274,7 @@ const deleteUserAccount = async () => {
     await deleteDoc(doc(db, "Users", user.uid));
     await user.delete();
     alert("Account deleted successfully.");
-    window.location.href = "/public-src/index.html";
+    window.location.href = "/index.html";
   } catch (error) {
     console.error("Error deleting account:", error);
     alert("Error: " + error.message);
