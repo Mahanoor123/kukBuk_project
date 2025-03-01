@@ -13,7 +13,6 @@ import {
   deleteDoc,
 }
   from "../../../firebase/firebase-config.js";
-//  , query, orderBy,
 
 /***********************************************/
 /*********** Overall function working **********/

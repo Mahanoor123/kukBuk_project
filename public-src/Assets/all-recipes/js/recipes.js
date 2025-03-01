@@ -1,4 +1,3 @@
-
 import {
   auth,
   signOut,
@@ -7,7 +6,6 @@ import {
   doc,
   getDoc,
 } from "../../../firebase/firebase-config.js";
-
 
 onAuthStateChanged(auth, async (user) => {
   const loginBtn = document.querySelector(".login_btn");
@@ -27,14 +25,15 @@ onAuthStateChanged(auth, async (user) => {
 
     if (userSnap.exists()) {
       const userData = userSnap.data();
-      
+
       if (usernameElement) {
         usernameElement.textContent = userData.username || "Jane Doe";
         userTag.textContent = userData.category || "Masterrrr Chef";
       }
 
       if (userPic) {
-        userPic.src = userData.profileImage || "../assets/logo&profiles/user.png";
+        userPic.src =
+          userData.profileImage || "../assets/logo&profiles/user.png";
       }
     } else {
       if (usernameElement) {
@@ -59,23 +58,23 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-
-
 /***** User profile slider *****/
 
 document.querySelector(".user_profile")?.addEventListener("click", () => {
   document.querySelector(".main_profile").style.right = "0";
 });
 
-document.querySelector(".main_profile .fa-close")?.addEventListener("click", () => {
-  document.querySelector(".main_profile").style.right = "-50vw";
-});
+document
+  .querySelector(".main_profile .fa-close")
+  ?.addEventListener("click", () => {
+    document.querySelector(".main_profile").style.right = "-50vw";
+  });
 
 const userLogOut = async () => {
   try {
     await signOut(auth);
     alert("You have been logged out successfully!");
-    window.location.href = "/public-src/index.html";
+    window.location.href = "/index.html";
   } catch (error) {
     console.error("Logout Error:", error.message);
   }
@@ -83,24 +82,27 @@ const userLogOut = async () => {
 document.querySelector(".logout")?.addEventListener("click", userLogOut);
 
 
+/**********************************************************/
+/****** All Recipes Display with search and filter *********/
+/**********************************************************/
 
 
 let allRecipes = [];
 let filteredRecipes = [];
 let currentPage = 1;
-const itemsPerPage = 9;
+const itemsPerPage = 6; 
 
-/******** Fetch recipes from API ********/
-
+// Fetch Recipes
 fetch("https://dummyjson.com/recipes")
   .then((response) => response.json())
   .then((data) => {
     allRecipes = data.recipes;
-    console.log(allRecipes);
-    filteredRecipes = allRecipes;
+    filteredRecipes = allRecipes; 
     displayRecipesWithPagination();
-  });
+  })
+  .catch((error) => console.error("Error fetching recipes:", error));
 
+// **Display Recipes with Pagination**
 function displayRecipesWithPagination() {
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
@@ -110,31 +112,59 @@ function displayRecipesWithPagination() {
   updatePaginationButtons();
 }
 
-function displayRecipes(data) {
-    const recipesContainer = document.querySelector(".recipes_cards_display");
-  recipesContainer.innerHTML = "";
+// **Display Recipes**
+const displayRecipes = (recipes) => {
+  const recipeContainer = document.querySelector(".recipes_cards_display");
+  recipeContainer.innerHTML = "";
 
-  data.forEach((recipe) => {
-    const card = document.createElement("div");
-    card.className = "recipe_card";
-    card.innerHTML = `
+  if (recipes.length === 0) {
+    recipeContainer.innerHTML = "<p>No recipes found.</p>";
+    return;
+  }
+
+  recipes.forEach((recipe) => {
+    const recipeCard = document.createElement("div");
+    recipeCard.classList.add("recipe_card");
+
+    recipeCard.innerHTML = `
        <div class="recipe_content">
-                        <h5>${recipe.name}</h5>
-                        <div class="rating">
-                        ${recipe.rating || "★★★★☆"}
-                        </div>
-                        <div class="chef">
-                            <img src="https://via.placeholder.com/40" alt="Chef">
-                            <span>John Doe</span>
-                        </div>
-                        <button class="recipe_btn" onclick="viewRecipe(${recipe.id})"><i class="fa-solid fa-arrow-right"></i> View Recipe</button>
-                    </div>
-                    <img src="${recipe.image}" class="recipe_img">`;
+            <h5>${recipe.name}</h5>
+            <div class="rating">
+                ${recipe.rating || "★★★★☆"}
+            </div>
+            <div class="recipe_head">
+                <div class="rec_cuisine">${recipe.cuisine || "Unknown"} Cuisine</div>
+                <div class="rec_category">${recipe.mealType || "Uncategorized"}</div>
+            </div>
+            <button class="recipe_btn" data-id="${recipe.id}">
+                <i class="fa-solid fa-arrow-right"></i> View Recipe
+            </button>
+        </div>
+        <img src="${recipe.image || '/default-image.jpg'}" class="recipe_img">
+    `;
 
-    recipesContainer.appendChild(card);
+    recipeContainer.appendChild(recipeCard);
   });
-}
 
+  // **Attach Click Event to View Buttons**
+  document.querySelectorAll(".recipe_btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const recipeId = event.currentTarget.getAttribute("data-id");
+      viewRecipe(recipeId);
+    });
+  });
+};
+
+// **View Recipe Function**
+const viewRecipe = (recipeId) => {
+  if (recipeId) {
+    window.location.href = `/public-src/Assets/all-recipes/html/fullview.html?id=${recipeId}`;
+  } else {
+    console.error("Invalid Recipe ID");
+  }
+};
+
+// **Pagination Buttons**
 function updatePaginationButtons() {
   const paginationContainer = document.getElementById("pagination");
   paginationContainer.innerHTML = "";
@@ -144,7 +174,7 @@ function updatePaginationButtons() {
   for (let i = 1; i <= totalPages; i++) {
     const button = document.createElement("button");
     button.textContent = i;
-    button.className = i === currentPage ? "disabled" : "";
+    button.classList.toggle("active", i === currentPage);
     button.disabled = i === currentPage;
     button.onclick = () => {
       currentPage = i;
@@ -155,27 +185,37 @@ function updatePaginationButtons() {
   }
 }
 
-function searchRecipes() {
-  const searchQuery = document.getElementById("search").value.toLowerCase();
+// **Search Recipes**
+const searchRecipes = () => {
+  const searchInput = document.querySelector("#searchInput").value.toLowerCase();
   filteredRecipes = allRecipes.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchQuery)
+    recipe.name.toLowerCase().includes(searchInput) ||
+    (recipe.description && recipe.description.toLowerCase().includes(searchInput))
   );
-  currentPage = 1;
-  displayRecipesWithPagination();
-}
 
-function filterRecipesByCuisine() {
-  const cuisine = document.getElementById("cuisine").value.toLowerCase();
-  filteredRecipes = cuisine
-    ? allRecipes.filter(
-        (recipe) => recipe.cuisine && recipe.cuisine.toLowerCase() === cuisine
-      )
-    : allRecipes;
-  currentPage = 1;
+  currentPage = 1; 
   displayRecipesWithPagination();
-}
+};
 
-function viewRecipe(recipeId) {
-  // Redirect to recipe-details.html page and pass the recipe ID via URL
-  window.location.href = `fullView.html?id=${recipeId}`;
-}
+// **Filter Recipes by Category**
+const filterByCategory = (category) => {
+  filteredRecipes = allRecipes.filter(
+    (recipe) => recipe.mealType && recipe.mealType.toLowerCase() === category.toLowerCase()
+  );
+
+  currentPage = 1; 
+  displayRecipesWithPagination();
+};
+
+// **Attach Event Listeners After DOM Loads**
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#searchInput").addEventListener("input", searchRecipes);
+
+  document.querySelectorAll(".category_btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedCategory = button.textContent.trim();
+      filterByCategory(selectedCategory);
+    });
+  });
+});
+

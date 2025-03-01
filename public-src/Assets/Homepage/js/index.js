@@ -61,8 +61,6 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-
-
 /***** User profile slider *****/
 
 document.querySelector(".user_profile")?.addEventListener("click", () => {
@@ -77,7 +75,7 @@ const userLogOut = async () => {
   try {
     await signOut(auth);
     alert("You have been logged out successfully!");
-    window.location.href = "/public-src/index.html";
+    window.location.href = "/index.html";
   } catch (error) {
     console.error("Logout Error:", error.message);
   }
