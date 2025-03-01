@@ -77,7 +77,7 @@ const signIn = async (e) => {
 
     alert("Verification email send to your account, check your email");
 
-    if (userCredintial?.user) window.location.pathname = "/public-src/";
+    if (userCredintial?.user) window.location.pathname = "/";
   } catch (error) {
     console.log(error.message);
   }
