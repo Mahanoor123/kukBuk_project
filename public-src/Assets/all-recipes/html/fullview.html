@@ -34,7 +34,12 @@
           <a class="nav-link active " aria-current="page" href="/index.html">Homepage</a>
         </li>
         <li class="nav-item mb-3 mb-lg-0">
+<<<<<<< HEAD
+          <a class="nav-link active" aria-current="page" <a
+            href="/public-src/Assets/all-recipes/html/recipees.html">Recipes</a>
+=======
           <a class="nav-link active" aria-current="page" href="/public-src/Assets/all-recipes/html/recipees.html">Recipes</a>
+>>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
         </li>
         <li class="nav-item mb-3 mb-lg-0">
           <a class="nav-link active" aria-current="page" href="/public-src/Assets/blog-page/html/about.html">About</a>
@@ -43,15 +48,41 @@
           <a class="nav-link active" aria-current="page" href="/public-src/Assets/blog-page/html/blogs.html">Blogs</a>
         </li>
       </ul>
-
       <form class="d-flex justify-content-center align-items-center mb-3 mb-lg-0" role="search">
+        <span class="me-3 pt-1">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
         <span class="me-3">
-          <img src="/public-src/Assets/User-recipes/asset/logo_imgs/chef-pic1 2 (1).png" alt="img" class="navcolor img" width="40" height="40">
+          <img src="/public-src/Assets/Homepage/assets/logo&profiles/user.png" alt="img" class="user_profile" width="40" height="40">
+        </span>
+        <span>
+          <button onclick="window.open('/public-src/Assets/User-recipes/html/login.html')"
+            class="login_btn">Login</button>
         </span>
       </form>
-
     </div>
   </nav>
+
+  <!---------- Profile Code ---------->
+  <section class="main_profile">
+    <div class="user_info">
+      <img src="./public-src/Assets/Homepage/assets/logo&profiles/user.png" class="user_pic">
+      <h5 class="username">Jane Doee</h5>
+      <small class="user_tag">Master Chef</small>
+    </div>
+    <div class="user_buttons">
+      <br><br>
+      <button onclick="window.open('../../User-recipes/html/recipeForm.html')" class="add_recipe"><i
+          class="fa-solid fa-plus"></i> Add new recipe</button>
+      <button onclick="window.open('../../User-recipes/html/userRecipe.html')" class="user-setting">
+        <i class="fa-solid fa-plate-wheat"></i>User Dashboard</button>
+      <button onclick="window.open('/public-src/Assets/Homepage/html/profile.html')"><i
+          class="fa-solid fa-gear"></i>User Settings</button>
+      <button class="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+      <a href="#"><i class="fa-solid fa-globe"></i> Community</a>
+    </div>
+    <i class="fa-solid fa-close" id="close-profile"></i>
+  </section>
 
   <!---------- Full Recipe View Code ---------->
   <div class="recipe-details" id="recipe-details">
@@ -73,10 +104,6 @@
 
     <!-- Profile, Date, Comments, Rating in One Line -->
     <div class="profile-bar">
-      <div class="profile">
-        <img id="chef-image" src="" alt="Chef Profile">
-        <p id="chef-name"></p>
-      </div>
       <p id="upload-time"></p>
       <p id="comments"></p>
       <p id="rating"></p>
@@ -142,7 +169,7 @@
     <div class="comment-box">
       <h5>Leave a Comment</h5>
       <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
-      <button onclick="addComment()">Submit</button>
+      <button onclick="addComment()">Post</button>
     </div>
     <div class="comment-list" id="comment-list"></div>
     <button id="view-more" onclick="showAllComments()">View More</button>
@@ -153,10 +180,10 @@
   <footer>
     <div class="footer1">
       <div class="foot_logo">
-        <img src="/Assets/Homepage/assets/logo&profiles/recipe-logo.png">
+        <img src="../images/recipe-logo.png">
       </div>
       <div class="foot_image">
-        <img src="/Assets/Homepage/assets/logo&profiles/foot_image.png">
+        <img src="/public-src/Assets/Homepage/assets/logo&profiles/foot_image.png">
       </div>
       <div class="foot_links">
         <h6>Links</h6>

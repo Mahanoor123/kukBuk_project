@@ -725,7 +725,6 @@ footer {
   box-shadow: var(--box-shadow);
 }
 
-/* Footer Layout */
 .footer1 {
   width: 90%;
   margin: 0 auto;
@@ -956,7 +955,6 @@ footer {
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
-/* RESPONSIVE DESIGN */
 @media screen and (max-width: 1024px) {
   .header .navbar1 {
     width: 95%;
@@ -973,7 +971,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  /* MOBILE NAVBAR */
   .header .navbar1 {
     flex-direction: column;
     text-align: center;
@@ -1014,7 +1011,6 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
-  /* MOBILE NAVBAR */
   .header .navbar1 {
     padding: 0.5rem 0;
   }

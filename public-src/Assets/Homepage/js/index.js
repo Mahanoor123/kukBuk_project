@@ -61,8 +61,6 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-
-
 /***** User profile slider *****/
 
 document.querySelector(".user_profile")?.addEventListener("click", () => {

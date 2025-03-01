@@ -292,7 +292,6 @@ button {
   padding: 2rem 4rem;
   border-radius: 1rem 0 1rem 0;
 }
-
 .update_profile .update_img {
   margin: 2rem 0;
   display: flex;
@@ -300,14 +299,12 @@ button {
   justify-content: center;
   align-items: center;
 }
-
 .update_profile .update_img img {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
   border: 1px solid var(--secondary-color);
 }
-
 .update_profile .form_inputs input {
   all: unset;
   width: 100%;
@@ -316,7 +313,6 @@ button {
   padding: 0.3rem 0;
   border-radius: 0.5rem;
 }
-
 .update_profile button {
   margin-top: 2rem;
 }
