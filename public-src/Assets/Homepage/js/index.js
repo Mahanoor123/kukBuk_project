@@ -36,14 +36,14 @@ onAuthStateChanged(auth, async (user) => {
       }
 
       if (userPic) {
-        userPic.src = userData.profileImage || "../assets/logo&profiles/user.png";
+        userPic.src = userData.profileImage || "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
       }
     } else {
       if (usernameElement) {
         usernameElement.textContent = "Jane Doe";
       }
       if (userPic) {
-        userPic.src = "../assets/logo&profiles/user.png";
+        userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
       }
     }
   } else {
@@ -56,7 +56,7 @@ onAuthStateChanged(auth, async (user) => {
       usernameElement.textContent = "Guest";
     }
     if (userPic) {
-      userPic.src = "../assets/logo&profiles/user.png";
+      userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
     }
   }
 });

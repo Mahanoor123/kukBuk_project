@@ -299,7 +299,7 @@ document?.addEventListener("DOMContentLoaded", function (event) {
     updateRecipeModal.show();
   };
 
-  document.getElementById("updateRecipeForm").addEventListener("submit", async (event) => {
+  document.getElementById("updateRecipeForm")?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const index = document.getElementById("recipeIndex").value;

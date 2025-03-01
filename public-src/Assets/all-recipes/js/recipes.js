@@ -32,15 +32,19 @@ onAuthStateChanged(auth, async (user) => {
       }
 
       if (userPic) {
+<<<<<<< HEAD
         userPic.src =
           userData.profileImage || "../assets/logo&profiles/user.png";
+=======
+        userPic.src = userData.profileImage || "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
+>>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
       }
     } else {
       if (usernameElement) {
         usernameElement.textContent = "Jane Doe";
       }
       if (userPic) {
-        userPic.src = "../assets/logo&profiles/user.png";
+        userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
       }
     }
   } else {
@@ -53,7 +57,7 @@ onAuthStateChanged(auth, async (user) => {
       usernameElement.textContent = "Guest";
     }
     if (userPic) {
-      userPic.src = "../assets/logo&profiles/user.png";
+      userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
     }
   }
 });
@@ -112,10 +116,16 @@ function displayRecipesWithPagination() {
   updatePaginationButtons();
 }
 
+<<<<<<< HEAD
 // **Display Recipes**
 const displayRecipes = (recipes) => {
   const recipeContainer = document.querySelector(".recipes_cards_display");
   recipeContainer.innerHTML = "";
+=======
+function displayRecipes(data) {
+  const recipesContainer = document.querySelector(".recipes_cards_display");
+  recipesContainer.innerHTML = "";
+>>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
 
   if (recipes.length === 0) {
     recipeContainer.innerHTML = "<p>No recipes found.</p>";
@@ -128,6 +138,7 @@ const displayRecipes = (recipes) => {
 
     recipeCard.innerHTML = `
        <div class="recipe_content">
+<<<<<<< HEAD
             <h5>${recipe.name}</h5>
             <div class="rating">
                 ${recipe.rating || "★★★★☆"}
@@ -142,6 +153,19 @@ const displayRecipes = (recipes) => {
         </div>
         <img src="${recipe.image || '/default-image.jpg'}" class="recipe_img">
     `;
+=======
+                        <h5>${recipe.name}</h5>
+                        <div class="rating">
+                        ${recipe.rating || "★★★★☆"}
+                        </div>
+                        <div class="chef" style="margin-top:  7px;">
+                          <img src="/public-src/Assets/all-recipes/images/chef-pic12(1).png" alt="Chef">
+                        <span>Sofie</span>
+                        </div>
+                        <button class="recipe_btn" onclick="window.open('/public-src/Assets/all-recipes/html/fullView.html')">Comment here <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <img src="${recipe.image}" class="recipe_img">`;
+>>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
 
     recipeContainer.appendChild(recipeCard);
   });
@@ -193,7 +217,18 @@ const searchRecipes = () => {
     (recipe.description && recipe.description.toLowerCase().includes(searchInput))
   );
 
+<<<<<<< HEAD
   currentPage = 1; 
+=======
+function filterRecipesByCuisine() {
+  const cuisine = document.getElementById("cuisine").value.toLowerCase();
+  filteredRecipes = cuisine
+    ? allRecipes.filter(
+      (recipe) => recipe.cuisine && recipe.cuisine.toLowerCase() === cuisine
+    )
+    : allRecipes;
+  currentPage = 1;
+>>>>>>> fe157ec10afa42179c341172d1621a3ff45e316e
   displayRecipesWithPagination();
 };
 

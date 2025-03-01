@@ -38,14 +38,14 @@ onAuthStateChanged(auth, async (user) => {
 
       if (userPic) {
         userPic.src =
-          userData.profileImage || "../assets/logo&profiles/user.png";
+          userData.profileImage || "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
       }
     } else {
       if (usernameElement) {
         usernameElement.textContent = "Jane Doe";
       }
       if (userPic) {
-        userPic.src = "../assets/logo&profiles/user.png";
+        userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
       }
     }
   } else {
@@ -58,7 +58,7 @@ onAuthStateChanged(auth, async (user) => {
       usernameElement.textContent = "Guest";
     }
     if (userPic) {
-      userPic.src = "../assets/logo&profiles/user.png";
+      userPic.src = "/public-src/Assets/Homepage/assets/logo&profiles/user.png";
     }
   }
 });
@@ -321,8 +321,7 @@ const setupFavoriteButton = async (userId) => {
 const updateFavoriteButtonUI = (button, isFavorite) => {
   if (isFavorite) {
     alert("Add to your favorites");
-    /* button.textContent = "★ Favorited"; 
-    button.classList.add("favorited"); */
+    
   } else {
     console.log("Remove from favorites");
   }
